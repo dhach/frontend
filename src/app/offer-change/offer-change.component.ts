@@ -6,7 +6,7 @@ import { Provider, providerFromApi } from '../_types/Provider';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Personnel, personnelFromApi } from '../_types/Personnel';
-import { personnelQualificationTo } from '../_types/PersonnelQualification';
+import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { personnelAreaTo } from '../_types/PersonnelArea';
 import { deviceCategoryTo } from '../_types/DeviceCategory';
 import { consumableCategoryTo } from '../_types/ConsumableCategory';
@@ -23,6 +23,7 @@ export class OfferChangeComponent implements OnInit {
 
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
   consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  PersonnelQualification = PersonnelQualification;
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   personnelAreaToDE = personnelAreaTo(this.localeService.locale);
   unitTo = unitTo(this.localeService.locale);
@@ -94,6 +95,10 @@ export class OfferChangeComponent implements OnInit {
         );
       });
     });
+  }
+
+  getEnumValues(enumElement) {
+    return Object.values(enumElement);
   }
 
 

@@ -66,6 +66,9 @@
 	label {
 		margin-right: 15px;
 	}
+	input[type=radio] {
+		margin-left: 3px;
+	}
 }
 
 
@@ -106,7 +109,10 @@
 	}
 
 	label {
-		padding-left: 7px;
+		text-transform: uppercase;
+		font-size: 75%;
+		padding-left: 2px;
+		display: inline-block;
 	}
 
 	.input-field-focus {
@@ -149,7 +155,8 @@
 
 	label {
 		display: inline-block;
-		margin: 5px 0 15px;
+		margin-top: 5px;
+		margin-bottom: -5px;
 		span{
 			font-weight: bold;
 			font-size: 1.5em;
@@ -171,6 +178,14 @@
 	span {
 		display: block;
 		margin-bottom: 5px;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+		text-transform: uppercase;
+		font-size: 75%;
+		padding-left: 2px;
 	}
 
 	select {

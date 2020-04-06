@@ -1,8 +1,8 @@
 <div *ngIf="r.type === 'personnel'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@helper">Helfer</ng-container></div>
   <div class="form-block__select">
-    <label>
-      <span i18n="@@qualification">Qualifikation</span>
+    <label i18n="@@qualification">
+      Qualifikation
     </label>
     <select [(ngModel)]="toP(r).qualification">
       <option *ngFor="let qualification of getEnumValues(PersonnelQualification)" [value]="qualification">
@@ -25,8 +25,8 @@
     <span class="input-field-focus"></span>
   </div>
   <div class="form-block__select">
-    <label>
-      <span i18n="@@area">Bereich</span>
+    <label i18n="@@area">
+      Bereich
     </label>
     <select [(ngModel)]="toP(r).area">
       <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
@@ -80,8 +80,8 @@
 <div *ngIf="r.type === 'device'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@device">Gerät</ng-container></div>
   <div class="form-block__select">
-    <label>
-      <span i18n="@@category">Kategorie</span>
+    <label i18n="@@category">
+      Kategorie
     </label>
     <select [(ngModel)]="toD(r).category">
       <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
@@ -139,8 +139,8 @@
 <div *ngIf="r.type === 'consumable'" class="form-block">
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@consumable">Verbrauchsmaterial</ng-container></div>
   <div class="form-block__select">
-    <label>
-      <span i18n="@@category">Kategorie</span>
+    <label i18n="@@category">
+      Kategorie
     </label>
     <select [(ngModel)]="toC(r).category">
       <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
