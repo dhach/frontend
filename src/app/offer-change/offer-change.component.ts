@@ -8,8 +8,8 @@ import { Device, deviceFromApi } from '../_types/Device';
 import { Personnel, personnelFromApi } from '../_types/Personnel';
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { personnelAreaTo } from '../_types/PersonnelArea';
-import { deviceCategoryTo } from '../_types/DeviceCategory';
-import { consumableCategoryTo } from '../_types/ConsumableCategory';
+import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
+import { ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
 import { LocaleService } from '../locale.service';
 import { unitTo } from '../_types/Unit';
 
@@ -21,7 +21,9 @@ import { unitTo } from '../_types/Unit';
 })
 export class OfferChangeComponent implements OnInit {
 
+  DeviceCategory = DeviceCategory;
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
+  ConsumableCategory = ConsumableCategory;
   consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
   PersonnelQualification = PersonnelQualification;
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
