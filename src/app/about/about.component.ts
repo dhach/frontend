@@ -153,8 +153,9 @@ export class AboutComponent implements OnInit {
           'die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
           'die Nacht hinein, aber wenn Ressourcen und Hilfen an die benötigten Stellen verteilt werden' +
           'können, hat sich das gelohnt.',
-        en: '... There is nothing better than two sleepless nights of coding with an overdose of coffee in the ' +
-          'blood, if you have a great idea for a good cause.',
+        en: 'Starting from an Hackathon weekend a great project is emerged. For PIRAT I am working in the' +
+          'Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
+          'can be distributed to those that need them urgently, the effort was worth it. ',
       }[this.localeService.locale],
     },
   ];
