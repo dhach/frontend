@@ -122,7 +122,7 @@
             },
             "it": {
               "aot": true,
-              "outputPath": "dist/pirate-it-GB",
+              "outputPath": "dist/pirate-it",
               "i18nFile": "src/i18n/messages.it.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "it"
@@ -194,7 +194,7 @@
       "i18n": {
         "sourceLocale": "de",
         "locales": {
-          "en-GB": "src/i18n/messages.en-GB.xlf",
+          "en": "src/i18n/messages.en-GB.xlf",
           "it": "src/i18n/messages.it.xlf"
         }
       }
