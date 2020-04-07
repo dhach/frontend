@@ -37,7 +37,7 @@ export class OfferChangeComponent implements OnInit {
 
   data: {
     provider: Provider,
-    resources: Array<{ type: string, resource: Consumable | Device | Personnel}>
+    resources: Array<{ type: string, resource: Consumable | Device | Personnel, amountReason?: string}>
   };
 
 
@@ -83,6 +83,7 @@ export class OfferChangeComponent implements OnInit {
           {
             type: 'device',
             resource: deviceFromApi(element),
+            amountReason: null,
           }
         );
       });
@@ -93,6 +94,7 @@ export class OfferChangeComponent implements OnInit {
           {
             type: 'consumable',
             resource: consumableFromApi(element),
+            amountReason: null,
           }
         );
       });

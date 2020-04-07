@@ -225,8 +225,31 @@
             <label i18n="@@amount">
               Menge
             </label>
-            <input type="number" value="{{ toD(r).amount }}">
+            <input type="number" [attr.min]="!r.amountReason ? toD(r).amount : 1" value="{{ toD(r).amount }}">
             <span class="input-field-focus"></span>
+          </div>
+          <div class="form-block__boxes">
+            <span>Wenn Sie die Menge reduzieren möchten, wählen Sie bitte eine der folgenden Optionen: </span>
+            <label>
+              <span i18n="">Nicht verringern</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" [value]=null checked>
+            </label>
+            <label>
+              <span i18n="">Ressource wurde über unsere Plattform vermittelt und vergeben</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withPirat">
+            </label>
+            <label>
+              <span i18n="">Ressource wurde über einen anderen Weg vergeben</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withoutPirat">
+            </label>
+            <label>
+              <span i18n="">Ressource soll nicht mehr angeboten werden</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="removeOffer">
+            </label>
+            <label>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="otherReason">
+              <span i18n="">Sonstiges</span>
+            </label>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
@@ -291,13 +314,36 @@
             <label i18n="@@amount">
               Menge
             </label>
-            <input type="number" value="{{ toC(r).amount }}">
+            <input type="number" [attr.min]="!r.amountReason ? toD(r).amount : 1" value="{{ toC(r).amount }}">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__select">
             <select [(ngModel)]="unitTo[toC(r).unit]" disabled>
               <option [value]="unitTo[toC(r).unit]" selected>{{ unitTo[toC(r).unit] }}</option>
             </select>
+          </div>
+          <div class="form-block__boxes">
+            <span>Wenn Sie die Menge reduzieren möchten, wählen Sie bitte eine der folgenden Optionen: </span>
+            <label>
+              <span i18n="">Nicht verringern</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" [value]=null checked>
+            </label>
+            <label>
+              <span i18n="">Ressource wurde über unsere Plattform vermittelt und vergeben</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withPirat">
+            </label>
+            <label>
+              <span i18n="">Ressource wurde über einen anderen Weg vergeben</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withoutPirat">
+            </label>
+            <label>
+              <span i18n="">Ressource soll nicht mehr angeboten werden</span>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="removeOffer">
+            </label>
+            <label>
+              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="otherReason">
+              <span i18n="">Sonstiges</span>
+            </label>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
