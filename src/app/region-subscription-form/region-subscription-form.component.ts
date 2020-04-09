@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
+import { ApiResponseError } from '../_types/ApiResponseError';
 
 
 @Component({
@@ -25,14 +26,11 @@ export class RegionSubscriptionFormComponent implements OnInit {
 
   submitted = false;
 
-  error: {
-    status: number,
-    message: any,
-  };
+  error: ApiResponseError;
 
 
   constructor(
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
   ) {
   }
 
@@ -65,9 +63,9 @@ export class RegionSubscriptionFormComponent implements OnInit {
     if (response.error) {
       this.reCaptchaComponent.reset();
       this.error = response.error;
-    } else {
-      this.submitted = true;
-      this.error = undefined;
+      return;
     }
+    this.submitted = true;
+    this.error = undefined;
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 import { environment } from '../../environments/environment';
 import { Provider, providerFromApi } from '../_types/Provider';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
@@ -41,7 +41,7 @@ export class OfferChangeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
     private localeService: LocaleService,
   ) {
   }
@@ -55,13 +55,17 @@ export class OfferChangeComponent implements OnInit {
       this.key = params.key;
       this.currentUrl = environment.pageHosts[this.localeService.locale] + '/change/' + this.key;
       const response = await this.fetchService.reviewOffer(this.key);
+      if (response.error) {
+        throw new Error('Unexpected / unhandled error');
+      }
+      const respData = response.data;
       this.data = {
-        provider: providerFromApi(response.provider),
+        provider: providerFromApi(respData.provider),
         resources: []
       };
 
       // Add personnel to data
-      response.personals.forEach(element => {
+      respData.personals.forEach(element => {
         this.data.resources.push(
           {
             type: 'personnel',
@@ -71,7 +75,7 @@ export class OfferChangeComponent implements OnInit {
       });
 
       // Add devices to data
-      response.devices.forEach(element => {
+      respData.devices.forEach(element => {
         this.data.resources.push(
           {
             type: 'device',
@@ -81,7 +85,7 @@ export class OfferChangeComponent implements OnInit {
       });
 
       // Add consumables to data
-      response.consumables.forEach(element => {
+      respData.consumables.forEach(element => {
         this.data.resources.push(
           {
             type: 'consumable',

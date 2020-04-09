@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class ContactPageComponent implements OnInit {
 
 
   constructor(
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
   ) {
   }
 
@@ -61,7 +61,10 @@ export class ContactPageComponent implements OnInit {
     if (!this.isValid()) {
       return;
     }
-    await this.fetchService.requestCall(this.requestData, this.recaptcha);
+    const response = await this.fetchService.requestCall(this.requestData, this.recaptcha);
+    if (response.error) {
+      throw new Error('Unexpected / unhandled error');
+    }
   }
 
 }

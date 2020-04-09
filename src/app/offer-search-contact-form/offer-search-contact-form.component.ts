@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 import { ResourceContactMessage } from '../_types/ResourceContactMessage';
 
 
@@ -26,7 +26,7 @@ export class OfferSearchContactFormComponent implements OnInit {
 
 
   constructor(
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
   ) {
   }
 
@@ -44,8 +44,11 @@ export class OfferSearchContactFormComponent implements OnInit {
     if (!this.isValid()) {
       return;
     }
-    await this.fetchService.sendResourceContactMessage(this.resourceType,
+    const response = await this.fetchService.sendResourceContactMessage(this.resourceType,
       this.resourceId, this.message, this.recaptcha);
+    if (response.error) {
+      throw new Error('Unexpected / unhandled error');
+    }
     this.messageSent = true;
   }
 

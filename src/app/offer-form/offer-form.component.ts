@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { Provider, providerToApi } from '../_types/Provider';
 import { Consumable, consumableToApi } from '../_types/Consumable';
 import { Device, deviceToApi } from '../_types/Device';
 import { Personnel, personnelToApi } from '../_types/Personnel';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
+import { ApiResponseError } from '../_types/ApiResponseError';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class OfferFormComponent implements OnInit {
 
 
   constructor(
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
     private router: Router,
   ) {
   }
@@ -46,10 +47,7 @@ export class OfferFormComponent implements OnInit {
 
   recaptcha: string;
 
-  error: {
-    status: number,
-    message: any,
-  };
+  error: ApiResponseError;
 
 
   ngOnInit(): void {
@@ -191,11 +189,11 @@ export class OfferFormComponent implements OnInit {
 
     const response = await this.fetchService.sendOffer(data, this.recaptcha);
     this.reCaptchaComponent.reset();
-    if (!response.error) {
-      const { key } = response;
-      this.router.navigateByUrl('/change/' + key + '?new-created');
-    } else {
-     this.error = response.error;
+    if (response.error) {
+      this.error = response.error;
+      return;
     }
+    const key = response.data;
+    await this.router.navigateByUrl('/change/' + key + '?new-created');
   }
 }

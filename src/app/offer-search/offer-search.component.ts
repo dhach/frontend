@@ -1,5 +1,5 @@
 import { Component, OnInit, Provider } from '@angular/core';
-import { FetchServiceService } from '../fetch-service.service';
+import { ApiService } from '../api.service';
 import { Personnel, personnelFromApi } from '../_types/Personnel';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
@@ -9,6 +9,7 @@ import { ConsumableCategory, consumableCategoryTo } from '../_types/ConsumableCa
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
+import { ApiResponseError } from '../_types/ApiResponseError';
 
 
 @Component({
@@ -39,15 +40,12 @@ export class OfferSearchComponent implements OnInit {
     distance: number,
   }>;
 
-  error: {
-    status: number,
-    message: any
-  };
+  error: ApiResponseError;
 
 
   constructor(
     private localeService: LocaleService,
-    private fetchService: FetchServiceService,
+    private fetchService: ApiService,
   ) {
     this.setType('personnel');
   }
@@ -156,28 +154,28 @@ export class OfferSearchComponent implements OnInit {
       };
     }
 
-    const { results, error } = await this.fetchService.getOffers(targetType, data);
-    if (!error) {
-      results.sort((res1, res2) => {
-        return res1.resource.kilometer - res2.resource.kilometer;
-      });
-      this.results = results.map((r) => {
-        const provider = r.provider ? providerFromApi(r.provider) : null;
-        const distance = r.resource.kilometer;
-        let resource;
-        if (this.searchType === 'personnel') {
-          resource = personnelFromApi(r.resource);
-        } else if (this.searchType === 'device') {
-          resource = deviceFromApi(r.resource);
-        } else if (this.searchType === 'consumable') {
-          resource = consumableFromApi(r.resource);
-        }
-        return {provider, resource, distance};
-      });
-    } else {
-      this.error = error;
+    const response = await this.fetchService.getOffers(targetType, data);
+    if (response.error) {
+      this.error = response.error;
+      return;
     }
-
+    const results = response.data;
+    results.sort((res1, res2) => {
+      return res1.resource.kilometer - res2.resource.kilometer;
+    });
+    this.results = results.map((r) => {
+      const provider = r.provider ? providerFromApi(r.provider) : null;
+      const distance = r.resource.kilometer;
+      let resource;
+      if (this.searchType === 'personnel') {
+        resource = personnelFromApi(r.resource);
+      } else if (this.searchType === 'device') {
+        resource = deviceFromApi(r.resource);
+      } else if (this.searchType === 'consumable') {
+        resource = consumableFromApi(r.resource);
+      }
+      return {provider, resource, distance};
+    });
   }
 
 
