@@ -69,6 +69,26 @@ export class ApiService {
   }
 
 
+  async editProvider(token: string, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/provider`, data);
+  }
+
+
+  async editPersonnel(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/personal/${resourceId}`, data);
+  }
+
+
+  async editDevice(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/device/${resourceId}`, data);
+  }
+
+
+  async editConsumable(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/consumable/${resourceId}`, data);
+  }
+
+
   private async _getTo(
     endpointPath: string,
     opts: {

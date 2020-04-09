@@ -28,11 +28,25 @@
         <h3 class="form-block__headline" i18n="@@contactData">
           Kontaktdaten
         </h3>
+        <div class="form-block__edit-buttons">
+          <button class="form-block__edit-buttons__edit"
+                  *ngIf="!isInEditMode.provider" (click)="enterEditModeProvider()">
+            🖊️ Bearbeiten
+          </button>
+          <button class="form-block__edit-buttons__reset"
+                  *ngIf="isInEditMode.provider" (click)="resetProvider()">
+            🗑️ Änderungen verwerfen
+          </button>
+          <button class="form-block__edit-buttons__save"
+                  *ngIf="isInEditMode.provider" (click)="saveProvider()">
+            💾️ Speichern
+          </button>
+        </div>
         <div class="form-block__input-field">
           <label i18n="@@institution">
             Institution
           </label>
-          <input type="text" value="{{ data.provider.institution }}">
+          <input type="text" [(ngModel)]="data.provider.institution" [disabled]="!isInEditMode.provider">
           <span class="input-field-focus"></span>
         </div>
 
@@ -40,7 +54,7 @@
           <label i18n="@@name">
             Name
           </label>
-          <input type="text" value="{{ data.provider.name }}">
+          <input type="text" [(ngModel)]="data.provider.name" [disabled]="!isInEditMode.provider">
           <span class="input-field-focus"></span>
         </div>
 
@@ -48,7 +62,7 @@
           <label i18n="@@emailAddress">
             E-Mail Adresse
           </label>
-          <input type="text" value="{{ data.provider.mail }}" disabled>
+          <input type="text" [value]="data.provider.mail" disabled>
           <span class="input-field-focus"></span>
         </div>
 
@@ -56,7 +70,7 @@
           <label i18n="@@phoneNumber">
             Telefonnummer
           </label>
-          <input type="text" value="{{ data.provider.phone }}">
+          <input type="text" [(ngModel)]="data.provider.phone" [disabled]="!isInEditMode.provider">
           <span class="input-field-focus"></span>
         </div>
 
@@ -68,35 +82,35 @@
             <label i18n="@@street">
               Straße
             </label>
-            <input type="text" value="{{ data.provider.address.street }}">
+            <input type="text" [(ngModel)]="data.provider.address.street" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@streetNumber">
               Hausnummer
             </label>
-            <input type="text" value="{{ data.provider.address.streetNumber }}">
+            <input type="text" [(ngModel)]="data.provider.address.streetNumber" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCode">
               PLZ
             </label>
-            <input type="text" value="{{ data.provider.address.postalCode }}">
+            <input type="text" [(ngModel)]="data.provider.address.postalCode" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@city">
               Stadt
             </label>
-            <input type="text" value="{{ data.provider.address.city }}">
+            <input type="text" [(ngModel)]="data.provider.address.city" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@country">
               Land
             </label>
-            <input type="text" value="{{ data.provider.address.country }}" disabled>
+            <input type="text" [value]="data.provider.address.country" disabled>
             <span class="input-field-focus"></span>
           </div>
         </div>
@@ -107,13 +121,30 @@
           <h3 class="form-block__headline" i18n="@@helper">
             Helfer
           </h3>
+          <div class="form-block__edit-buttons">
+            <button class="form-block__edit-buttons__edit"
+                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+              🖊️ Bearbeiten
+            </button>
+            <button class="form-block__edit-buttons__reset"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+              🗑️ Änderungen verwerfen
+            </button>
+            <button class="form-block__edit-buttons__save"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+              💾️ Speichern
+            </button>
+          </div>
           <div class="form-block__select">
             <label>
               <span i18n="@@qualification">Qualifikation</span>
             </label>
-            <select [(ngModel)]="toP(r).qualification">
-              <option *ngFor="let qualification of getEnumValues(PersonnelQualification)" [value]="qualification" [selected]="qualification === personnelQualificationToDE[toP(r).qualification]">
-                {{ personnelQualificationToDE[qualification] }}
+            <select [(ngModel)]="toP(r).qualification" [disabled]="!isInEditMode.resources[gIndex]">
+              <option
+                *ngFor="let qualification of getEnumValues(PersonnelQualification)"
+                [value]="qualification"
+                [selected]="qualification === toP(r).qualification">
+                {{ personnelQualificationTo[qualification] }}
               </option>
             </select>
           </div>
@@ -121,46 +152,46 @@
             <label i18n="@@institution">
               Institution
             </label>
-            <input type="text" value="{{ toP(r).institution }}">
+            <input type="text" [(ngModel)]="toP(r).institution" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
-            <input type="text" value="{{ toP(r).address.postalCode }}">
+            <input type="text" [(ngModel)]="toP(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@researchGroup">
               Forschungsgruppe
             </label>
-            <input type="text" value="{{ toP(r).researchGroup }}">
+            <input type="text" [(ngModel)]="toP(r).researchGroup" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
-          <div class="form-block__input-field">
+          <div class="form-block__select">
             <label i18n="@@area">
               Bereich
             </label>
-            <input type="text" value="{{ personnelAreaToDE[toP(r).area] }}">
+            <select [(ngModel)]="toP(r).area">
+              <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
+                {{ personnelAreaTo[area] }}
+              </option>
+            </select>
             <span class="input-field-focus"></span>
           </div>
-          <div class="form-block__boxes">
+          <div class="form-block__select">
             <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
-            <label>
-              <span i18n="@@yes">Ja</span>
-              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="toP(r).experienceWithPCR"/>
-            </label>
-            <label>
-              <span i18n="@@no">Nein</span>
-              <input name="experienceWithPCR{{gIndex}}" type="radio" [checked]="!toP(r).experienceWithPCR"/>
-            </label>
+            <select [(ngModel)]="toP(r).experienceWithPCR" [disabled]="!isInEditMode.resources[gIndex]">
+              <option [value]="true" i18n="@@yes">Ja</option>
+              <option [value]="false" i18n="@@no">Nein</option>
+            </select>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments_s1s">
               Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
             </label>
-            <textarea>{{ toP(r).notes }}</textarea>
+            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
             <span class="input-field-focus"></span>
           </div>
           <div>
@@ -175,6 +206,20 @@
           <h3 class="form-block__headline" i18n="@@device">
             Gerät
           </h3>
+          <div class="form-block__edit-buttons">
+            <button class="form-block__edit-buttons__edit"
+                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+              🖊️ Bearbeiten
+            </button>
+            <button class="form-block__edit-buttons__reset"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+              🗑️ Änderungen verwerfen
+            </button>
+            <button class="form-block__edit-buttons__save"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+              💾️ Speichern
+            </button>
+          </div>
           <div class="form-block__select">
             <label>
               <span i18n="@@category">Kategorie</span>
@@ -184,78 +229,47 @@
                 {{ deviceCategoryToDE[toD(r).category] }}
               </option>
             </select>
-
-            <!-- Falls die Kategorie auch bearbeitet werden kann -->
-            <!--<select [(ngModel)]="toD(r).category">
-              <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category" [selected]="category === deviceCategoryToDE[toD(r).category]">
-                {{ deviceCategoryToDE[category] }}
-              </option>
-            </select>-->
-
           </div>
           <div class="form-block__input-field">
             <label i18n="@@exactName">
               Exakte Materialbezeichnung
             </label>
-            <input type="text" value="{{ toD(r).name }}">
+            <input type="text" [(ngModel)]="toD(r).name" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@manufacturer">
               Hersteller
             </label>
-            <input type="text" value="{{ toD(r).manufacturer }}">
+            <input type="text" [(ngModel)]="toD(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@orderOrSerialNumber">
               Bestell- oder Seriennummer
             </label>
-            <input type="text" value="{{ toD(r).orderNumber }}">
+            <input type="text" [(ngModel)]="toD(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
-            <input type="text" value="{{ toD(r).address.postalCode }}">
+            <input type="text" [(ngModel)]="toD(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@amount">
               Menge
             </label>
-            <input type="number" [attr.min]="!r.amountReason ? toD(r).amount : 1" value="{{ toD(r).amount }}">
+            <input type="number" value="{{ toD(r).amount }}" disabled>
             <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__boxes">
-            <span>Wenn Sie die Menge reduzieren möchten, wählen Sie bitte eine der folgenden Optionen: </span>
-            <label>
-              <span i18n="">Nicht verringern</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" [value]=null checked>
-            </label>
-            <label>
-              <span i18n="">Ressource wurde über unsere Plattform vermittelt und vergeben</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withPirat">
-            </label>
-            <label>
-              <span i18n="">Ressource wurde über einen anderen Weg vergeben</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withoutPirat">
-            </label>
-            <label>
-              <span i18n="">Ressource soll nicht mehr angeboten werden</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="removeOffer">
-            </label>
-            <label>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="otherReason">
-              <span i18n="">Sonstiges</span>
-            </label>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
               Anmerkungen
             </label>
-            <textarea>{{ toD(r).notes }}</textarea>
+            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toD(r).notes"></textarea>
             <span class="input-field-focus"></span>
           </div>
         </div>
@@ -264,6 +278,20 @@
           <h3 class="form-block__headline" i18n="@@consumable">
             Verbrauchsmaterial
           </h3>
+          <div class="form-block__edit-buttons">
+            <button class="form-block__edit-buttons__edit"
+                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+              🖊️ Bearbeiten
+            </button>
+            <button class="form-block__edit-buttons__reset"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+              🗑️ Änderungen verwerfen
+            </button>
+            <button class="form-block__edit-buttons__save"
+                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+              💾️ Speichern
+            </button>
+          </div>
           <div class="form-block__select">
             <label>
               <span i18n="@@category">Kategorie</span>
@@ -273,83 +301,57 @@
                 {{ consumableCategoryTo[toC(r).category] }}
               </option>
             </select>
-
-            <!-- Falls die Kategorie auch bearbeitet werden kann -->
-            <!--<select [(ngModel)]="toC(r).category">
-              <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category" [selected]="category === consumableCategoryTo[toC(r).category]">
-                {{ consumableCategoryTo[category] }}
-              </option>
-            </select>-->
-
           </div>
           <div class="form-block__input-field">
             <label i18n="@@exactName">
               Exakte Materialbezeichnung
             </label>
-            <input type="text" value="{{ toC(r).name }}">
+            <input type="text" [(ngModel)]="toC(r).name" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@manufacturer">
               Hersteller
             </label>
-            <input type="text" value="{{ toC(r).manufacturer }}">
+            <input type="text" [(ngModel)]="toC(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@orderOrSerialNumber">
               Bestell- oder Seriennummer
             </label>
-            <input type="text" value="{{ toC(r).orderNumber }}">
+            <input type="text" [(ngModel)]="toC(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCodeOfLocation">
               Postleitzahl des Standortes
             </label>
-            <input type="text" value="{{ toC(r).address.postalCode }}">
+            <input type="text" [(ngModel)]="toC(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@amount">
               Menge
             </label>
-            <input type="number" [attr.min]="!r.amountReason ? toD(r).amount : 1" value="{{ toC(r).amount }}">
+            <input type="number" value="{{ toC(r).amount }}" disabled>
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__select">
-            <select [(ngModel)]="unitTo[toC(r).unit]" disabled>
-              <option [value]="unitTo[toC(r).unit]" selected>{{ unitTo[toC(r).unit] }}</option>
+            <select [(ngModel)]="toC(r).unit" [disabled]="!isInEditMode.resources[gIndex]">
+              <option
+                *ngFor="let unit of getEnumValues(Unit)"
+                [value]="unit"
+                [selected]="unit === toC(r).unit">
+                {{ unitTo[unit] }}
+              </option>
             </select>
-          </div>
-          <div class="form-block__boxes">
-            <span>Wenn Sie die Menge reduzieren möchten, wählen Sie bitte eine der folgenden Optionen: </span>
-            <label>
-              <span i18n="">Nicht verringern</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" [value]=null checked>
-            </label>
-            <label>
-              <span i18n="">Ressource wurde über unsere Plattform vermittelt und vergeben</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withPirat">
-            </label>
-            <label>
-              <span i18n="">Ressource wurde über einen anderen Weg vergeben</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="withoutPirat">
-            </label>
-            <label>
-              <span i18n="">Ressource soll nicht mehr angeboten werden</span>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="removeOffer">
-            </label>
-            <label>
-              <input type="radio" [(ngModel)]="r.amountReason" name="reduceAmount{{gIndex}}" value="otherReason">
-              <span i18n="">Sonstiges</span>
-            </label>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
               Anmerkungen
             </label>
-            <textarea>{{ toC(r).notes }}</textarea>
+            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toC(r).notes"></textarea>
             <span class="input-field-focus"></span>
           </div>
         </div>
