@@ -6,6 +6,7 @@ export const environment = {
     de: 'https://pirat-tool.com/de',
     en: 'https://en.pirat-tool.com/en',
     it: 'https://it.pirat-tool.com/it'
-  }
+  },
+  reCaptchaSiteKey: '6LegBOgUAAAAAIqr5lojeb-H-znxM6zLFbFcGfyc'
 };
 

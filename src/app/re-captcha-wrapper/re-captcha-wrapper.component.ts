@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { RecaptchaComponent } from 'ng-recaptcha';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class ReCaptchaWrapperComponent implements OnInit {
   @Output() resolved: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild(RecaptchaComponent) reCaptchaElement: RecaptchaComponent;
+
+  siteKey = environment.reCaptchaSiteKey;
 
 
   constructor() {

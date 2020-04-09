@@ -1,7 +1,7 @@
 <div class="re-captcha">
   <re-captcha
     (resolved)="onResolved($event)"
-    siteKey="6Lc7y-MUAAAAAGDeINlckhxOSo2eKZnys3XFj2qh"
+    [siteKey]="siteKey"
   ></re-captcha>
   <div class="re-captcha__note" i18n="@@_recaptchaNote">
     reCAPTCHA von Google verwendet Cookies, um zu speichern, dass Sie das Captcha bestätigt haben. Die

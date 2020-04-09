@@ -10,7 +10,8 @@ export const environment = {
     de: 'http://localhost:4200',
     en: 'http://localhost:4201',
     it: 'http://localhost:4202'
-  }
+  },
+  reCaptchaSiteKey: '6Le2BOgUAAAAANE1avGpU3IadnkY0lpEyWFk6h1-'
 };
 
 /*
