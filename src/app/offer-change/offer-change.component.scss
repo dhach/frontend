@@ -24,3 +24,40 @@
     white-space: pre-line;
   }
 }
+
+
+.amount-setting {
+  span {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  button {
+    background: none;
+    border: 1px solid #2828af;
+    border-radius: 2px;
+    margin-bottom: 5px;
+
+    &:hover {
+      background: #67caf1;
+    }
+
+    &:disabled {
+      background: gray;
+    }
+  }
+}
+
+
+.resource-delete-buttons {
+  button {
+    background: none;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    border-color: red;
+
+    &:hover {
+      background: #ff8585;
+    }
+  }
+}

@@ -40,12 +40,12 @@ export class OfferChangeComponent implements OnInit {
 
   data: {
     provider: Provider,
-    resources: Array<{ type: string, resource: Consumable | Device | Personnel, amountReason?: string}>
+    resources: Array<{ type: string, resource: Consumable | Device | Personnel}>
   };
 
   savedData: { // This is an instance of the data as it is currently saved.
     provider: Provider,
-    resources: Array<{ type: string, resource: Consumable | Device | Personnel, amountReason?: string}>
+    resources: Array<{ type: string, resource: Consumable | Device | Personnel}>
   };
 
   isInEditMode: {
@@ -96,7 +96,6 @@ export class OfferChangeComponent implements OnInit {
           {
             type: 'device',
             resource: deviceFromApi(element),
-            amountReason: null,
           }
         );
       });
@@ -107,7 +106,6 @@ export class OfferChangeComponent implements OnInit {
           {
             type: 'consumable',
             resource: consumableFromApi(element),
-            amountReason: null,
           }
         );
       });
@@ -224,5 +222,50 @@ export class OfferChangeComponent implements OnInit {
     }
     this.savedData.resources[index] = Utils.simpleDeepCopy(resource);
     this.isInEditMode.resources[index] = false;
+  }
+
+
+  async editResourceAmount(index: number, reason?: string) {
+    const resource = this.data.resources[index];
+    let r;
+    let response;
+    switch (resource.type) {
+      case 'device':
+        r = resource.resource as Device;
+        response = await this.apiService.editDeviceAmount(this.key, r.id, r.amount, reason);
+        break;
+      case 'consumable':
+        r = resource.resource as Consumable;
+        response = await this.apiService.editConsumableAmount(this.key, r.id, r.amount, reason);
+        break;
+    }
+    if (response.error) {
+      // TODO
+      throw new Error();
+    }
+    this.savedData.resources[index] = Utils.simpleDeepCopy(resource);
+  }
+
+
+  async deleteResource(index: number, reason) {
+    const resource = this.data.resources[index];
+    let response;
+    switch (resource.type) {
+      case 'personnel':
+        response = await this.apiService.deletePersonnel(this.key, resource.resource.id, reason);
+        break;
+      case 'device':
+        response = await this.apiService.deleteDevice(this.key, resource.resource.id, reason);
+        break;
+      case 'consumable':
+        response = await this.apiService.deleteConsumable(this.key, resource.resource.id, reason);
+        break;
+    }
+    if (response.error) {
+      // TODO
+      throw new Error();
+    }
+    this.data.resources.splice(index, 1);
+    this.savedData.resources.splice(index, 1);
   }
 }
