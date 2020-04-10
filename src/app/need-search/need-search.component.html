@@ -1,0 +1,28 @@
+<div class="page-head" >
+    <div class="container">
+        <h2 class="page-title" i18n="@@needs">Benötigte Ressourcen</h2>
+    </div>
+</div>
+
+<main class="main-content">
+    <div class="fullwidth-block">
+        <div class="container">
+
+            <div class="need-search__filter"></div>
+
+            <table class="need-search__results">
+            <thead></thead>
+                <ng-container *ngFor="let result of this.results;">
+                    <tbody *ngFor="let resource of result.resources;" class="need-search__results-element">
+                    <tr>
+                        <td>{{ consumableCategoryToDE[resource.category] }}</td>
+                        <td>{{ resource.amount }} {{ uniToDE[resource.unit] }}</td>
+                        <td>{{ result.searcher.postalCode }}</td>
+                    </tr>
+                    <tr></tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+    </div>
+</main>
