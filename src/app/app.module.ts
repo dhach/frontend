@@ -23,6 +23,8 @@ import { ReCaptchaWrapperComponent } from './re-captcha-wrapper/re-captcha-wrapp
 import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { RegionSubscriptionFormComponent } from './region-subscription-form/region-subscription-form.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { RegionSubscriptionFormComponent } from './region-subscription-form/regi
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
     ReactiveFormsModule,
     RecaptchaModule
   ],

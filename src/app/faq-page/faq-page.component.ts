@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocaleService } from '../locale.service';
 
 
 @Component({
   selector: 'app-faq-page',
   templateUrl: './faq-page.component.html',
-  styleUrls: ['./faq-page.component.scss']
+  styleUrls: ['./faq-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FaqPageComponent implements OnInit {
 
