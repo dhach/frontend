@@ -15,9 +15,8 @@
 
       <div class="current-url">
         <div i18n>
-          Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot einsehen zu können. Bitte bewahren Sie ihn auf.
-          <br>
-          Bitte kontaktieren Sie uns via Email mit Angabe dieses Links, um ihr Angebot zu löschen oder zu bearbeiten.
+          Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot einsehen und bearbeiten zu können. Bitte bewahren
+          Sie ihn auf. Um das Angebot zu löschen, kontaktieren Sie uns bitte via Email mit Angabe dieses Links.
         </div>
         <div class="form-block__input-field">
           <div class="value-field">{{ currentUrl }}</div>
@@ -181,7 +180,9 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__select">
-            <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
+            <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time
+              PCR?
+            </div>
             <select [(ngModel)]="toP(r).experienceWithPCR" [disabled]="!isInEditMode.resources[gIndex]">
               <option [value]="true" i18n="@@yes">Ja</option>
               <option [value]="false" i18n="@@no">Nein</option>
@@ -189,7 +190,8 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments_s1s">
-              Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
+              Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme
+              vorhanden)
             </label>
             <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
             <span class="input-field-focus"></span>
@@ -280,7 +282,7 @@
               <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
               <span>{{ toD(r).amount }}</span>
               <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
-              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount" />
+              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
@@ -405,7 +407,7 @@
               <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
               <span>{{ toD(r).amount }}</span>
               <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
-              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount" />
+              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
