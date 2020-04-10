@@ -29,15 +29,15 @@
           Kontaktdaten
         </h3>
         <div class="form-block__edit-buttons">
-          <button class="form-block__edit-buttons__edit"
+          <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                   *ngIf="!isInEditMode.provider" (click)="enterEditModeProvider()">
             🖊️ Bearbeiten
           </button>
-          <button class="form-block__edit-buttons__reset"
+          <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                   *ngIf="isInEditMode.provider" (click)="resetProvider()">
             🗑️ Änderungen verwerfen
           </button>
-          <button class="form-block__edit-buttons__save"
+          <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                   *ngIf="isInEditMode.provider" (click)="saveProvider()">
             💾️ Speichern
           </button>
@@ -122,15 +122,15 @@
             Helfer
           </h3>
           <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit"
+            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
               🖊️ Bearbeiten
             </button>
-            <button class="form-block__edit-buttons__reset"
+            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
               🗑️ Änderungen verwerfen
             </button>
-            <button class="form-block__edit-buttons__save"
+            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
               💾️ Speichern
             </button>
@@ -221,15 +221,15 @@
             Gerät
           </h3>
           <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit"
+            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
               🖊️ Bearbeiten
             </button>
-            <button class="form-block__edit-buttons__reset"
+            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
               🗑️ Änderungen verwerfen
             </button>
-            <button class="form-block__edit-buttons__save"
+            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
               💾️ Speichern
             </button>
@@ -282,35 +282,35 @@
               <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
               <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount" />
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex)"
               >
                 💾️ Menge erhöhen
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
               >
                 💾️ Menge verringern: Ressourcen wurden über PIRAT vermittelt
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
               >
                 💾️ Menge verringern: Ressourcen wurden über einen anderen Weg vermittelt
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
               >
                 💾️ Menge verringern: Ressourcen sollen nicht mehr angeboten werden.
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'OTHERS')"
               >
@@ -326,16 +326,16 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')">
+            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
               🗑️ Löschen: Ressourcen wurden über PIRAT vergeben
             </button>
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')">
+            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
               🗑️ Löschen: Ressourcen wurden über einen anderen Kanal vergeben
             </button>
-            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')">
+            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
               🗑️ Löschen: Ressourcen sollen nicht mehr angeboten werden.
             </button>
-            <button (click)="deleteResource(gIndex, 'OTHERS')">
+            <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
               🗑️ Löschen: Sonstiges
             </button>
           </div>
@@ -346,15 +346,15 @@
             Verbrauchsmaterial
           </h3>
           <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit"
+            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
               🖊️ Bearbeiten
             </button>
-            <button class="form-block__edit-buttons__reset"
+            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
               🗑️ Änderungen verwerfen
             </button>
-            <button class="form-block__edit-buttons__save"
+            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
               💾️ Speichern
             </button>
@@ -407,35 +407,35 @@
               <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
               <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount" />
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex)"
               >
                 💾️ Menge erhöhen
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
               >
                 💾️ Menge verringern: Ressourcen wurden über PIRAT vermittelt.
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
               >
                 💾️ Menge verringern: Ressourcen wurden über einen anderen Weg vermittelt.
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
               >
                 💾️ Menge verringern: Ressourcen sollen nicht mehr angeboten werden.
               </button>
               <button
-                class="form-block__edit-buttons__save"
+                class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'OTHERS')"
               >
@@ -461,16 +461,16 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')">
+            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
               🗑️ Löschen: Ressourcen wurden über PIRAT vergeben
             </button>
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')">
+            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
               🗑️ Löschen: Ressourcen wurden über einen anderen Kanal vergeben
             </button>
-            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')">
+            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
               🗑️ Löschen: Ressourcen sollen nicht mehr angeboten werden.
             </button>
-            <button (click)="deleteResource(gIndex, 'OTHERS')">
+            <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
               🗑️ Löschen: Sonstiges
             </button>
           </div>
