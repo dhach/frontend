@@ -7,9 +7,9 @@
 <main class="main-content"><div class="fullwidth-block"><div class="container">
 
 <div class="form-block">
-  <div class="form-block__headline" i18n="@@contactData">
+  <h3 class="form-block__headline" i18n="@@contactData">
     Kontaktdaten
-  </div>
+  </h3>
   <div class="form-block__input-field">
     <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
     <span class="input-field-focus"></span>
@@ -47,7 +47,6 @@
         Pflichtangabe
       </span>
     </label>
-    <br>
     <div class="form-block__input-field">
       <input type="text" i18n-placeholder="@@street" placeholder="Straße" [(ngModel)]="provider.address.street">
       <span class="input-field-focus"></span>
@@ -71,16 +70,14 @@
   </div>
 
   <div class="form-block__select">
-    <label>
-      <span i18n="_noteAboutIsPublic">
-        Dürfen die Kontaktdaten online veröffentlicht werden? Falls nicht, können Suchende über ein Kontaktformular mit
-        Ihnen Kontakt aufnehmen.
-      </span>
-      <select [(ngModel)]="provider.isPublic">
-        <option [value]="true" i18n="@@yes">Ja</option>
-        <option [value]="false" i18n="@@no">Nein</option>
-      </select>
-    </label>
+    <span i18n="_noteAboutIsPublic">
+      Dürfen die Kontaktdaten online veröffentlicht werden? Falls nicht, können Suchende über ein Kontaktformular mit
+      Ihnen Kontakt aufnehmen.
+    </span>
+    <select [(ngModel)]="provider.isPublic">
+      <option [value]="true" i18n="@@yes">Ja</option>
+      <option [value]="false" i18n="@@no">Nein</option>
+    </select>
   </div>
 
 
@@ -97,12 +94,12 @@
 </div>
 
 <div class="align-center align-center-text">
-  <h2>
+  <h3>
     <span i18n="@@resources">Ressourcen</span><br>
     <span *ngIf="resources.length === 0" class="form-alert" i18n="@@_alertAddAtLeastOneResource">
         Bitte mindestens eine Ressource hinzufügen.
       </span>
-  </h2>
+  </h3>
 
   <div class="button-bar">
     <button class="button" (click)="addPersonnel()" i18n="@@addPersonal">Personal hinzufügen</button>

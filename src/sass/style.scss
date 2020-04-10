@@ -29,12 +29,17 @@
  * General Project Styles
  *===========================================*/
 
+input[disabled], select[disabled] {
+	cursor: not-allowed;
+}
+
 .form-block {
 	max-width: 768px;
 	margin: 0 auto 35px;
 	padding: 50px 7.5%;
 	border-radius: 5px;
 	box-shadow: 2px 2px 6px 2px #ccc;
+	position: relative;
 
 	&--full-width {
 		max-width: initial;
@@ -55,16 +60,24 @@
 
 
 .form-block__headline {
-	margin: 10px 0 35px;
-	font-size: 42px;
-	font-weight: bold;
+	margin-top: 10px;
 	text-align: center;
 }
 
 
 .form-block__boxes {
 	label {
-		margin-right: 15px;
+		position: relative;
+		display: block;
+
+		span {
+			margin-left: 17px;
+		}
+	}
+	input[type=radio] {
+		position: absolute;
+		left: 0;
+		top: 4px;
 	}
 }
 
@@ -106,7 +119,10 @@
 	}
 
 	label {
-		padding-left: 7px;
+		text-transform: uppercase;
+		font-size: 75%;
+		padding-left: 2px;
+		display: inline-block;
 	}
 
 	.input-field-focus {
@@ -149,7 +165,8 @@
 
 	label {
 		display: inline-block;
-		margin: 5px 0 15px;
+		margin-top: 5px;
+		margin-bottom: -5px;
 		span{
 			font-weight: bold;
 			font-size: 1.5em;
@@ -173,6 +190,14 @@
 		margin-bottom: 5px;
 	}
 
+	label {
+		display: block;
+		margin-bottom: 5px;
+		text-transform: uppercase;
+		font-size: 75%;
+		padding-left: 2px;
+	}
+
 	select {
 		width: 100%;
 		max-width: 250px;
@@ -182,6 +207,50 @@
 		border: 1px solid #8e9ca5
 	}
 }
+
+
+.form-block__edit-buttons {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+
+	button {
+		margin-left: 10px;
+		border: 1px solid;
+		padding: 4px;
+		font-size: small;
+		border-radius: 2px;
+		background: none;
+	}
+}
+
+
+button.form-block__edit-buttons__edit {
+	border-color: #2828af;
+
+	&:hover {
+		background: #67caf1;
+	}
+}
+
+
+button.form-block__edit-buttons__reset {
+	border-color: red;
+
+	&:hover {
+		background: #ff8585;
+	}
+}
+
+
+button.form-block__edit-buttons__save {
+	border-color: green;
+
+	&:hover {
+		background: #6bef93;
+	}
+}
+
 
 .align-center {
 	max-width: 768px;
@@ -228,13 +297,14 @@
 
 
 h2 {
-	font-size: 2em!important;
+	font-size: 2.5em!important;
 	font-weight: 300!important;
 	margin-bottom: 30px!important;
 }
 
-
 h3 {
-	font-weight: 300!important;
+	font-size: 2em!important;
+	font-weight: 700!important;
+	margin-bottom: 30px!important;
 }
 

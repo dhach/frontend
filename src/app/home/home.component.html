@@ -23,7 +23,7 @@
           Sie auf der <a routerLink="/faq">FAQ Seite</a>.
         </p>
         <br>
-        <h2 class="align-center align-center-text" i18n="@@partner">Partner</h2>
+        <h3 class="align-center align-center-text" i18n="@@partner">Partner</h3>
         <div class="logo-list">
           <div class="logo" *ngFor="let l of logos">
             <div class="logo__image">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <h2 class="align-center align-center-text" i18n="@@currentOffers">Aktuelle Angebote</h2>
+        <h3 class="align-center align-center-text" i18n="@@currentOffers">Aktuelle Angebote</h3>
         <app-statistics [data]="statistics"></app-statistics>
         <div class="statistics-box-stand"><span>Stand: {{ statistics.date }}</span></div>
         <app-region-subscription-form></app-region-subscription-form>

@@ -17,13 +17,13 @@ export class ApiService {
 
 
   async requestCall(data, recaptcha) {
-    return this._postTo('/telephone-callback', data, { recaptcha });
+    return this._postTo('/telephone-callback', data, {recaptcha});
   }
 
 
   // Send offer to server and get the token/key to reaccess the offer
   async sendOffer(data, recaptcha) {
-    return this._postTo('/resources', data, { recaptcha });
+    return this._postTo('/resources', data, {recaptcha});
   }
 
 
@@ -40,7 +40,7 @@ export class ApiService {
 
   async getOffers(type: string, data: object) {
     const suffix = `/resources/${type}`;
-    return this._getTo(suffix, { queryParams: data });
+    return this._getTo(suffix, {queryParams: data});
   }
 
 
@@ -60,12 +60,57 @@ export class ApiService {
         break;
     }
     const endpointPath = `/resources/${resourceUrl}/${resourceId}/contact`;
-    return this._postTo(endpointPath, message, { recaptcha });
+    return this._postTo(endpointPath, message, {recaptcha});
   }
 
 
   async subscribeRegion(data: object, recaptcha: string): Promise<ApiResponse> {
-    return this._postTo('/subscription', data, { recaptcha });
+    return this._postTo('/subscription', data, {recaptcha});
+  }
+
+
+  async editProvider(token: string, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/provider`, data);
+  }
+
+
+  async editPersonnel(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/personal/${resourceId}`, data);
+  }
+
+
+  async editDevice(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/device/${resourceId}`, data);
+  }
+
+
+  async editConsumable(token: string, resourceId: number, data: any): Promise<ApiResponse> {
+    return this._putTo(`/resources/offers/${token}/consumable/${resourceId}`, data);
+  }
+
+
+  async editDeviceAmount(token: string, resourceId: number, amount: number, reason?: string) {
+    return this._putTo(`/resources/offers/${token}/device/${resourceId}/amount`, {amount, reason});
+  }
+
+
+  async editConsumableAmount(token: string, resourceId: number, amount: number, reason?: string) {
+    return this._putTo(`/resources/offers/${token}/consumable/${resourceId}/amount`, {amount, reason});
+  }
+
+
+  async deletePersonnel(token: string, resourceId: number, reason: string) {
+    return this._deleteTo(`/resources/offers/${token}/personal/${resourceId}`, reason);
+  }
+
+
+  async deleteDevice(token: string, resourceId: number, reason: string) {
+    return this._deleteTo(`/resources/offers/${token}/device/${resourceId}`, reason);
+  }
+
+
+  async deleteConsumable(token: string, resourceId: number, reason: string) {
+    return this._deleteTo(`/resources/offers/${token}/consumable/${resourceId}`, reason);
   }
 
 
