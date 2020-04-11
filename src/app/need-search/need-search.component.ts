@@ -12,11 +12,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class NeedSearchComponent implements OnInit {
+
+  DeviceCategory = DeviceCategory;
+  ConsumableCategory = ConsumableCategory;
   consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
   uniToDE = unitTo(this.localeService.locale);
-
-  filterargs = {title: 'hello'};
 
   // Testdaten
   consumables: Array<{
@@ -159,6 +160,10 @@ export class NeedSearchComponent implements OnInit {
         ],
       }
     ];
+  }
+
+  getEnumValues(enumElement) {
+    return Object.values(enumElement);
   }
 
   ngOnInit(): void {}

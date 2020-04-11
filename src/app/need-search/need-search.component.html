@@ -8,9 +8,22 @@
     <div class="fullwidth-block">
         <div class="container">
 
-            <div class="need-search__filter"></div>
-
-            <input [(ngModel)]="searchText" placeholder="search text goes here">
+            <div class="form-block need-search__filter">
+                <div class="form-block__select">
+                    <select name="" [(ngModel)]="searchText">
+                        <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
+                            {{ consumableCategoryToDE[category] }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-block__select">
+                    <select name="" [(ngModel)]="searchText">
+                        <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
+                            {{ deviceCategoryToDE[category] }}
+                        </option>
+                    </select>
+                </div>
+            </div>
             <table class="need-search__results">
             <thead>
                 <th>Gegenstand</th>
@@ -28,9 +41,7 @@
                     </tbody>
                 </ng-container>
                 <ng-container *ngFor="let consumable of this.consumables;">
-                    <tbody *ngFor="let resource of consumable.resources;" class="need-search__results-element"
-                           [ngClass]="'result-' + resource.category"
-                    >
+                    <tbody *ngFor="let resource of consumable.resources | filterpipe:searchText" class="need-search__results-element" [ngClass]="'result-' + resource.category">
                     <tr>
                         <td>{{ consumableCategoryToDE[resource.category] }}</td>
                         <td>{{ resource.amount }} {{ uniToDE[resource.unit] }}</td>
