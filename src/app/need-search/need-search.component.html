@@ -10,14 +10,31 @@
 
             <div class="need-search__filter"></div>
 
+            <input [(ngModel)]="searchText" placeholder="search text goes here">
             <table class="need-search__results">
-            <thead></thead>
-                <ng-container *ngFor="let result of this.results;">
-                    <tbody *ngFor="let resource of result.resources;" class="need-search__results-element">
+            <thead>
+                <th>Gegenstand</th>
+                <th>Anzahl</th>
+                <th>PLZ</th>
+            </thead>
+                <ng-container *ngFor="let device of this.devices;">
+                    <tbody *ngFor="let resource of device.resources | filterpipe:searchText" class="need-search__results-element" [ngClass]="'result-' + resource.category">
+                    <tr>
+                        <td>{{ deviceCategoryToDE[resource.category] }}</td>
+                        <td>{{ resource.amount }}</td>
+                        <td>{{ device.searcher.postalCode }}</td>
+                    </tr>
+                    <tr></tr>
+                    </tbody>
+                </ng-container>
+                <ng-container *ngFor="let consumable of this.consumables;">
+                    <tbody *ngFor="let resource of consumable.resources;" class="need-search__results-element"
+                           [ngClass]="'result-' + resource.category"
+                    >
                     <tr>
                         <td>{{ consumableCategoryToDE[resource.category] }}</td>
                         <td>{{ resource.amount }} {{ uniToDE[resource.unit] }}</td>
-                        <td>{{ result.searcher.postalCode }}</td>
+                        <td>{{ consumable.searcher.postalCode }}</td>
                     </tr>
                     <tr></tr>
                     </tbody>
