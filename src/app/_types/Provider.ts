@@ -7,7 +7,7 @@ export interface Provider {
   mail: string;
   phone?: string;
   address: Address;
-  isPublic: boolean;
+  isPublic?: boolean;
 }
 
 

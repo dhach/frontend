@@ -1,0 +1,20 @@
+.data-preview {
+  margin-bottom: 30px;
+  overflow-x: scroll;
+
+  table {
+    text-align: left;
+  }
+
+  th, td {
+    padding: 3px 10px;
+    white-space: nowrap;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.data-preview__notes {
+      max-width: 500px;
+    }
+  }
+}

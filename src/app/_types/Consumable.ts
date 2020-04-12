@@ -6,12 +6,12 @@ export interface Consumable {
   id?: number;
   category: ConsumableCategory;
   name?: string;
-  manufacturer: string;
-  orderNumber: string;
-  amount?: number;
-  unit?: string;
+  manufacturer?: string;
+  orderNumber?: string;
+  amount: number;
+  unit: string;
   notes?: string;
-  address: Address;
+  address?: Address;
 }
 
 

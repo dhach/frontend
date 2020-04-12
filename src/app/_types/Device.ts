@@ -6,11 +6,11 @@ export interface Device {
   id?: number;
   category: DeviceCategory;
   name?: string;
-  manufacturer: string;
-  orderNumber: string;
-  amount?: number;
+  manufacturer?: string;
+  orderNumber?: string;
+  amount: number;
   notes?: string;
-  address: Address;
+  address?: Address;
 }
 
 

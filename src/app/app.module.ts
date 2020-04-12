@@ -25,6 +25,9 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { RegionSubscriptionFormComponent } from './region-subscription-form/region-subscription-form.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminDemandImportComponent } from './admin-demand-import/admin-demand-import.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     ReCaptchaWrapperComponent,
     StatisticsComponent,
-    RegionSubscriptionFormComponent
+    RegionSubscriptionFormComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminDemandImportComponent
   ],
   imports: [
     BrowserModule,
