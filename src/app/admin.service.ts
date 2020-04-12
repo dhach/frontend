@@ -26,7 +26,7 @@ export class AdminService {
    * Returns true if the adminKey is valid.
    */
   async adminLogin(adminKey: string): Promise<boolean> {
-    const response: ApiResponse = null; // TODO Use API to verify the adminKey.
+    const response: ApiResponse = await this.apiService.verifyAdminKey({ adminKey });
     if (response.error) {
       throw new Error('Unexpected / unhandled error');
     }

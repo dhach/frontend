@@ -16,6 +16,11 @@ export class ApiService {
   }
 
 
+  async verifyAdminKey(data): Promise<ApiResponse> {
+    return this._postTo('/admin/verify-key', data);
+  }
+
+
   async requestCall(data, recaptcha) {
     return this._postTo('/telephone-callback', data, {recaptcha});
   }
