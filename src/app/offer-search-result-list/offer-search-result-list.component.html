@@ -4,7 +4,7 @@
     Keine Ergebnisse gefunden
   </div>
 
-  <div class="result-entry" *ngFor="let r of searchResults; let i = index">+
+  <div class="result-entry" *ngFor="let r of searchResults; let i = index">
     <!-- Personnel -->
     <div *ngIf="type === 'personnel'">
       <div class="result-entry__name" (click)="toggleShowDetails(i)">
