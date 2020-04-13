@@ -1,23 +1,41 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { LocaleService } from './locale.service';
-import {deviceCategoryTo} from './_types/DeviceCategory';
-import {consumableCategoryTo} from './_types/ConsumableCategory';
 
 @Pipe({ name: 'filterpipe' })
 export class FilterPipe implements PipeTransform {
 
-    consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
-    deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-
-    transform(items: any[], searchText: string): any[] {
+    transform(items: any[], fName: string, fManufacturer: string, fMin: number, fMax: number, fNotes: string): any[] {
         if (!items) { return []; }
-        if (!searchText) { return items; }
-        return items.filter( it => {
-            return it.category === searchText;
-        });
+        if (!fName && !fManufacturer && !fMin && !fMax && !fNotes) { return items; }
+        if (fName) {
+            items = items.filter( it => {
+                if (!it.resource.name) { return false; }
+                return it.resource.name === fName;
+            });
+        }
+        if (fManufacturer) {
+            items = items.filter( it => {
+                if (!it.resource.manufacturer) { return false; }
+                return it.resource.manufacturer === fManufacturer;
+            });
+        }
+        if (fMin) {
+            items = items.filter( it => {
+                return it.resource.amount >= fMin;
+            });
+        }
+        if (fMax) {
+            items = items.filter( it => {
+                return it.resource.amount <= fMax;
+            });
+        }
+        if (fNotes) {
+            items = items.filter( it => {
+                if (!it.resource.notes) { return false; }
+                return it.resource.notes.toLocaleLowerCase().includes(fNotes.toLocaleLowerCase());
+            });
+        }
+        return items;
     }
 
-    constructor(
-        private localeService: LocaleService,
-    ) {}
+    constructor() {}
 }

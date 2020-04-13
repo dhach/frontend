@@ -158,6 +158,13 @@ input[disabled], select[disabled] {
 		font-size: 10px;
 		margin: 0;
 	}
+
+	&.half-input {
+		display: inline-block;
+		width: 46%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
 }
 
 .form-block__input-wrapper {

@@ -1,10 +1,7 @@
 import {Component, OnInit, Provider} from '@angular/core';
 import {ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
-import { unitTo } from '../_types/Unit';
 import { LocaleService } from '../locale.service';
 import {DeviceCategory, deviceCategoryTo} from '../_types/DeviceCategory';
-import {providerFromApi} from '../_types/Provider';
-import {Personnel, personnelFromApi} from '../_types/Personnel';
 import {Device, deviceFromApi} from '../_types/Device';
 import {Consumable, consumableFromApi} from '../_types/Consumable';
 import {ApiResponseError} from '../_types/ApiResponseError';
@@ -22,9 +19,12 @@ export class NeedSearchComponent implements OnInit {
   ConsumableCategory = ConsumableCategory;
   consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
+
+  searchToggle = 'device';
   loading = false;
   searchType: string;
   categoryType: string;
+
   results: Array<{
     resource: Device | Consumable,
   }>;
@@ -35,7 +35,10 @@ export class NeedSearchComponent implements OnInit {
   filter: {
     name: string,
     manufacturer: string,
-    amount: number,
+    amount: {
+      minimum: number,
+      maximum: number,
+    },
     notes: string,
   };
 
@@ -53,7 +56,10 @@ export class NeedSearchComponent implements OnInit {
     this.filter = {
       name: '',
       manufacturer: '',
-      amount: 0,
+      amount: {
+        minimum: 0,
+        maximum: 0,
+      },
       notes: '',
     };
   }
@@ -92,21 +98,33 @@ export class NeedSearchComponent implements OnInit {
         resource = consumableFromApi(r.resource);
       }
       this.loading = false;
-      console.log(resource);
       return {resource};
     });
     this.Uniqs.name.clear();
     this.Uniqs.manufacturer.clear();
     this.results.forEach((elem) => {
-      this.Uniqs.name.add(elem.resource.name);
-      this.Uniqs.manufacturer.add(elem.resource.name);
+      if (elem.resource.name) { this.Uniqs.name.add(elem.resource.name); }
+      if (elem.resource.manufacturer) { this.Uniqs.manufacturer.add(elem.resource.manufacturer); }
     });
+    this.clearFilter();
   }
   isUnexpectedError(err) {
     if (!err?.message) {
       return false;
     }
     return typeof err.message === 'object';
+  }
+
+  clearFilter() {
+    this.filter = {
+      name: '',
+      manufacturer: '',
+      amount: {
+        minimum: 0,
+        maximum: 0,
+      },
+      notes: '',
+    };
   }
 
   ngOnInit(): void {}

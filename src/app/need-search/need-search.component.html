@@ -4,19 +4,38 @@
     </div>
 </div>
 
-<main class="main-content">
+<main class="main-content need-search">
     <div class="fullwidth-block">
         <div class="container">
 
             <div class="form-block need-search__filter">
-                <div class="form-block__select">
+                <h3 class="form-block__headline">Filter</h3>
+                <div class="button-bar align-center align-center-text">
+                    <button
+                            (click)="searchToggle = 'device'"
+                            class="button {{ searchToggle === 'device' ? 'active' : '' }}"
+                            i18n="@@searchDevice"
+                    >Suche nach Gerät</button>
+                    <button
+                            (click)="searchToggle = 'consumable'"
+                            class="button {{ searchToggle === 'consumable' ? 'active' : '' }}"
+                            i18n="@@searchConsumable"
+                    >Suche nach Verbrauchsmaterial</button>
+                </div>
+                <div class="form-block__select" [hidden]="searchToggle !== 'consumable'">
+                    <label i18n="@@category">
+                        Kategorie
+                    </label>
                     <select (change)="onSubmit(categoryType,null)" [(ngModel)]="categoryType">
                         <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
                             {{ consumableCategoryToDE[category] }}
                         </option>
                     </select>
                 </div>
-                <div class="form-block__select">
+                <div class="form-block__select" [hidden]="searchToggle !== 'device'">
+                    <label i18n="@@category">
+                        Kategorie
+                    </label>
                     <select (change)="onSubmit(null, categoryType)" [(ngModel)]="categoryType">
                         <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
                             {{ deviceCategoryToDE[category] }}
@@ -24,20 +43,50 @@
                     </select>
                 </div>
                 <div class="form-block__select">
+                    <label i18n="@@exactName">
+                        Exakte Materialbezeichnung
+                    </label>
                     <select [(ngModel)]="filter.name" [disabled]="!Uniqs.name.size">
-                        <option value="" disabled selected i18n="@@chooseName">Materialbezeichnung auswählen</option>
+                        <option [value]="''" selected i18n="@@chooseName"></option>
                         <option *ngFor="let n of Uniqs.name" [value]="n">
                             {{ n }}
                         </option>
                     </select>
                 </div>
                 <div class="form-block__select">
+                    <label i18n="@@manufacturer">
+                        Hersteller
+                    </label>
                     <select [(ngModel)]="filter.manufacturer" [disabled]="!Uniqs.manufacturer.size">
-                        <option value="" disabled selected i18n="@@chooseManufacturer">Hersteller auswählen</option>
+                        <option [value]="''" selected i18n="@@chooseManufacturer"></option>
                         <option *ngFor="let n of Uniqs.manufacturer" [value]="n">
                             {{ n }}
                         </option>
                     </select>
+                </div>
+                <div class="form-block__input-field half-input">
+                    <label i18n="@@minAmount">
+                        Mindestmenge
+                    </label>
+                    <input type="number" min="0" [max]="!filter.amount.maximum ? false : filter.amount.maximum" [(ngModel)]="filter.amount.minimum">
+                    <span class="input-field-focus"></span>
+                </div>
+                <div class="form-block__input-field half-input">
+                    <label i18n="@@maxAmount">
+                        Maximale Menge
+                    </label>
+                    <input type="number" [min]="filter.amount.minimum" [(ngModel)]="filter.amount.maximum">
+                    <span class="input-field-focus"></span>
+                </div>
+                <div class="form-block__input-field">
+                    <label i18n="@@searchNotes">
+                        Anmerkungen durchsuchen
+                    </label>
+                    <input type="text" [(ngModel)]="filter.notes">
+                    <span class="input-field-focus"></span>
+                </div>
+                <div class="align-center align-center-text">
+                    <button (click)="clearFilter()" class="button" i18n="@@resetFilter">Filter zurücksetzen</button>
                 </div>
             </div>
             <!-- TODO Loader GIF -->
@@ -45,6 +94,7 @@
                     *ngIf="results"
                     [type]="searchType"
                     [searchResults]="results"
+                    [filter]="filter"
             ></app-need-search-result>
         </div>
     </div>
