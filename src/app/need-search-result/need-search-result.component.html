@@ -1,0 +1,42 @@
+<div *ngIf="searchResults.length === 0; else elseBlock">
+    Keine Ergebnisse gefunden
+</div>
+
+<ng-template #elseBlock>
+    <table *ngIf="type === 'device'" class="need-search__results">
+        <thead>
+        <th>Gegenstand</th>
+        <th>Anzahl</th>
+        <th>PLZ</th>
+        </thead>
+
+        <tbody *ngFor="let r of searchResults; let i = index" class="need-search__results-element">
+        <tr>
+            <td>{{ deviceCategoryToDE[r.resource.category] }}</td>
+            <td>{{ r.resource.amount }}</td>
+            <td>{{ r.resource.address.postalCode }}</td>
+        </tr>
+        <tr></tr>
+        </tbody>
+    </table>
+
+    <table *ngIf="type === 'consumable'" class="need-search__results">
+        <thead>
+        <th>Gegenstand</th>
+        <th>Anzahl</th>
+        <th>PLZ</th>
+        </thead>
+
+        <tbody *ngFor="let r of searchResults; let i = index" class="need-search__results-element">
+        <tr>
+            <td>{{ consumableCategoryToDE[r.resource.category] }}</td>
+            <td>{{ r.resource.amount }}</td>
+            <td>{{ r.resource.address.postalCode }}</td>
+        </tr>
+        <tr></tr>
+        </tbody>
+    </table>
+</ng-template>
+
+
+

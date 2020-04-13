@@ -3,7 +3,12 @@ import {ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCate
 import { unitTo } from '../_types/Unit';
 import { LocaleService } from '../locale.service';
 import {DeviceCategory, deviceCategoryTo} from '../_types/DeviceCategory';
-import { Pipe, PipeTransform } from '@angular/core';
+import {providerFromApi} from '../_types/Provider';
+import {Personnel, personnelFromApi} from '../_types/Personnel';
+import {Device, deviceFromApi} from '../_types/Device';
+import {Consumable, consumableFromApi} from '../_types/Consumable';
+import {ApiResponseError} from '../_types/ApiResponseError';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-need-search',
@@ -17,153 +22,91 @@ export class NeedSearchComponent implements OnInit {
   ConsumableCategory = ConsumableCategory;
   consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
   deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-  uniToDE = unitTo(this.localeService.locale);
+  loading = false;
+  searchType: string;
+  categoryType: string;
+  results: Array<{
+    resource: Device | Consumable,
+  }>;
+  Uniqs: {
+    name: Set<string>,
+    manufacturer: Set<string>,
+  };
+  filter: {
+    name: string,
+    manufacturer: string,
+    amount: number,
+    notes: string,
+  };
 
-  // Testdaten
-  consumables: Array<{
-    searcher: {
-      institution: string;
-      name: string,
-      mail: string,
-      phone: string,
-      postalCode: string,
-    },
-    resources: Array<{
-      category: ConsumableCategory,
-      name: string,
-      manufacturer: string,
-      orderNumber: string,
-      amount: number,
-      unit: string,
-    }>,
-  }>;
-  devices: Array<{
-    searcher: {
-      institution: string;
-      name: string,
-      mail: string,
-      phone: string,
-      postalCode: string,
-    },
-    resources: Array<{
-      category: DeviceCategory,
-      name: string,
-      manufacturer: string,
-      orderNumber: string,
-      amount: number,
-    }>,
-  }>;
+  error: ApiResponseError;
+
   constructor(
     private localeService: LocaleService,
+    private fetchService: ApiService,
   ) {
-    // Testdaten
-    this.consumables = [
-      {
-        searcher: {
-          institution: 'Institution',
-          name: 'Name',
-          mail: 'mail@addresse.de',
-          phone: 'string',
-          postalCode: '22523',
-        },
-        resources: [
-          {
-            category: ConsumableCategory.MASKE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 6,
-            unit: 'Stück',
-          }, {
-            category: ConsumableCategory.SCHUTZBRILLE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 3,
-            unit: 'Packung',
-          }
-        ],
-      }, {
-        searcher: {
-          institution: 'Institution',
-          name: 'Name',
-          mail: 'mail@addresse.de',
-          phone: 'string',
-          postalCode: '22523',
-        },
-        resources: [
-          {
-            category: ConsumableCategory.HANDSCHUHE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 12,
-            unit: 'Stück',
-          }, {
-            category: ConsumableCategory.REAKTIONSGEFAESSE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 1,
-            unit: 'Stück',
-          }
-        ],
-      }
-    ];
+    this.Uniqs = {
+      name: new Set<string>(),
+      manufacturer: new Set<string>(),
+    };
 
-    this.devices = [
-      {
-        searcher: {
-          institution: 'Institution',
-          name: 'Name',
-          mail: 'mail@addresse.de',
-          phone: 'string',
-          postalCode: '22523',
-        },
-        resources: [
-          {
-            category: DeviceCategory.PCR_THERMOCYCLER,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 1,
-          }, {
-            category: DeviceCategory.ZENTRIFUGE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 4,
-          }
-        ],
-      }, {
-        searcher: {
-          institution: 'Institution',
-          name: 'Name',
-          mail: 'mail@addresse.de',
-          phone: 'string',
-          postalCode: '22523',
-        },
-        resources: [
-          {
-            category: DeviceCategory.VORTEXER,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 2,
-          }, {
-            category: DeviceCategory.PIPETTE,
-            name: 'Name',
-            manufacturer: 'Hersteller',
-            orderNumber: 'Seriennummer',
-            amount: 6,
-          }
-        ],
-      }
-    ];
+    this.filter = {
+      name: '',
+      manufacturer: '',
+      amount: 0,
+      notes: '',
+    };
   }
 
   getEnumValues(enumElement) {
     return Object.values(enumElement);
+  }
+
+  async onSubmit(c: string, d: string) {
+    this.loading = true;
+    this.error = undefined;
+    let data;
+    if (c) {
+      this.searchType = 'consumable';
+      data = {
+        category: c
+      };
+    } else if (d) {
+      this.searchType = 'device';
+      data = {
+        category: d,
+      };
+    }
+
+    const response = await this.fetchService.getDemands(this.searchType, data);
+    if (response.error) {
+      this.error = response.error;
+      return;
+    }
+    const results = response.data;
+    this.results = results.map((r) => {
+      let resource;
+      if (this.searchType === 'device') {
+        resource = deviceFromApi(r.resource);
+      } else if (this.searchType === 'consumable') {
+        resource = consumableFromApi(r.resource);
+      }
+      this.loading = false;
+      console.log(resource);
+      return {resource};
+    });
+    this.Uniqs.name.clear();
+    this.Uniqs.manufacturer.clear();
+    this.results.forEach((elem) => {
+      this.Uniqs.name.add(elem.resource.name);
+      this.Uniqs.manufacturer.add(elem.resource.name);
+    });
+  }
+  isUnexpectedError(err) {
+    if (!err?.message) {
+      return false;
+    }
+    return typeof err.message === 'object';
   }
 
   ngOnInit(): void {}

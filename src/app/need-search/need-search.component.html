@@ -10,47 +10,42 @@
 
             <div class="form-block need-search__filter">
                 <div class="form-block__select">
-                    <select name="" [(ngModel)]="searchText">
+                    <select (change)="onSubmit(categoryType,null)" [(ngModel)]="categoryType">
                         <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
                             {{ consumableCategoryToDE[category] }}
                         </option>
                     </select>
                 </div>
                 <div class="form-block__select">
-                    <select name="" [(ngModel)]="searchText">
+                    <select (change)="onSubmit(null, categoryType)" [(ngModel)]="categoryType">
                         <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
                             {{ deviceCategoryToDE[category] }}
                         </option>
                     </select>
                 </div>
+                <div class="form-block__select">
+                    <select [(ngModel)]="filter.name" [disabled]="!Uniqs.name.size">
+                        <option value="" disabled selected i18n="@@chooseName">Materialbezeichnung auswählen</option>
+                        <option *ngFor="let n of Uniqs.name" [value]="n">
+                            {{ n }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-block__select">
+                    <select [(ngModel)]="filter.manufacturer" [disabled]="!Uniqs.manufacturer.size">
+                        <option value="" disabled selected i18n="@@chooseManufacturer">Hersteller auswählen</option>
+                        <option *ngFor="let n of Uniqs.manufacturer" [value]="n">
+                            {{ n }}
+                        </option>
+                    </select>
+                </div>
             </div>
-            <table class="need-search__results">
-            <thead>
-                <th>Gegenstand</th>
-                <th>Anzahl</th>
-                <th>PLZ</th>
-            </thead>
-                <ng-container *ngFor="let device of this.devices;">
-                    <tbody *ngFor="let resource of device.resources | filterpipe:searchText" class="need-search__results-element" [ngClass]="'result-' + resource.category">
-                    <tr>
-                        <td>{{ deviceCategoryToDE[resource.category] }}</td>
-                        <td>{{ resource.amount }}</td>
-                        <td>{{ device.searcher.postalCode }}</td>
-                    </tr>
-                    <tr></tr>
-                    </tbody>
-                </ng-container>
-                <ng-container *ngFor="let consumable of this.consumables;">
-                    <tbody *ngFor="let resource of consumable.resources | filterpipe:searchText" class="need-search__results-element" [ngClass]="'result-' + resource.category">
-                    <tr>
-                        <td>{{ consumableCategoryToDE[resource.category] }}</td>
-                        <td>{{ resource.amount }} {{ uniToDE[resource.unit] }}</td>
-                        <td>{{ consumable.searcher.postalCode }}</td>
-                    </tr>
-                    <tr></tr>
-                    </tbody>
-                </ng-container>
-            </table>
+            <!-- TODO Loader GIF -->
+            <app-need-search-result
+                    *ngIf="results"
+                    [type]="searchType"
+                    [searchResults]="results"
+            ></app-need-search-result>
         </div>
     </div>
 </main>

@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
         if (!items) { return []; }
         if (!searchText) { return items; }
         return items.filter( it => {
-            return it.category === searchText || it.category === searchText;
+            return it.category === searchText;
         });
     }
 

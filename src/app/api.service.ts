@@ -54,6 +54,12 @@ export class ApiService {
   }
 
 
+  async getDemands(type: string, data: object) {
+    const suffix = `/demands/${type}/search`;
+    return this._getTo(suffix, {queryParams: data});
+  }
+
+
   async sendResourceContactMessage(
     resourceType: string, resourceId: number, message: ResourceContactMessage, recaptcha: string
   ): Promise<ApiResponse> {

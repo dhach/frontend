@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'angebote/neu', component: OfferFormComponent },
   { path: 'suchanfrage', component: OfferSearchComponent },
-  { path: 'needs', component: NeedSearchComponent },
+  { path: 'demands', component: NeedSearchComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'about', component: AboutComponent },
