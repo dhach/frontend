@@ -2,9 +2,8 @@ import {Component, Input, OnChanges, OnInit, Provider, SimpleChanges} from '@ang
 import {Device} from '../_types/Device';
 import {Consumable} from '../_types/Consumable';
 import {LocaleService} from '../locale.service';
-import {ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
-import {DeviceCategory, deviceCategoryTo} from '../_types/DeviceCategory';
-import { Unit, unitTo } from '../_types/Unit';
+import { unitTo } from '../_types/Unit';
+import { ConfigurationService } from '../configuration.service';
 
 @Component({
   selector: 'app-need-search-result',
@@ -12,11 +11,9 @@ import { Unit, unitTo } from '../_types/Unit';
   styleUrls: ['./need-search-result.component.scss']
 })
 export class NeedSearchResultComponent implements OnInit, OnChanges {
-  DeviceCategory = DeviceCategory;
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-  Unit = Unit;
+
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
   unitTo = unitTo(this.localeService.locale);
 
 
@@ -39,7 +36,10 @@ export class NeedSearchResultComponent implements OnInit, OnChanges {
 
   constructor(
       private localeService: LocaleService,
+      private configurationService: ConfigurationService,
   ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
   }
 
 

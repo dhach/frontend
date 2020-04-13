@@ -18,7 +18,7 @@
         <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index">
             <tbody class="need-search__results-element">
                 <tr>
-                    <td>{{ deviceCategoryToDE[r.resource.category] }}</td>
+                    <td>{{ deviceCategories.get(r.resource.category) }}</td>
                     <td>{{ r.resource.amount }}</td>
                     <td>{{ r.resource.name }}</td>
                     <td>{{ r.resource.manufacturer }}</td>
@@ -62,7 +62,7 @@
         <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index" >
             <tbody class="need-search__results-element">
                 <tr>
-                    <td>{{ consumableCategoryToDE[r.resource.category] }}</td>
+                    <td>{{ consumableCategories.get(r.resource.category) }}</td>
                     <td>{{ r.resource.amount }} {{ unitTo[r.resource.unit] }}</td>
                     <td>{{ r.resource.name }}</td>
                     <td>{{ r.resource.manufacturer }}</td>

@@ -1,11 +1,10 @@
-import {Component, OnInit, Provider} from '@angular/core';
-import {ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
+import {Component, OnInit } from '@angular/core';
 import { LocaleService } from '../locale.service';
-import {DeviceCategory, deviceCategoryTo} from '../_types/DeviceCategory';
 import {Device, deviceFromApi} from '../_types/Device';
 import {Consumable, consumableFromApi} from '../_types/Consumable';
 import {ApiResponseError} from '../_types/ApiResponseError';
 import {ApiService} from '../api.service';
+import { ConfigurationService } from '../configuration.service';
 
 @Component({
   selector: 'app-need-search',
@@ -15,10 +14,10 @@ import {ApiService} from '../api.service';
 
 export class NeedSearchComponent implements OnInit {
 
-  DeviceCategory = DeviceCategory;
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryToDE = consumableCategoryTo(this.localeService.locale);
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
+  deviceCategoriesKeys: Array<string>;
+  consumableCategoriesKeys: Array<string>;
 
   searchToggle = 'device';
   loading = false;
@@ -47,7 +46,13 @@ export class NeedSearchComponent implements OnInit {
   constructor(
     private localeService: LocaleService,
     private fetchService: ApiService,
+    private configurationService: ConfigurationService,
   ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
+    this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
+    this.consumableCategoriesKeys = Array.from(this.consumableCategories.keys());
+
     this.Uniqs = {
       name: new Set<string>(),
       manufacturer: new Set<string>(),
@@ -62,10 +67,6 @@ export class NeedSearchComponent implements OnInit {
       },
       notes: '',
     };
-  }
-
-  getEnumValues(enumElement) {
-    return Object.values(enumElement);
   }
 
   async onSubmit(c: string, d: string) {
