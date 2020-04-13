@@ -78,8 +78,8 @@
       </div>
       <div class="form-block__select">
         <select [(ngModel)]="searchQuery.category">
-          <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
-            {{ deviceCategoryToDE[category] }}
+          <option *ngFor="let category of deviceCategoriesKeys" [value]="category">
+            {{ deviceCategories.get(category) }}
           </option>
         </select>
       </div>
@@ -93,8 +93,8 @@
     </div>
     <div class="form-block__select">
       <select name="offering" [(ngModel)]="searchQuery.category">
-        <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
-          {{ consumableCategoryTo[category] }}
+        <option *ngFor="let category of consumableCategoriesKeys" [value]="category">
+          {{ consumableCategories.get(category) }}
         </option>
       </select>
     </div>

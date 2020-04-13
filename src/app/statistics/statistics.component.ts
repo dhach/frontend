@@ -1,9 +1,7 @@
-import { Component, Input, OnInit, Provider } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Unit, unitTo } from '../_types/Unit';
-import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
-import { ConsumableCategory, consumableCategoryTo } from '../_types/ConsumableCategory';
 import { LocaleService } from '../locale.service';
-import { Device } from '../_types/Device';
+import { ConfigurationService } from '../configuration.service';
 
 @Component({
   selector: 'app-statistics',
@@ -12,19 +10,16 @@ import { Device } from '../_types/Device';
 })
 export class StatisticsComponent implements OnInit {
 
-  DeviceCategory = DeviceCategory;
-  deviceCategoryTo = deviceCategoryTo(this.localeService.locale);
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
-  Unit = Unit;
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
   unitTo = unitTo(this.localeService.locale);
 
   @Input() data: {
     date: string,
     availableResources: {
-      devices: Array<{ category: DeviceCategory, number: number }>,
+      devices: Array<{ category: string, number: number }>,
       consumables: Array<{
-        category: ConsumableCategory,
+        category: string,
         numbers: Array<{ unit: Unit, number: number }>
       }>,
       personnel: number,
@@ -34,7 +29,11 @@ export class StatisticsComponent implements OnInit {
 
   constructor(
       private localeService: LocaleService,
-  ) { }
+      private configurationService: ConfigurationService,
+  ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
+  }
 
 
   ngOnInit(): void {

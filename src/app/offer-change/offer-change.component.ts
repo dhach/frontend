@@ -8,11 +8,10 @@ import { Device, deviceFromApi, deviceToApi } from '../_types/Device';
 import { Personnel, personnelFromApi, personnelToApi } from '../_types/Personnel';
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
-import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
-import { ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
 import { LocaleService } from '../locale.service';
 import { Unit, unitTo } from '../_types/Unit';
 import { Utils } from '../Utils';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -22,10 +21,8 @@ import { Utils } from '../Utils';
 })
 export class OfferChangeComponent implements OnInit {
 
-  DeviceCategory = DeviceCategory;
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
   PersonnelQualification = PersonnelQualification;
   personnelQualificationTo = personnelQualificationTo(this.localeService.locale);
   PersonnelArea = PersonnelArea;
@@ -59,7 +56,10 @@ export class OfferChangeComponent implements OnInit {
     private router: Router,
     private apiService: ApiService,
     private localeService: LocaleService,
+    private configurationService: ConfigurationService,
   ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
   }
 
 
@@ -190,7 +190,6 @@ export class OfferChangeComponent implements OnInit {
 
 
   async saveResource(index: number) {
-    console.log(this.data.resources);
     const resource = this.data.resources[index];
     let response;
     switch (resource.type) {

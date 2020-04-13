@@ -84,8 +84,8 @@
       Kategorie
     </label>
     <select [(ngModel)]="toD(r).category">
-      <option *ngFor="let category of getEnumValues(DeviceCategory)" [value]="category">
-        {{ deviceCategoryToDE[category] }}
+      <option *ngFor="let category of deviceCategoriesKeys" [value]="category">
+        {{ deviceCategories.get(category) }}
       </option>
     </select>
     <span *ngIf="!toD(r).category" class="form-alert" i18n="@@requiredField">
@@ -143,8 +143,8 @@
       Kategorie
     </label>
     <select [(ngModel)]="toC(r).category">
-      <option *ngFor="let category of getEnumValues(ConsumableCategory)" [value]="category">
-        {{ consumableCategoryTo[category] }}
+      <option *ngFor="let category of consumableCategoriesKeys" [value]="category">
+        {{ consumableCategories.get(category) }}
       </option>
     </select>
     <span *ngIf="!toC(r).category" class="form-alert" i18n="@@requiredField">

@@ -1,10 +1,9 @@
 import { Address, addressFromApi, addressToApi } from './Address';
-import { DeviceCategory } from './DeviceCategory';
 
 
 export interface Device {
   id?: number;
-  category: DeviceCategory;
+  category: string;
   name?: string;
   manufacturer?: string;
   orderNumber?: string;

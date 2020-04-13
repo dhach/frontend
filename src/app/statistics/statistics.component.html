@@ -7,7 +7,7 @@
             <ul>
                 <li *ngFor="let d of data.availableResources.devices">
                     <span class="statistics-col-amount">{{ d.number }}</span>
-                    <span class="statistics-col-category">{{ deviceCategoryTo[d.category] }}</span>
+                    <span class="statistics-col-category">{{ deviceCategories.get(d.category) }}</span>
                 </li>
             </ul>
         </div>
@@ -19,7 +19,7 @@
         <div class="statistics-col-body">
             <ul>
                 <li *ngFor="let c of data.availableResources.consumables">
-                    <span class="statistics-col-category-2">{{ consumableCategoryTo[c.category] }}</span>
+                    <span class="statistics-col-category-2">{{ consumableCategories.get(c.category) }}</span>
                     <span class="statistics-col-amount-2">{{ formatConsumableNumbers(c.numbers) }}</span>
                 </li>
             </ul>
