@@ -10,6 +10,7 @@ import { ResourceContactMessage } from '../_types/ResourceContactMessage';
 })
 export class OfferSearchContactFormComponent implements OnInit {
 
+  @Input() requestType: string; // Allowed values are "resources" and "demands"
   @Input() resourceType: string;
   @Input() resourceId: number;
 
@@ -44,7 +45,7 @@ export class OfferSearchContactFormComponent implements OnInit {
     if (!this.isValid()) {
       return;
     }
-    const response = await this.fetchService.sendResourceContactMessage(this.resourceType,
+    const response = await this.fetchService.sendResourceOrDemandContactMessage(this.requestType, this.resourceType,
       this.resourceId, this.message, this.recaptcha);
     if (response.error) {
       throw new Error('Unexpected / unhandled error');
