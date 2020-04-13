@@ -39,6 +39,7 @@
                     <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
                     <div class="scroll-container">
                         <app-offer-search-contact-form
+                                requestType="demands"
                                 resourceType="consumable"
                                 [resourceId]="r.resource.id"
                         ></app-offer-search-contact-form>
@@ -83,6 +84,7 @@
                     <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
                     <div class="scroll-container">
                     <app-offer-search-contact-form
+                            requestType="demands"
                             resourceType="consumable"
                             [resourceId]="r.resource.id"
                     ></app-offer-search-contact-form>

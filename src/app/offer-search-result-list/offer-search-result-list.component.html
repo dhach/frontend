@@ -60,6 +60,7 @@
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
+              requestType="resources"
               resourceType="personnel"
               [resourceId]="r.resource.id"
             ></app-offer-search-contact-form>
@@ -120,6 +121,7 @@
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
+              requestType="resources"
               resourceType="device"
               [resourceId]="r.resource.id"
             ></app-offer-search-contact-form>
@@ -178,6 +180,7 @@
             }}</div>
           <div *ngIf="!r.provider">
             <app-offer-search-contact-form
+              requestType="resources"
               resourceType="consumable"
               [resourceId]="r.resource.id"
             ></app-offer-search-contact-form>

@@ -60,9 +60,12 @@ export class ApiService {
   }
 
 
-  async sendResourceContactMessage(
-    resourceType: string, resourceId: number, message: ResourceContactMessage, recaptcha: string
+  async sendResourceOrDemandContactMessage(
+    requestType: string, resourceType: string, resourceId: number, message: ResourceContactMessage, recaptcha: string
   ): Promise<ApiResponse> {
+    if (requestType !== 'resources' && requestType !== 'demands') {
+      throw new Error(requestType + ' is not an allowed request type.');
+    }
     let resourceUrl;
     switch (resourceType) {
       case 'personnel':
@@ -75,7 +78,7 @@ export class ApiService {
         resourceUrl = 'consumables';
         break;
     }
-    const endpointPath = `/resources/${resourceUrl}/${resourceId}/contact`;
+    const endpointPath = `/${requestType}/${resourceUrl}/${resourceId}/contact`;
     return this._postTo(endpointPath, message, {recaptcha});
   }
 
