@@ -1,0 +1,150 @@
+<div class="form-block" *ngIf="submitted">
+  Der Bedarf wurde erfolgreich übermittelt. Der geheime Token lautet {{ token }}.
+</div>
+
+<div class="form-block" *ngIf="!submitted">
+  <h2 class="form-block__headline">
+    Bedarflisten importieren
+  </h2>
+
+  <!-- Enter contact information -->
+  <h4 i18n="@@contactData">
+    Kontaktdaten
+  </h4>
+  <div class="form-block__input-field">
+    <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
+    <span class="input-field-focus"></span>
+    <span *ngIf="!provider.institution" class="form-alert" i18n="@@requiredField">
+    Pflichtangabe
+  </span>
+  </div>
+
+  <div class="form-block__input-field">
+    <input type="text" i18n-placeholder="@@name" placeholder="Name" [(ngModel)]="provider.name">
+    <span class="input-field-focus"></span>
+    <span *ngIf="!provider.name" class="form-alert" i18n="@@requiredField">
+    Pflichtangabe
+  </span>
+  </div>
+
+  <div class="form-block__input-field">
+    <input type="email" i18n-placeholder="@@emailAddress" placeholder="Email" [(ngModel)]="provider.mail" email>
+    <span class="input-field-focus"></span>
+    <span *ngIf="!provider.mail" class="form-alert" i18n="@@requiredField">
+    Pflichtangabe
+  </span>
+  </div>
+
+  <div class="form-block__input-field">
+    <input type="text" i18n="@@phoneNumbe" placeholder="Telefon" [(ngModel)]="provider.phone"> <!-- not req -->
+    <span class="input-field-focus"></span>
+  </div>
+
+  <div class="form-block__input-wrapper">
+    <h5 i18n="address">Adresse</h5>
+    Eine Adresse, die keine Postleitzahl spezifiziert, wird ignoriert.
+    <div class="form-block__input-field">
+      <input type="text" i18n-placeholder="@@street" placeholder="Straße" [(ngModel)]="provider.address.street">
+      <span class="input-field-focus"></span>
+    </div>
+    <div class="form-block__input-field">
+      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Hausnummer" [(ngModel)]="provider.address.streetNumber">
+      <span class="input-field-focus"></span>
+    </div>
+    <div class="form-block__input-field">
+      <input type="text" i18n-placeholder="@@postalCode" placeholder="PLZ" [(ngModel)]="provider.address.postalCode">
+      <span class="input-field-focus"></span>
+    </div>
+    <div class="form-block__input-field">
+      <input type="text" i18n-placeholder="@@city" placeholder="Stadt" [(ngModel)]="provider.address.city">
+      <span class="input-field-focus"></span>
+    </div>
+    <div class="form-block__input-field">
+      <input type="text" i18n-placeholder="@@country" placeholder="Land" [(ngModel)]="provider.address.country" disabled>
+      <span class="input-field-focus"></span>
+    </div>
+  </div>
+
+  <!-- Upload list of devices -->
+  <h4>Geräte (CSV hochladen)</h4>
+  <div class="form-block__input-field">
+    <p>
+      Hier können Sie eine CSV Datei mit den angeforderten Geräten hochladen. Die Tabelle muss exakt die folgenden 5
+      Spalten in der genannten Reihenfolge besitzen: Kategorie, Bezeichnung, Hersteller, Anzahl und Kommentare. Die Spalten
+      Kategorie und Anzahl dürfen nicht leer sein. Die Datei darf keine Zeile mit den Bezeichnungen der Spalten
+      haben. Die Spalten müssen durch ein Komma separiert werden.
+    </p>
+    <input type="file" (change)="addDeviceFile($event.target)"/>
+    <div *ngIf="deviceCsvParseErrors">
+      <h5>Fehler:</h5>
+      <p *ngFor="let e of deviceCsvParseErrors.slice(0, 5)">
+        {{ e.message }}
+      </p>
+    </div>
+  </div>
+  <div class="data-preview" *ngIf="devices">
+    <h5>Vorschau (die ersten fünf Zeilen)</h5>
+    <table>
+      <tr>
+        <th>Kategorie</th>
+        <th>Bezeichnung</th>
+        <th>Hersteller</th>
+        <th>Anzahl</th>
+        <th>Kommentare</th>
+      </tr>
+      <tr *ngFor="let row of devices.slice(0, 5)">
+        <td>{{ row.category }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.manufacturer }}</td>
+        <td>{{ row.amount }}</td>
+        <td class="data-preview__notes">{{ row.notes }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Upload list of consumables -->
+  <h4>Verbrauchsgüter (CSV hochladen)</h4>
+  <div class="form-block__input-field">
+    <p>
+      Hier können Sie eine CSV Datei mit den angeforderten Verbrauchsmaterialien hochladen. Die Tabelle muss exakt die
+      folgenden 6 Spalten in der genannten Reihenfolge besitzen: Kategorie, Bezeichnung, Hersteller, Anzahl, Einheit und
+      Kommentare. Die Spalten Kategorie, Anzahl und Einheit dürfen nicht leer sein. Die Datei darf keine Zeile mit den
+      Bezeichnungen der Spalten haben. Die Spalten müssen durch ein Komma separiert werden.
+    </p>
+    <input type="file" (change)="addConsumableFile($event.target)"/>
+    <div *ngIf="consumableCsvParseErrors">
+      <h5>Fehler:</h5>
+      <p *ngFor="let e of consumableCsvParseErrors.slice(0, 5)">
+        {{ e.message }}
+      </p>
+    </div>
+  </div>
+  <div class="data-preview" *ngIf="consumables">
+    <h5>Vorschau (die ersten fünf Zeilen)</h5>
+    <table>
+      <tr>
+        <th>Kategorie</th>
+        <th>Bezeichnung</th>
+        <th>Hersteller</th>
+        <th>Anzahl</th>
+        <th>Einheit</th>
+        <th>Kommentare</th>
+      </tr>
+      <tr *ngFor="let row of consumables.slice(0, 5)">
+        <td>{{ row.category }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.manufacturer }}</td>
+        <td>{{ row.amount }}</td>
+        <td>{{ row.unit }}</td>
+        <td class="data-preview__notes">{{ row.notes }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="submit-button align-center-text">
+    <button class="button" (click)="onSubmit()" [disabled]="!isValid()">
+      Speichern
+    </button>
+  </div>
+
+</div>

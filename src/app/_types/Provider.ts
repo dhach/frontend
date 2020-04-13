@@ -7,7 +7,7 @@ export interface Provider {
   mail: string;
   phone?: string;
   address: Address;
-  isPublic: boolean;
+  isPublic?: boolean;
 }
 
 
@@ -25,7 +25,7 @@ export function providerFromApi(obj: any): Provider {
 
 export function providerToApi(provider: Provider): any {
   return {
-    address: addressToApi(provider.address),
+    address: provider.address ? addressToApi(provider.address) : null,
     name: provider.name,
     organisation: provider.institution,
     mail: provider.mail,

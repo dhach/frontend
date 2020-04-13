@@ -6,12 +6,12 @@ export interface Consumable {
   id?: number;
   category: ConsumableCategory;
   name?: string;
-  manufacturer: string;
-  orderNumber: string;
-  amount?: number;
-  unit?: string;
+  manufacturer?: string;
+  orderNumber?: string;
+  amount: number;
+  unit: string;
   notes?: string;
-  address: Address;
+  address?: Address;
 }
 
 
@@ -30,16 +30,16 @@ export function consumableFromApi(obj: any): Consumable {
 }
 
 
-export function  consumableToApi(personnel: Consumable): any {
+export function consumableToApi(consumable: Consumable): any {
   return {
-    id: personnel.id,
-    category: personnel.category,
-    name: personnel.name,
-    manufacturer: personnel.manufacturer,
-    ordernumber: personnel.orderNumber,
-    amount: personnel.amount,
-    unit: personnel.unit,
-    annotation: personnel.notes,
-    address: addressToApi(personnel.address),
+    id: consumable.id,
+    category: consumable.category,
+    name: consumable.name,
+    manufacturer: consumable.manufacturer,
+    ordernumber: consumable.orderNumber,
+    amount: consumable.amount,
+    unit: consumable.unit,
+    annotation: consumable.notes,
+    address: consumable.address ? addressToApi(consumable.address) : null,
   };
 }

@@ -16,6 +16,11 @@ export class ApiService {
   }
 
 
+  async verifyAdminKey(data): Promise<ApiResponse> {
+    return this._postTo('/admin/verify-key', data);
+  }
+
+
   async requestCall(data, recaptcha) {
     return this._postTo('/telephone-callback', data, {recaptcha});
   }
@@ -111,6 +116,11 @@ export class ApiService {
 
   async deleteConsumable(token: string, resourceId: number, reason: string) {
     return this._deleteTo(`/resources/offers/${token}/consumable/${resourceId}`, reason);
+  }
+
+
+  async addDemand(data) {
+    return this._postTo('/demands', data);
   }
 
 

@@ -10,6 +10,8 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { OfferChangeComponent } from './offer-change/offer-change.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminDemandImportComponent } from './admin-demand-import/admin-demand-import.component';
 
 
 const routes: Routes = [
@@ -22,9 +24,12 @@ const routes: Routes = [
   { path: 'datenschutz', component: DatenschutzComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'change/:key', component: OfferChangeComponent },
-  {path: '404', component: NotFoundComponent},
-  {path: '**', redirectTo: '/404'}
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/demand-import', component: AdminDemandImportComponent },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
