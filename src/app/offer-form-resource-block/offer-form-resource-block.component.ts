@@ -2,11 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Consumable } from '../_types/Consumable';
 import { Device } from '../_types/Device';
 import { Personnel } from '../_types/Personnel';
-import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
-import { ConsumableCategory, consumableCategoryTo} from '../_types/ConsumableCategory';
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -16,10 +15,10 @@ import { LocaleService } from '../locale.service';
 })
 export class OfferFormResourceBlockComponent implements OnInit {
 
-  DeviceCategory = DeviceCategory;
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
+  deviceCategoriesKeys: Array<string>;
+  consumableCategoriesKeys: Array<string>;
   PersonnelQualification = PersonnelQualification;
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   PersonnelArea = PersonnelArea;
@@ -30,8 +29,13 @@ export class OfferFormResourceBlockComponent implements OnInit {
 
 
   constructor(
+    private configurationService: ConfigurationService,
     private localeService: LocaleService,
   ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
+    this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
+    this.consumableCategoriesKeys = Array.from(this.consumableCategories.keys());
   }
 
 

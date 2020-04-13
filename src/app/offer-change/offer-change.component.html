@@ -242,7 +242,7 @@
             </label>
             <select [(ngModel)]="toD(r).category" disabled>
               <option [value]="toD(r).category" selected>
-                {{ deviceCategoryToDE[toD(r).category] }}
+                {{ deviceCategories.get(toD(r).category) }}
               </option>
             </select>
           </div>
@@ -367,7 +367,7 @@
             </label>
             <select [(ngModel)]="toC(r).category" disabled>
               <option [value]="toC(r).category" selected>
-                {{ consumableCategoryTo[toC(r).category] }}
+                {{ consumableCategories.get(toC(r).category) }}
               </option>
             </select>
           </div>

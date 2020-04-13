@@ -16,6 +16,11 @@ export class ApiService {
   }
 
 
+  async getRegionConfiguration(regionCode: string): Promise<ApiResponse> {
+    return this._getTo(`/configuration/region/${regionCode}`);
+  }
+
+
   async verifyAdminKey(data): Promise<ApiResponse> {
     return this._postTo('/admin/verify-key', data);
   }

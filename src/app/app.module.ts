@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +28,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminDemandImportComponent } from './admin-demand-import/admin-demand-import.component';
+import { ConfigurationService } from './configuration.service';
 
 
 @NgModule({
@@ -64,7 +65,14 @@ import { AdminDemandImportComponent } from './admin-demand-import/admin-demand-i
     ReactiveFormsModule,
     RecaptchaModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (configurationService: ConfigurationService) => () => configurationService.startup(),
+      deps: [ConfigurationService],
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

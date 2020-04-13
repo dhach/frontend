@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 import { Device, deviceToApi } from '../_types/Device';
 import { Consumable, consumableToApi } from '../_types/Consumable';
 import { Provider, providerToApi } from '../_types/Provider';
-import { ConsumableCategory } from '../_types/ConsumableCategory';
 import { Unit } from '../_types/Unit';
-import { DeviceCategory } from '../_types/DeviceCategory';
 import { ApiService } from '../api.service';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -17,6 +16,9 @@ import { ApiService } from '../api.service';
   styleUrls: ['./admin-demand-import.component.scss']
 })
 export class AdminDemandImportComponent implements OnInit {
+
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
 
   provider: Provider = {
     institution: '',
@@ -50,7 +52,10 @@ export class AdminDemandImportComponent implements OnInit {
     private router: Router,
     private adminService: AdminService,
     private apiService: ApiService,
+    private configurationService: ConfigurationService,
   ) {
+    this.deviceCategories = configurationService.languageConstants.device;
+    this.consumableCategories = configurationService.languageConstants.consumable;
   }
 
 
@@ -85,7 +90,7 @@ export class AdminDemandImportComponent implements OnInit {
     }
     try {
       this.devices = parseResult.data.map(({ category, name, manufacturer, amount, notes }) => {
-        if (!Object.values(DeviceCategory).includes(category)) {
+        if (!this.deviceCategories.has(category)) {
           throw new Error('Invalid device category: ' + category);
         }
         const device: Device = {
@@ -125,7 +130,7 @@ export class AdminDemandImportComponent implements OnInit {
     }
     try {
       this.consumables = parseResult.data.map(({ category, name, manufacturer, amount, unit, notes }) => {
-        if (!Object.values(ConsumableCategory).includes(category)) {
+        if (!this.consumableCategories.has(category)) {
           throw new Error('Invalid consumable category: ' + category);
         }
         if (!Object.values(Unit).includes(unit)) {

@@ -4,12 +4,11 @@ import { Personnel, personnelFromApi } from '../_types/Personnel';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { providerFromApi } from '../_types/Provider';
-import { DeviceCategory, deviceCategoryTo } from '../_types/DeviceCategory';
-import { ConsumableCategory, consumableCategoryTo } from '../_types/ConsumableCategory';
 import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
 import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
 import { ApiResponseError } from '../_types/ApiResponseError';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -20,10 +19,10 @@ import { ApiResponseError } from '../_types/ApiResponseError';
 export class OfferSearchComponent implements OnInit {
 
 
-  DeviceCategory = DeviceCategory;
-  deviceCategoryToDE = deviceCategoryTo(this.localeService.locale);
-  ConsumableCategory = ConsumableCategory;
-  consumableCategoryTo = consumableCategoryTo(this.localeService.locale);
+  deviceCategories: Map<string, string>;
+  consumableCategories: Map<string, string>;
+  deviceCategoriesKeys: Array<string>;
+  consumableCategoriesKeys: Array<string>;
   PersonnelQualification = PersonnelQualification;
   personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
   PersonnelArea = PersonnelArea;
@@ -46,8 +45,13 @@ export class OfferSearchComponent implements OnInit {
   constructor(
     private localeService: LocaleService,
     private fetchService: ApiService,
+    private configurationService: ConfigurationService,
   ) {
     this.setType('personnel');
+    this.deviceCategories = this.configurationService.languageConstants.device;
+    this.consumableCategories = this.configurationService.languageConstants.consumable;
+    this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
+    this.consumableCategoriesKeys = Array.from(this.consumableCategories.keys());
   }
 
 
