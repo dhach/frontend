@@ -1,6 +1,5 @@
 .page-head .container button {
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 0 10px 20px;
   }
 
 .logo-list {
@@ -11,12 +10,7 @@
 
 
 .logo {
-  margin-right: 30px;
-  margin-bottom: 40px;
-
-  @media only screen and (max-width: 991px) {
-    margin-right: 0;
-  }
+  margin: 0 20px 40px;
 }
 
 

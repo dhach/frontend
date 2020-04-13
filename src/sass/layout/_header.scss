@@ -26,6 +26,10 @@
 	float: left;
 	padding: 15px;
 
+	@media only screen and (max-width: 540px) {
+		padding: 15px 0 0;
+	}
+
 	.logo,.logo-type{
 		display: inline-block;
 		vertical-align: middle;
@@ -37,7 +41,11 @@
 			@include em(16)
 		}
 		.site-description{
-			@include em(12)
+			@include em(12);
+
+			@media only screen and (max-width: 420px) {
+				font-size: 0.6em;
+			}
 		}
 
 		@media only screen and (max-width: 991px) {
@@ -254,7 +262,7 @@
 
 .page-head{
 	background-size: cover;
-	padding: 50px 0;
+	padding: 50px 0 25px;
 	text-align: center;
 	color: white;
     background-image: url("/assets/images/page-head-2@2x.jpg");

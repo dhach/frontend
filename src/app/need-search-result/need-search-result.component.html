@@ -1,0 +1,97 @@
+<div class="form-block">
+    <h3 class="form-block__headline" i18n="@@searchResults">Suchergebnisse</h3>
+    <p *ngIf="searchResults.length === 0; else elseBlock" i18n="@@noResults">Keine Ergebnisse gefunden</p>
+</div>
+
+<ng-template #elseBlock>
+    <table *ngIf="type === 'device'" class="need-search__results">
+        <thead>
+            <tr>
+                <th>Gegenstand</th>
+                <th>Anzahl</th>
+                <th>Materialbezeichnung</th>
+                <th>Hersteller</th>
+                <th>Anmerkungen</th>
+            </tr>
+        </thead>
+
+        <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index">
+            <tbody class="need-search__results-element">
+                <tr>
+                    <td>{{ deviceCategories.get(r.resource.category) }}</td>
+                    <td>{{ r.resource.amount }}</td>
+                    <td>{{ r.resource.name }}</td>
+                    <td>{{ r.resource.manufacturer }}</td>
+                    <td>{{ r.resource.notes }}</td>
+                </tr>
+            </tbody>
+            <tr>
+                <td colspan="5" class="bottom-td align-center-text">
+                    <button
+                            class="need-search__results-btn align-center"
+                            (click)="toggleShowDetails(i)"
+                            i18n="@@makeContact"
+                    >Kontakt aufnehmen</button>
+                </td>
+            </tr>
+            <div *ngIf="showDetails[i]" class="form-block__overlay">
+                <div class="form-block__overlay-inner">
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <div class="scroll-container">
+                        <app-offer-search-contact-form
+                                resourceType="consumable"
+                                [resourceId]="r.resource.id"
+                        ></app-offer-search-contact-form>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </table>
+
+    <table *ngIf="type === 'consumable'" class="need-search__results">
+        <thead>
+            <tr>
+                <th>Gegenstand</th>
+                <th>Anzahl</th>
+                <th>Materialbezeichnung</th>
+                <th>Hersteller</th>
+                <th>Anmerkungen</th>
+            </tr>
+        </thead>
+
+        <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index" >
+            <tbody class="need-search__results-element">
+                <tr>
+                    <td>{{ consumableCategories.get(r.resource.category) }}</td>
+                    <td>{{ r.resource.amount }} {{ unitTo[r.resource.unit] }}</td>
+                    <td>{{ r.resource.name }}</td>
+                    <td>{{ r.resource.manufacturer }}</td>
+                    <td>{{ r.resource.notes }}</td>
+                </tr>
+            </tbody>
+            <tr>
+                <td colspan="5" class="align-center-text">
+                    <button
+                            class="need-search__results-btn"
+                            (click)="toggleShowDetails(i)"
+                            i18n="@@makeContact"
+                    >Kontakt aufnehmen</button>
+                </td>
+            </tr>
+            <div *ngIf="showDetails[i]" class="form-block__overlay">
+                <div class="form-block__overlay-inner">
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <div class="scroll-container">
+                    <app-offer-search-contact-form
+                            resourceType="consumable"
+                            [resourceId]="r.resource.id"
+                    ></app-offer-search-contact-form>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </table>
+</ng-template>
+
+
+

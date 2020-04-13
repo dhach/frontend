@@ -1,0 +1,47 @@
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  .need-search__results-btn {
+    margin-bottom: 20px;
+  }
+
+  .bottom-td {
+    border-bottom: 1px solid #CCC;
+  }
+
+  .form-block__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    &-inner {
+      height: 100vh;
+      width: 100vw;
+      overflow: scroll;
+
+      .close-overlay {
+        position: absolute;
+        z-index: 101;
+        top: 45px;
+        right: 15px;
+        background-color: #FFF;
+        padding: 5px;
+        color: red;
+        border-radius: 5px;
+      }
+
+      .scroll-container {
+        max-width: 640px;
+        margin: 35px auto 0;
+      }
+    }
+  }
+}

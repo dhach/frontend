@@ -29,6 +29,9 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminDemandImportComponent } from './admin-demand-import/admin-demand-import.component';
 import { ConfigurationService } from './configuration.service';
+import { NeedSearchComponent } from './need-search/need-search.component';
+import { NeedSearchResultComponent } from './need-search-result/need-search-result.component';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -54,7 +57,11 @@ import { ConfigurationService } from './configuration.service';
     RegionSubscriptionFormComponent,
     AdminComponent,
     AdminHeaderComponent,
-    AdminDemandImportComponent
+    AdminDemandImportComponent,
+    RegionSubscriptionFormComponent,
+    NeedSearchComponent,
+    FilterPipe,
+    NeedSearchResultComponent
   ],
   imports: [
     BrowserModule,

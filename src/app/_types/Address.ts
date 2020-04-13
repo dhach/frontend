@@ -10,6 +10,18 @@ export interface Address {
 
 
 export function addressFromApi(obj: any): Address {
+  // This is needed, if the address is not set
+  if (!obj) {
+    return {
+      street: null,
+      streetNumber: null,
+      postalCode: null,
+      city: null,
+      country: null,
+      latitude: null,
+      longitude: null,
+    };
+  }
   return {
     street: obj.street,
     streetNumber: obj.streetnumber,

@@ -60,11 +60,19 @@
     display: inline-block;
     font-weight: bold;
     min-width: 150px;
+
+    @media only screen and (max-width: 420px) {
+      min-width: 140px;
+    }
   }
   &-category-2 {
     display: inline-block;
     min-width: 140px;
     padding-right: 5px;
+
+    @media only screen and (max-width: 420px) {
+      min-width: 130px;
+    }
   }
 
   &-amount-helper {

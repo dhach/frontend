@@ -38,6 +38,7 @@ input[disabled], select[disabled] {
 	margin: 0 auto 35px;
 	padding: 50px 7.5%;
 	border-radius: 5px;
+	background-color: #FFF;
 	box-shadow: 2px 2px 6px 2px #ccc;
 	position: relative;
 
@@ -157,6 +158,13 @@ input[disabled], select[disabled] {
 		left: 5px;
 		font-size: 10px;
 		margin: 0;
+	}
+
+	&.half-input {
+		display: inline-block;
+		width: 46%;
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 }
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { OfferSearchComponent } from './offer-search/offer-search.component';
+import { NeedSearchComponent } from './need-search/need-search.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { OfferFormComponent } from './offer-form/offer-form.component';
 import { AboutComponent } from './about/about.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'angebote/neu', component: OfferFormComponent },
   { path: 'suchanfrage', component: OfferSearchComponent },
+  { path: 'demands', component: NeedSearchComponent },
   { path: 'contact', component: ContactPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'about', component: AboutComponent },
