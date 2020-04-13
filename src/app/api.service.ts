@@ -119,6 +119,11 @@ export class ApiService {
   }
 
 
+  async addDemand(data) {
+    return this._postTo('/demands', data);
+  }
+
+
   private async _getTo(
     endpointPath: string,
     opts: {

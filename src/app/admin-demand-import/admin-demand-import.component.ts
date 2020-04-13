@@ -2,12 +2,13 @@ import * as Papa from 'papaparse/papaparse.min.js';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
-import { Device } from '../_types/Device';
-import { Consumable } from '../_types/Consumable';
-import { Provider } from '../_types/Provider';
+import { Device, deviceToApi } from '../_types/Device';
+import { Consumable, consumableToApi } from '../_types/Consumable';
+import { Provider, providerToApi } from '../_types/Provider';
 import { ConsumableCategory } from '../_types/ConsumableCategory';
 import { Unit } from '../_types/Unit';
 import { DeviceCategory } from '../_types/DeviceCategory';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -40,10 +41,15 @@ export class AdminDemandImportComponent implements OnInit {
     message: string,
   }>;
 
+  submitted = false;
+  token: string;
+  unexpectedError = false;
+
 
   constructor(
     private router: Router,
     private adminService: AdminService,
+    private apiService: ApiService,
   ) {
   }
 
@@ -57,7 +63,7 @@ export class AdminDemandImportComponent implements OnInit {
 
   isValid(): boolean {
     return !!(
-      this.devices && this.consumables && this.provider.name
+      (this.devices || this.consumables) && this.provider.name
       && this.provider.institution && this.provider.mail
     );
   }
@@ -148,6 +154,24 @@ export class AdminDemandImportComponent implements OnInit {
 
 
   async onSubmit() {
-    console.log(this.provider, this.devices, this.consumables, this.adminService.adminKey);
+    this.unexpectedError = false;
+    const data = {
+      adminKey: this.adminService.adminKey,
+      data: {
+        provider: providerToApi(this.provider),
+        devices: this.devices?.map(deviceToApi),
+        consumables: this.consumables?.map(consumableToApi),
+      },
+    };
+    if (data.data.provider.address && !data.data.provider.address.postalCode) {
+      data.data.provider.address = null;
+    }
+    const response = await this.apiService.addDemand(data);
+    if (response.error) {
+      this.unexpectedError = true;
+      return;
+    }
+    this.submitted = true;
+    this.token = response.data;
   }
 }

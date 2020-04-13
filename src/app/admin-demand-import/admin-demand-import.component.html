@@ -1,4 +1,8 @@
-<div class="form-block">
+<div class="form-block" *ngIf="submitted">
+  Der Bedarf wurde erfolgreich übermittelt. Der geheime Token lautet {{ token }}.
+</div>
+
+<div class="form-block" *ngIf="!submitted">
   <h2 class="form-block__headline">
     Bedarflisten importieren
   </h2>
@@ -38,6 +42,7 @@
 
   <div class="form-block__input-wrapper">
     <h5 i18n="address">Adresse</h5>
+    Eine Adresse, die keine Postleitzahl spezifiziert, wird ignoriert.
     <div class="form-block__input-field">
       <input type="text" i18n-placeholder="@@street" placeholder="Straße" [(ngModel)]="provider.address.street">
       <span class="input-field-focus"></span>

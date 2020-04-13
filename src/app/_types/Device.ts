@@ -28,7 +28,7 @@ export function deviceFromApi(obj: any): Device {
 }
 
 
-export function  deviceToApi(personnel: Device): any {
+export function deviceToApi(personnel: Device): any {
   return {
     id: personnel.id,
     category: personnel.category,
@@ -37,6 +37,6 @@ export function  deviceToApi(personnel: Device): any {
     ordernumber: personnel.orderNumber,
     amount: personnel.amount,
     annotation: personnel.notes,
-    address: addressToApi(personnel.address),
+    address: personnel.address ? addressToApi(personnel.address) : null,
   };
 }
