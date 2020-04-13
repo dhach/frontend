@@ -15,23 +15,37 @@
             </tr>
         </thead>
 
-        <tbody *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index" class="need-search__results-element">
+        <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index">
+            <tbody class="need-search__results-element">
+                <tr>
+                    <td>{{ deviceCategoryToDE[r.resource.category] }}</td>
+                    <td>{{ r.resource.amount }}</td>
+                    <td>{{ r.resource.name }}</td>
+                    <td>{{ r.resource.manufacturer }}</td>
+                    <td>{{ r.resource.notes }}</td>
+                </tr>
+            </tbody>
             <tr>
-                <td>{{ deviceCategoryToDE[r.resource.category] }}</td>
-                <td>{{ r.resource.amount }}</td>
-                <td>{{ r.resource.name }}</td>
-                <td>{{ r.resource.manufacturer }}</td>
-                <td>{{ r.resource.notes }}</td>
+                <td colspan="5" class="bottom-td align-center-text">
+                    <button
+                            class="need-search__results-btn align-center"
+                            (click)="toggleShowDetails(i)"
+                            i18n="@@makeContact"
+                    >Kontakt aufnehmen</button>
+                </td>
             </tr>
-            <tr>
-                <button
-                    class="need-search__results-btn"
-                    *ngIf="!showDetails[i]"
-                    (click)="toggleShowDetails(i)"
-                    i18n="@@showDetails"
-                >Details anzeigen</button>
-            </tr>
-        </tbody>
+            <div *ngIf="showDetails[i]" class="form-block__overlay">
+                <div class="form-block__overlay-inner">
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <div class="scroll-container">
+                        <app-offer-search-contact-form
+                                resourceType="consumable"
+                                [resourceId]="r.resource.id"
+                        ></app-offer-search-contact-form>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </table>
 
     <table *ngIf="type === 'consumable'" class="need-search__results">
@@ -45,16 +59,37 @@
             </tr>
         </thead>
 
-        <tbody *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index" class="need-search__results-element">
+        <ng-container *ngFor="let r of searchResults | filterpipe : filter.name : filter.manufacturer : filter.amount.minimum : filter.amount.maximum : filter.notes; let i = index" >
+            <tbody class="need-search__results-element">
+                <tr>
+                    <td>{{ consumableCategoryToDE[r.resource.category] }}</td>
+                    <td>{{ r.resource.amount }} {{ unitTo[r.resource.unit] }}</td>
+                    <td>{{ r.resource.name }}</td>
+                    <td>{{ r.resource.manufacturer }}</td>
+                    <td>{{ r.resource.notes }}</td>
+                </tr>
+            </tbody>
             <tr>
-                <td>{{ consumableCategoryToDE[r.resource.category] }}</td>
-                <td>{{ r.resource.amount }} {{ unitTo[r.resource.unit] }}</td>
-                <td>{{ r.resource.name }}</td>
-                <td>{{ r.resource.manufacturer }}</td>
-                <td>{{ r.resource.notes }}</td>
+                <td colspan="5" class="align-center-text">
+                    <button
+                            class="need-search__results-btn"
+                            (click)="toggleShowDetails(i)"
+                            i18n="@@makeContact"
+                    >Kontakt aufnehmen</button>
+                </td>
             </tr>
-            <tr></tr>
-        </tbody>
+            <div *ngIf="showDetails[i]" class="form-block__overlay">
+                <div class="form-block__overlay-inner">
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <div class="scroll-container">
+                    <app-offer-search-contact-form
+                            resourceType="consumable"
+                            [resourceId]="r.resource.id"
+                    ></app-offer-search-contact-form>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </table>
 </ng-template>
 
