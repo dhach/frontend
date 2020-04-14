@@ -172,56 +172,70 @@ export class AboutComponent implements OnInit {
   ];
 
   developer = [
+        {
+        image: 'chaoran.jpg',
+        name: 'Chaoran Chen',
+        short: {
+          de: 'TU München - Student (Informatik)',
+          en: 'TU Munich - Student (Computer Science)',
+        },
+        long: {
+          de: 'Eigentlich wollten Max, Lukas und ich Kleinbauern in Kenia helfen,' +
+            ' ihre Marktmacht auszubauen, um so bessere Erträge erzielen zu können.' +
+            ' Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam' +
+            ' der Hackathon uns sehr gelegen, um die freigewordene Zeit sinnvoll und' +
+            ' kreativ zu nutzen.',
+          en: 'Max, Lukas and I had just started a project in Kenya to help small' +
+            ' farmers by improving logistic chains when the corona crisis hit Europe.' +
+            ' After our already booked trip was, unfortuntely, canceled, we had enough' +
+            ' time to learn how to become a PIRAT(e).',
+        }
+      },
       {
-      image: 'chaoran.jpg',
-      name: 'Chaoran Chen',
-      short: {
-        de: 'TU München - Student (Informatik)',
-        en: 'TU Munich - Student (Computer Science)',
+        image: 'max.jpg',
+        name: 'Maximilian Wiesholler',
+        short: {
+          de: 'TU München - Student (Informatik)',
+          en: 'TU Munich - Student (Computer Science)',
+        },
+        long: {
+          de: 'Aus einem Hackathon Wochende ist ein tolles Projekt entstanden. Mit jeder freien Zeit' +
+            ' die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
+            ' die Nacht hinein, aber wenn Ressourcen und Hilfen an die benötigten Stellen verteilt werden' +
+            ' können, hat sich das gelohnt.',
+          en: 'Starting from an Hackathon weekend a great project is emerged. For PIRAT I am working in the' +
+            ' Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
+            ' can be distributed to those that need them urgently, the effort was worth it. ',
+        },
       },
-      long: {
-        de: 'Eigentlich wollten Max, Lukas und ich Kleinbauern in Kenia helfen,' +
-          ' ihre Marktmacht auszubauen, um so bessere Erträge erzielen zu können.' +
-          ' Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam' +
-          ' der Hackathon uns sehr gelegen, um die freigewordene Zeit sinnvoll und' +
-          ' kreativ zu nutzen.',
-        en: 'Max, Lukas and I had just started a project in Kenya to help small' +
-          ' farmers by improving logistic chains when the corona crisis hit Europe.' +
-          ' After our already booked trip was, unfortuntely, canceled, we had enough' +
-          ' time to learn how to become a PIRAT(e).',
+      {
+        image: 'benjamin.jpg',
+        name: 'Benjamin Wolf',
+        short: {
+          de: 'Universität Hamburg - Student (Informatik)',
+          en: 'University of Hamburg - Student (Computer Science)',
+        },
+        long: {
+          de: 'Da die Uni momentan sowieso komplett still steht, war ich sehr froh, als Chaoran mir das Projekt' +
+            ' vorgestellt hat. Jetzt kann ich weiter zuhause rumsitzen und trotzdem etwas Sinnvolles machen.',
+          en: 'I was very happy when Chaoran showed me the project since the University is completely shut' +
+            ' down at the moment. Now I can keep staying home, but still work on something useful.',
+        },
+      },
+      {
+        image: 'logo.png',
+        name: 'Timo Weike',
+        short: {
+          de: 'Universität Bielefeld - Student (Kognitive Informatik)',
+          en: 'University of Bielefeld - Student (Cognitive Informatics)',
+        },
+        long: {
+          de: 'Als ich von dem Projekt über den Mailverteiler meiner Fachschaft hörte, dachte ich:' +
+            ' “Das klingt nach einer tollen Idee und gute chance mit meinen Talenten in dieser Krise zu helfen”',
+          en: 'When I heard about the project via the mailing list of my Student Council, I thought: “That' +
+            ' sounds like a great idea and a good chance to help with my talents in this crisis”',
+        }
       }
-    },
-    {
-      image: 'max.jpg',
-      name: 'Maximilian Wiesholler',
-      short: {
-        de: 'TU München - Student (Informatik)',
-        en: 'TU Munich - Student (Computer Science)',
-      },
-      long: {
-        de: 'Aus einem Hackathon Wochende ist ein tolles Projekt entstanden. Mit jeder freien Zeit' +
-          ' die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
-          ' die Nacht hinein, aber wenn Ressourcen und Hilfen an die benötigten Stellen verteilt werden' +
-          ' können, hat sich das gelohnt.',
-        en: 'Starting from an Hackathon weekend a great project is emerged. For PIRAT I am working in the' +
-          ' Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
-          ' can be distributed to those that need them urgently, the effort was worth it. ',
-      },
-    },
-    {
-      image: 'benjamin.jpg',
-      name: 'Benjamin Wolf',
-      short: {
-        de: 'Universität Hamburg - Student (Informatik)',
-        en: 'University of Hamburg - Student (Computer Science)',
-      },
-      long: {
-        de: 'Da die Uni momentan sowieso komplett still steht, war ich sehr froh, als Chaoran mir das Projekt' +
-          ' vorgestellt hat. Jetzt kann ich weiter zuhause rumsitzen und trotzdem etwas Sinnvolles machen.',
-        en: 'I was very happy when Chaoran showed me the project since the University is completely shut' +
-          ' down at the moment. Now I can keep staying home, but still work on something useful.',
-      },
-    },
   ];
 
   international = [
