@@ -138,6 +138,23 @@ export class AboutComponent implements OnInit {
       },
     },
     {
+      image: 'franziska.jpg',
+      name: 'Franziska Eyo',
+      short: {
+        de: 'Universität Rostock - Student (Medizin)',
+        en: 'University of Rostock - Student (Medical Science)',
+      },
+      long: {
+        de: 'In Zeiten von Social Distancing und Ausgangsbeschränkungen, müssen wir alle' +
+          ' Abstriche machen ... und vor allen Dingen testen! Damit das gewährleistet werden kann,' +
+          ' ist eine funktionierende Ressourcenallokation immens wichtig. Durch die' +
+          ' Kommunikation mit verschiedenen Interessensgruppen versuche ich PIRAT zu unterstützen.',
+        en: 'In times of social distancing and stockpiling toilet paper, we all want to fight' +
+          ' COVID-19. Since testing is a crucial part of it, the allocation of the required resources' +
+          ' has to work effectively! By communicating with PIRAT’s stakeholders, I want to support this project.',
+      },
+    },
+    {
       image: 'miklas.jpg',
       name: 'Miklas Martens',
       short: {
@@ -151,7 +168,7 @@ export class AboutComponent implements OnInit {
         en: 'The current situation warrants a collaboration of various institutions and' +
           ' academic subject-areas, which is why I hope to contribute to this project, even as an non-specialist in informatics.',
       },
-    },
+    }
   ];
 
   developer = [
