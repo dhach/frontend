@@ -243,7 +243,20 @@ export class AboutComponent implements OnInit {
           'tackle open questions. Investing your personal time into a project like PIRAT is a valuable contribution ' +
           'everybody can make to fight COIVD.',
       }[this.localeService.locale]
+    },
+    {
+      image: 'logo.png',
+      name: 'Sebastian Kränzle',
+      short: {
+        de: 'Datenschutzberater',
+        en: 'Data privacy conduit',
+      }[this.localeService.locale],
+      long: {
+        de: '',
+        en: '',
+      }[this.localeService.locale]
     }
+
   ];
 
 
