@@ -15,7 +15,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Doktorandin (Chemie)',
         en: 'TU Munich - PhD Student (Chemistry)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Wir haben schon vor einiger Zeit in meiner Arbeitsgruppe diskutiert, wie wir mit unserer Expertise und ' +
           'derzeit ungenutzten Materialien (Handschuhe, Desinfektionsmittel oder Laborgeräte) in der aktuellen Lage ' +
@@ -23,7 +23,7 @@ export class AboutComponent implements OnInit {
         en: 'Some time ago, we discussed in my research group how we could help in the current situation with our ' +
           'expertise and unused material like gloves, disinfectants or lab devices. So, the WirvsVirus hackathon ' +
           'came just in time to follow words with deeds!',
-      }[this.localeService.locale]
+      }
     },
     {
       image: 'eli.jpg',
@@ -31,7 +31,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Doktorandin (Chemie)',
         en: 'TU Munich - PhD Student (Chemistry)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Zusammen mit einer befreundeten TA, die gerade für die Messung von Corona-Proben geschult wird, hatte ' +
           'ich schon überlegt, ob und wie Uni-Ressourcen dem Labor bei der Ausweitung ihrer Corona-Testkapazitäten ' +
@@ -39,7 +39,7 @@ export class AboutComponent implements OnInit {
         en: 'Together with a friend of mine, who is currently undergoing special training to conduct corona tests, ' +
           'we were brainstorming if and how universities could provide help to official corona-testing laboratories. ' +
           'The WirVsVirus-Hackathon was a good opportunity to work on solutions.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'klemens.jpg',
@@ -47,13 +47,13 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TÜV SÜD Product Service - Prüfingenieur für aktive Medizinprodukte',
         en: 'TÜV SÜD Product Service - Test engineer for active medical products',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'In dieser außergewöhnlichen Situation ist jede Hilfe notwendig. Ich möchte eine helfende Hand anbieten,' +
           ' wo auch immer eine gebraucht wird. Hackathon ist eine gute Gelegenheit dafür.',
         en: 'In this extraordinary situation every help is needed. I would like to offer my knowledge whereever it ' +
           'is necessary. PIRAT is a good motivation to bring people together.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'markus.jpg',
@@ -61,7 +61,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'Universität Osnabrück - Postdoc (Biochemie)',
         en: 'University of Osnabrück - Postdoc (Biochemestry)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Ich bin absolut kein Hacker. Aber als Wissenschaftler weiß ich, welche Geräte und Materialien' +
           ' im Labor gebraucht werden und was nötig ist, um einen Test durchzuführen und auszuwerten. Ich versuche' +
@@ -69,7 +69,7 @@ export class AboutComponent implements OnInit {
         en: 'I am definitly not a hacker! However, as a scientist and researcher i know about all the devices and ' +
           'materials that are needed in a laboratory. Furthermore, i am familiar with test procedures and therefore ' +
           'provide the PIRAT team with all the necessary background.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'lisa.jpg',
@@ -77,12 +77,12 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Doktorandin (Chemie)',
         en: 'TU Munich - PhD Student (Chemistry)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Ich bin durch meine Kolleginnen auf das Projekt aufmerksam geworden' +
           ' und freue mich, fachlichen Input zu geben und mitzuhelfen.',
         en: 'My colleagues brought this project to my attention and I am happy to provide input wherever I can.',
-      }[this.localeService.locale],
+      },
     }
   ];
 
@@ -93,7 +93,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Student (Informatik)',
         en: 'TU Munich - Student (Computer Science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Man kann entweder auf der faulen Haut sitzen und die Krise ausharren oder' +
         ' sich in irgendeiner Form engagieren und nützlich machen. Hier sind der Kreativität' +
@@ -105,7 +105,7 @@ export class AboutComponent implements OnInit {
         ' with your skills to this situation and creativity has no limits, what we have also seen' +
         ' during the WirVsVirus Hackathon. Working on the PIRAT project has not only been a ' +
         ' meaningful work to me, but also an unforgettable experience i will never forget.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'annette.jpg',
@@ -113,7 +113,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU Kaiserslautern - akademische Rätin (Informatik)',
         en: 'TU Kaiserslautern - Academic counsel (computer science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von' +
           ' PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen' +
@@ -121,7 +121,7 @@ export class AboutComponent implements OnInit {
         en: 'Hackathons are fascinating - Furthermore, WirVsVirus addresses an important topic, aiming for urgent' +
           ' solutions. With PIRAT we bring  research and industry together, in order to fight against corona with' +
           ' joint forces.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'niklas.jpg',
@@ -129,13 +129,13 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'LMU München / University of Edinburgh - Student (Medizin / Bioinformatik)',
         en: 'LMU Munich / University of Edinburgh - Student (Medicine / Bioinformatics)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Niklas studiert Medizin und Bioinformatik - kein Wunder also, dass er sofort' +
           'bei unserem Projekt dabei war und uns mit seiner Expertise aus beiden Bereichen unterstützt!',
         en: 'Niklas studies medicine und bioinformatics - no wonder that he jumped onto our project right' +
           'away, contributing his expertise from both fields.',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'miklas.jpg',
@@ -143,14 +143,14 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'Universität Hamburg - Student (Pharmazie)',
         en: 'University of Hamburg - Student (Pharmacy)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Die aktuelle Lage macht den Austausch von verschiedensten Institutionen' +
           ' und Fachrichtungen notwendig, weswegen ich auch als „Fachfremder“ hoffe hier' +
           ' etwas zu diesem Austausch beitragen zu können.',
         en: 'The current situation warrants a collaboration of various institutions and' +
           ' academic subject-areas, which is why I hope to contribute to this project, even as an non-specialist in informatics.',
-      }[this.localeService.locale],
+      },
     },
   ];
 
@@ -161,7 +161,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Student (Informatik)',
         en: 'TU Munich - Student (Computer Science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Eigentlich wollten Max, Lukas und ich Kleinbauern in Kenia helfen,' +
           ' ihre Marktmacht auszubauen, um so bessere Erträge erzielen zu können.' +
@@ -172,7 +172,7 @@ export class AboutComponent implements OnInit {
           ' farmers by improving logistic chains when the corona crisis hit Europe.' +
           ' After our already booked trip was, unfortuntely, canceled, we had enough' +
           ' time to learn how to become a PIRAT(e).',
-      }[this.localeService.locale]
+      }
     },
     {
       image: 'max.jpg',
@@ -180,7 +180,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'TU München - Student (Informatik)',
         en: 'TU Munich - Student (Computer Science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Aus einem Hackathon Wochende ist ein tolles Projekt entstanden. Mit jeder freien Zeit' +
           ' die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
@@ -189,7 +189,7 @@ export class AboutComponent implements OnInit {
         en: 'Starting from an Hackathon weekend a great project is emerged. For PIRAT I am working in the' +
           ' Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
           ' can be distributed to those that need them urgently, the effort was worth it. ',
-      }[this.localeService.locale],
+      },
     },
     {
       image: 'benjamin.jpg',
@@ -197,13 +197,13 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'Universität Hamburg - Student (Informatik)',
         en: 'University of Hamburg - Student (Computer Science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Da die Uni momentan sowieso komplett still steht, war ich sehr froh, als Chaoran mir das Projekt' +
           ' vorgestellt hat. Jetzt kann ich weiter zuhause rumsitzen und trotzdem etwas Sinnvolles machen.',
         en: 'I was very happy when Chaoran showed me the project since the University is completely shut' +
           ' down at the moment. Now I can keep staying home, but still work on something useful.',
-      }[this.localeService.locale],
+      },
     },
   ];
 
@@ -214,7 +214,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'ETH Zürich - Student (Data Science)',
         en: 'ETH Zurich - Student (Data Science)',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'In normalen Zeiten entwickle ich generative Machine Learning Modelle' +
         'und bin in der Entrepreneur-Community aktiv. Ich halte es für essentiell, ' +
@@ -223,7 +223,7 @@ export class AboutComponent implements OnInit {
         en: 'I usually work on generative machine learning models and engage in the entrepreneurial community.' +
         ' I believe that in such a global crises, every single person should actively participate and do the best' +
         ' to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
-      }[this.localeService.locale],
+      },
     },
   ];
 
@@ -234,7 +234,7 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'IT Consultant aus München',
         en: 'IT consultant from Munich',
-      }[this.localeService.locale],
+      },
       long: {
         de: 'Ich bin hier während des Hackatons in das Team mit reingerutscht als Ratgeber, Fehlerfinder und' +
           ' Wissensquelle bei verschiedenen Fragestellungen. Und was gäbe es aktuell Besseres als seine Zeit für den' +
@@ -242,7 +242,7 @@ export class AboutComponent implements OnInit {
         en: 'I joined the team during the hackathon to help out as advisor, investigator and problem solver to ' +
           'tackle open questions. Investing your personal time into a project like PIRAT is a valuable contribution ' +
           'everybody can make to fight COIVD.',
-      }[this.localeService.locale]
+      }
     },
     {
       image: 'logo.png',
@@ -250,11 +250,11 @@ export class AboutComponent implements OnInit {
       short: {
         de: 'Datenschutzberater',
         en: 'Data privacy conduit',
-      }[this.localeService.locale],
+      },
       long: {
         de: '',
         en: '',
-      }[this.localeService.locale]
+      }
     }
 
   ];
@@ -267,6 +267,11 @@ export class AboutComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+
+  getLocaleText(x): string {
+    return x[this.localeService.locale] ?? x.en;
   }
 
 }
