@@ -70,6 +70,19 @@ export class AboutComponent implements OnInit {
           'materials that are needed in a laboratory. Furthermore, i am familiar with test procedures and therefore ' +
           'provide the PIRAT team with all the necessary background.',
       }[this.localeService.locale],
+    },
+    {
+      image: 'lisa.jpg',
+      name: 'Lisa Göpfert',
+      short: {
+        de: 'TU München - Doktorandin (Chemie)',
+        en: 'TU Munich - PhD Student (Chemistry)',
+      }[this.localeService.locale],
+      long: {
+        de: 'Ich bin durch meine Kolleginnen auf das Projekt aufmerksam geworden' +
+          ' und freue mich, fachlichen Input zu geben und mitzuhelfen.',
+        en: 'My colleagues brought this project to my attention and I am happy to provide input wherever I can.',
+      }[this.localeService.locale],
     }
   ];
 
@@ -83,15 +96,15 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale],
       long: {
         de: 'Man kann entweder auf der faulen Haut sitzen und die Krise ausharren oder' +
-        'sich in irgendeiner Form engagieren und nützlich machen. Hier sind der Kreativität' +
-        'keine Grenzen gesetzt, was wir auch beim WirVsVirus Hackathon gesehen haben. Die' +
-        'Arbeit an dem PIRAT Projekt ist für mich nicht nur eine sinnvolle Aufgabe sondern' +
-        'auch eine einzigartige Erfahrung die ich nicht missen möchte.',
+        ' sich in irgendeiner Form engagieren und nützlich machen. Hier sind der Kreativität' +
+        ' keine Grenzen gesetzt, was wir auch beim WirVsVirus Hackathon gesehen haben. Die' +
+        ' Arbeit an dem PIRAT Projekt ist für mich nicht nur eine sinnvolle Aufgabe sondern' +
+        ' auch eine einzigartige Erfahrung die ich nicht missen möchte.',
         en: 'Everybody has the choice to either do nothing and wait until this crisis will ' +
-        'be over or try to do his part in fighting the virus. There are many ways to contribute ' +
-        'with your skills to this situation and creativity has no limits, what we have also seen' +
-        'during the WirVsVirus Hackathon. Working on the PIRAT project has not only been a ' +
-        'meaningful work to me, but also an unforgettable experience i will never forget.',
+        ' be over or try to do his part in fighting the virus. There are many ways to contribute ' +
+        ' with your skills to this situation and creativity has no limits, what we have also seen' +
+        ' during the WirVsVirus Hackathon. Working on the PIRAT project has not only been a ' +
+        ' meaningful work to me, but also an unforgettable experience i will never forget.',
       }[this.localeService.locale],
     },
     {
@@ -105,9 +118,9 @@ export class AboutComponent implements OnInit {
         de: 'Ich finde Hackathons faszinierend - WirVsVirus bringt außerdem noch Aktualität und Impact. Die Idee von' +
           ' PIRAT fand ich super: Wir bringen Forschung und Praxis auf neue Art zusammen um Ressourcen im Kampf gegen' +
           ' Corona zu schaffen!',
-        en: 'Hackathons are fascinating - Furthermore, WirVsVirus addresses an important topic, aiming for urgent ' +
-          'solutions. With PIRAT we bring  research and industry together, in order to fight against corona with ' +
-          'joint forces.',
+        en: 'Hackathons are fascinating - Furthermore, WirVsVirus addresses an important topic, aiming for urgent' +
+          ' solutions. With PIRAT we bring  research and industry together, in order to fight against corona with' +
+          ' joint forces.',
       }[this.localeService.locale],
     },
     {
@@ -124,6 +137,21 @@ export class AboutComponent implements OnInit {
           'away, contributing his expertise from both fields.',
       }[this.localeService.locale],
     },
+    {
+      image: 'miklas.jpg',
+      name: 'Miklas Martens',
+      short: {
+        de: 'Universität Hamburg - Student (Pharmazie)',
+        en: 'University of Hamburg - Student (Pharmacy)',
+      }[this.localeService.locale],
+      long: {
+        de: 'Die aktuelle Lage macht den Austausch von verschiedensten Institutionen' +
+          ' und Fachrichtungen notwendig, weswegen ich auch als „Fachfremder“ hoffe hier' +
+          ' etwas zu diesem Austausch beitragen zu können.',
+        en: 'The current situation warrants a collaboration of various institutions and' + 
+          ' academic subject-areas, which is why I hope to contribute to this project, even as an non-specialist in informatics.',
+      }[this.localeService.locale],
+    },
   ];
 
   developer = [
@@ -135,10 +163,15 @@ export class AboutComponent implements OnInit {
         en: 'TU Munich - Student (Computer Science)',
       }[this.localeService.locale],
       long: {
-        de: '... Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam der Hackathon uns sehr' +
-          ' gelegen, um die freigewordene Zeit sinnvoll und kreativ zu nutzen. ...',
-        en: '... Our flights got cancelled and the project died. Nonetheless, we stayed optimistic and were eager to ' +
-          'contribute with our expertise and creativity to the hackathon. ...',
+        de: 'Eigentlich wollten Max, Lukas und ich Kleinbauern in Kenia helfen,' +
+          ' ihre Marktmacht auszubauen, um so bessere Erträge erzielen zu können.' +
+          ' Nachdem das Coronavirus jedoch unsere gebuchte Reise verhinderte, kam' +
+          ' der Hackathon uns sehr gelegen, um die freigewordene Zeit sinnvoll und' +
+          ' kreativ zu nutzen.',
+        en: 'Max, Lukas and I had just started a project in Kenya to help small' +
+          ' farmers by improving logistic chains when the corona crisis hit Europe.' +
+          ' After our already booked trip was, unfortuntely, canceled, we had enough' +
+          ' time to learn how to become a PIRAT(e).',
       }[this.localeService.locale]
     },
     {
@@ -150,12 +183,26 @@ export class AboutComponent implements OnInit {
       }[this.localeService.locale],
       long: {
         de: 'Aus einem Hackathon Wochende ist ein tolles Projekt entstanden. Mit jeder freien Zeit' +
-          'die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
-          'die Nacht hinein, aber wenn Ressourcen und Hilfen an die benötigten Stellen verteilt werden' +
-          'können, hat sich das gelohnt.',
+          ' die mir zur Verfügung steht, arbeite ich im Backend von PIRAT. Manchmal etwas zu lange in' +
+          ' die Nacht hinein, aber wenn Ressourcen und Hilfen an die benötigten Stellen verteilt werden' +
+          ' können, hat sich das gelohnt.',
         en: 'Starting from an Hackathon weekend a great project is emerged. For PIRAT I am working in the' +
-          'Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
-          'can be distributed to those that need them urgently, the effort was worth it. ',
+          ' Backend in any free time I have. Sometimes too long into the night. But if resources and manpower' +
+          ' can be distributed to those that need them urgently, the effort was worth it. ',
+      }[this.localeService.locale],
+    },
+    {
+      image: 'benjamin.jpg',
+      name: 'Benjamin Wolf',
+      short: {
+        de: 'Universität Hamburg - Student (Informatik)',
+        en: 'University of Hamburg - Student (Computer Science)',
+      }[this.localeService.locale],
+      long: {
+        de: 'Da die Uni momentan sowieso komplett still steht, war ich sehr froh, als Chaoran mir das Projekt' +
+          ' vorgestellt hat. Jetzt kann ich weiter zuhause rumsitzen und trotzdem etwas Sinnvolles machen.',
+        en: 'I was very happy when Chaoran showed me the project since the University is completely shut' +
+          ' down at the moment. Now I can keep staying home, but still work on something useful.',
       }[this.localeService.locale],
     },
   ];
