@@ -148,7 +148,7 @@ export class AboutComponent implements OnInit {
         de: 'Die aktuelle Lage macht den Austausch von verschiedensten Institutionen' +
           ' und Fachrichtungen notwendig, weswegen ich auch als „Fachfremder“ hoffe hier' +
           ' etwas zu diesem Austausch beitragen zu können.',
-        en: 'The current situation warrants a collaboration of various institutions and' + 
+        en: 'The current situation warrants a collaboration of various institutions and' +
           ' academic subject-areas, which is why I hope to contribute to this project, even as an non-specialist in informatics.',
       }[this.localeService.locale],
     },
