@@ -223,7 +223,7 @@ export class AboutComponent implements OnInit {
         },
       },
       {
-        image: 'logo.png',
+        image: 'logo.jpg',
         name: 'Timo Weike',
         short: {
           de: 'Universität Bielefeld - Student (Kognitive Informatik)',
@@ -276,7 +276,7 @@ export class AboutComponent implements OnInit {
       }
     },
     {
-      image: 'logo.png',
+      image: 'logo.jpg',
       name: 'Sebastian Kränzle',
       short: {
         de: 'Datenschutzberater',
