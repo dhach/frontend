@@ -19,7 +19,11 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'angebote/neu', component: OfferFormComponent },
   { path: 'suchanfrage', component: OfferSearchComponent },
+
+  // There is currently no link to this module since it is not ready yet, and there are no demand resources in the
+  // database yet.
   { path: 'demands', component: NeedSearchComponent },
+
   { path: 'contact', component: ContactPageComponent },
   { path: 'faq', component: FaqPageComponent },
   { path: 'about', component: AboutComponent },

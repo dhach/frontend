@@ -32,6 +32,7 @@ import { ConfigurationService } from './configuration.service';
 import { NeedSearchComponent } from './need-search/need-search.component';
 import { NeedSearchResultComponent } from './need-search-result/need-search-result.component';
 import { FilterPipe } from './filter.pipe';
+import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 
 
 @NgModule({
@@ -73,6 +74,11 @@ import { FilterPipe } from './filter.pipe';
     RecaptchaModule
   ],
   providers: [
+    {
+      provide: APP_BASE_HREF,
+      useFactory: (s: PlatformLocation) => s.getBaseHrefFromDOM(),
+      deps: [PlatformLocation]
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: (configurationService: ConfigurationService) => () => configurationService.startup(),

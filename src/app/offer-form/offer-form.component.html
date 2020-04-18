@@ -69,18 +69,6 @@
     </div>
   </div>
 
-  <div class="form-block__select">
-    <span i18n="_noteAboutIsPublic">
-      Dürfen die Kontaktdaten online veröffentlicht werden? Falls nicht, können Suchende über ein Kontaktformular mit
-      Ihnen Kontakt aufnehmen.
-    </span>
-    <select [(ngModel)]="provider.isPublic">
-      <option [value]="true" i18n="@@yes">Ja</option>
-      <option [value]="false" i18n="@@no">Nein</option>
-    </select>
-  </div>
-
-
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
     <label i18n>

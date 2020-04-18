@@ -172,7 +172,7 @@
             <label i18n="@@area">
               Bereich
             </label>
-            <select [(ngModel)]="toP(r).area">
+            <select [(ngModel)]="toP(r).area" [disabled]="!isInEditMode.resources[gIndex]" >
               <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
                 {{ personnelAreaTo[area] }}
               </option>

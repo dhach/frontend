@@ -36,7 +36,9 @@ export function personnelToApi(personnel: Personnel): any {
     qualification: personnel.qualification,
     area: personnel.area,
     researchgroup: personnel.researchGroup,
-    experience_rt_pcr: personnel.experienceWithPCR,
+    // TODO Not sure why, but the field sometimes becomes a string...
+    experience_rt_pcr: (personnel.experienceWithPCR as any) === 'true' ? true :
+      (personnel.experienceWithPCR as any) === 'false' ? false : personnel.experienceWithPCR,
     annotation: personnel.notes,
     address: addressToApi(personnel.address),
   };

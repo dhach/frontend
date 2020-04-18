@@ -1,6 +1,6 @@
 ## Allgemein
 
-### Was ist Ziel dieser Seite?
+### Was ist das Ziel dieser Seite?
 
 Ziel dieser Seite ist es, Corona-Testlabore und Gesundheitsämter mit Einrichtungen wie Universitäten zu vernetzen, die Geräte, Verbrauchsmaterialien und auch qualifiziertes Personal zur Unterstützung bei der Durchführung von Corona-Tests zur Verfügung stellen könnten. Dabei können Universitäten ihre freien Ressourcen in unsere Datenbank eintragen und werden benachrichtigt, sobald eines der umliegenden Testlabore Ressourcen benötigt. Hierdurch können die Testkapazitäten erweitert werden, sodass Verdachtsfälle schneller getestet werden können.
               

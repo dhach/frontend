@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { environment } from '../../environments/environment';
@@ -12,6 +12,7 @@ import { LocaleService } from '../locale.service';
 import { Unit, unitTo } from '../_types/Unit';
 import { Utils } from '../Utils';
 import { ConfigurationService } from '../configuration.service';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @Component({
@@ -57,6 +58,7 @@ export class OfferChangeComponent implements OnInit {
     private apiService: ApiService,
     private localeService: LocaleService,
     private configurationService: ConfigurationService,
+    @Inject(APP_BASE_HREF) private baseHref: string,
   ) {
     this.deviceCategories = configurationService.languageConstants.device;
     this.consumableCategories = configurationService.languageConstants.consumable;
@@ -69,7 +71,7 @@ export class OfferChangeComponent implements OnInit {
       this.isNew = isNewParam !== null && isNewParam !== undefined;
 
       this.key = params.key;
-      this.currentUrl = environment.pageHosts[this.localeService.locale] + '/change/' + this.key;
+      this.currentUrl = window.origin + this.baseHref + 'change/' + this.key;
       const response = await this.apiService.reviewOffer(this.key);
       if (response.error) {
         throw new Error('Unexpected / unhandled error');
