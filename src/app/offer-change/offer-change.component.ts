@@ -12,7 +12,7 @@ import { LocaleService } from '../locale.service';
 import { Unit, unitTo } from '../_types/Unit';
 import { Utils } from '../Utils';
 import { ConfigurationService } from '../configuration.service';
-import { APP_BASE_HREF } from "@angular/common";
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @Component({
