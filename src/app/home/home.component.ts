@@ -27,10 +27,15 @@ export class HomeComponent implements OnInit {
       link: 'https://www.uni-kl.de'
     },
     {
+      image: 'unesty.png',
+      name: 'Unesty',
+      link: 'https://server.unesty.net'
+    },
+    {
       image: 'wirvsvirus.png',
       name: 'WirVsVirus Hackathon',
       link: 'https://wirvsvirushackathon.org'
-    }
+    },
   ];
 
 
