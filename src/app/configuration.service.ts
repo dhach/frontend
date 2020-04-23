@@ -33,22 +33,26 @@ export class ConfigurationService {
 
 
   private async prepareCategories(data) {
+    // Get available categories
+    const availableCategories = new Map<string, Array<string>>(); // Category type -> categories
+                                                                  // Example: "device" -> ["PCR_THERMOCYCLER", ...]
+    for (const categoryType in data.categories) {
+      if (!data.categories.hasOwnProperty(categoryType)) {
+        continue;
+      }
+      availableCategories.set(categoryType, data.categories[categoryType]);
+    }
+
+    // Get language strings of the categories
     let languageData = data.languages[this.localeService.language];
     if (!languageData) {
       languageData = data.languages.en; // Let English be the default language.
     }
-    for (const constantsType in languageData) {
-      if (!languageData.hasOwnProperty(constantsType)) {
-        continue;
+    availableCategories.forEach((categories, categoryType) => {
+      const constantsMap: Map<string, string> = this.languageConstants[categoryType];
+      for (const category of categories) {
+        constantsMap.set(category, languageData[categoryType][category]);
       }
-      const constants = languageData[constantsType];
-      for (const constantInternalValue in constants) {
-        if (!constants.hasOwnProperty(constantInternalValue)) {
-          continue;
-        }
-        const constantLanguageString = constants[constantInternalValue];
-        this.languageConstants[constantsType].set(constantInternalValue, constantLanguageString);
-      }
-    }
+    });
   }
 }
