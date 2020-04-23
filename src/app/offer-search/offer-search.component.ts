@@ -45,7 +45,6 @@ export class OfferSearchComponent implements OnInit {
     private fetchService: ApiService,
     private configurationService: ConfigurationService,
   ) {
-    this.setType('personnel');
     this.deviceCategories = this.configurationService.languageConstants.device;
     this.consumableCategories = this.configurationService.languageConstants.consumable;
     this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
@@ -55,6 +54,8 @@ export class OfferSearchComponent implements OnInit {
     this.personnelQualifications = configurationService.languageConstants.personnelQualification;
     this.personnelAreasKeys = Array.from(this.personnelAreas.keys());
     this.personnelQualificationsKeys = Array.from(this.personnelQualifications.keys());
+
+    this.setType('personnel');
   }
 
 
