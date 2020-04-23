@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   environment: 'production',
-  apiHost: 'https://api.pirat-tool.com',
+  apiHost: '/api',
   pageHosts: {
     de: '/de',
     en: '/en',
