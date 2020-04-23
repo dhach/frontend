@@ -127,7 +127,7 @@ export class OfferSearchComponent implements OnInit {
         area: [],
         experience_rt_pcr: this.searchQuery.requiresExperienceWithPCR,
         postalcode: this.postalCode,
-        country: 'Deutschland'
+        country: this.configurationService.countryName
       };
 
       for (const key in this.searchQuery.qualification) {
@@ -148,7 +148,7 @@ export class OfferSearchComponent implements OnInit {
         kilometer: this.DISTANCE_KILOMETER,
         category: this.searchQuery.category,
         postalcode: this.postalCode,
-        country: 'Deutschland'
+        country: this.configurationService.countryName
       };
 
     } else if (this.searchType === 'consumable') {
@@ -157,7 +157,7 @@ export class OfferSearchComponent implements OnInit {
         kilometer: this.DISTANCE_KILOMETER,
         category: this.searchQuery.category,
         postalcode: this.postalCode,
-        country: 'Deutschland'
+        country: this.configurationService.countryName
       };
     }
 

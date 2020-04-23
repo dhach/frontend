@@ -8,6 +8,8 @@ import { LocaleService } from './locale.service';
 })
 export class ConfigurationService {
 
+  countryName: string;
+
   languageConstants = {
     device: new Map<string, string>(),      // value -> language string
     consumable: new Map<string, string>(),  // value -> language string
@@ -28,6 +30,7 @@ export class ConfigurationService {
     if (response.error) {
       throw new Error('Application cannot start because the region configuration cannot be fetched.');
     }
+    this.countryName = response.data.countryName;
     await this.prepareCategories(response.data);
   }
 

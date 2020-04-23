@@ -30,7 +30,7 @@ export class AdminDemandImportComponent implements OnInit {
       streetNumber: '',
       postalCode: '',
       city: '',
-      country: 'Deutschland'
+      country: this.configurationService.countryName
     }
   };
   devices: Array<Device>;

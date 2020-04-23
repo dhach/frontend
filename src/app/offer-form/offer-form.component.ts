@@ -7,6 +7,7 @@ import { Device, deviceToApi } from '../_types/Device';
 import { Personnel, personnelToApi } from '../_types/Personnel';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
 import { ApiResponseError } from '../_types/ApiResponseError';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class OfferFormComponent implements OnInit {
 
   constructor(
     private fetchService: ApiService,
+    private configurationService: ConfigurationService,
     private router: Router,
   ) {
   }
@@ -32,7 +34,7 @@ export class OfferFormComponent implements OnInit {
       streetNumber: '',
       postalCode: '',
       city: '',
-      country: 'Deutschland',
+      country: this.configurationService.countryName,
     },
     institution: '',
     name: '',
@@ -83,7 +85,7 @@ export class OfferFormComponent implements OnInit {
         notes: '',
         address: {
           postalCode: '',
-          country: 'Deutschland',
+          country: this.configurationService.countryName,
         }
       },
       checkedEhrenamt: false,
@@ -103,7 +105,7 @@ export class OfferFormComponent implements OnInit {
         notes: '',
         address: {
           postalCode: '',
-          country: 'Deutschland',
+          country: this.configurationService.countryName,
         }
       },
     });
@@ -123,7 +125,7 @@ export class OfferFormComponent implements OnInit {
         notes: '',
         address: {
           postalCode: '',
-          country: 'Deutschland',
+          country: this.configurationService.countryName,
         }
       },
     });
