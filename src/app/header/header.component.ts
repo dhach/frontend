@@ -12,15 +12,12 @@ import { LocaleService } from '../locale.service';
 export class HeaderComponent implements OnInit {
 
   url;
-  locale;
-  environment = environment;
 
 
   constructor(
     private router: Router,
-    private localeService: LocaleService,
+    public localeService: LocaleService,
   ) {
-    this.locale = localeService.locale;
   }
 
 
@@ -35,5 +32,10 @@ export class HeaderComponent implements OnInit {
 
   isProduction() {
     return environment.environment === 'production';
+  }
+
+
+  changeRegionOrLang($event: Event) {
+    window.location.href = ($event.target as any).value;
   }
 }

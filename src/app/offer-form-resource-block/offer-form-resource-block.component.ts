@@ -20,9 +20,9 @@ export class OfferFormResourceBlockComponent implements OnInit {
   deviceCategoriesKeys: Array<string>;
   consumableCategoriesKeys: Array<string>;
   PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
   PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
+  personnelAreaToDE = personnelAreaTo(this.localeService.language);
 
   @Input('resource') r: { type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean };
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
