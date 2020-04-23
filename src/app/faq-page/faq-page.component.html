@@ -9,7 +9,7 @@
     <div class="fullwidth-block">
       <div class="container">
 
-        <div *ngIf="locale === 'de'">
+        <div *ngIf="localeService.language === 'de'">
           <h2>Tutorials</h2>
           <div class="tutorial-list">
             <div>
@@ -33,31 +33,7 @@
           </div>
         </div>
 
-        <div *ngIf="locale === 'en'">
-          <h2>Tutorials</h2>
-          <div class="tutorial-list">
-            <div>
-              <h4>Create Offer</h4>
-              <iframe
-                src="https://www.youtube.com/embed/Pzh8KgdHhWg"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div>
-              <h4>Search Request</h4>
-              <iframe
-                src="https://www.youtube.com/embed/WUcewO8dI9A"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div *ngIf="locale === 'it'">
+        <div *ngIf="localeService.language !== 'en'">
           <h2>Tutorials</h2>
           <div class="tutorial-list">
             <div>
@@ -82,7 +58,11 @@
         </div>
 
         <div class="row">
-          <div class="col-md-8 long-static-text" markdown src="/assets/content/faq/faq.{{locale}}.md">
+          <div
+            class="col-md-8 long-static-text"
+            markdown
+            src="/assets/content/faq/faq.{{localeService.region}}_{{localeService.language}}.md"
+          >
           </div>
         </div>
       </div>

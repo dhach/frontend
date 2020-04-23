@@ -10,13 +10,10 @@ import { LocaleService } from '../locale.service';
 })
 export class FaqPageComponent implements OnInit {
 
-  locale: string;
-
 
   constructor(
-    private localeService: LocaleService,
+    public localeService: LocaleService,
   ) {
-    this.locale = localeService.language;
   }
 
 
