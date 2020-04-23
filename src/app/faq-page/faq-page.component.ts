@@ -16,7 +16,7 @@ export class FaqPageComponent implements OnInit {
   constructor(
     private localeService: LocaleService,
   ) {
-    this.locale = localeService.locale;
+    this.locale = localeService.language;
   }
 
 

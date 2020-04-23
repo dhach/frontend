@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   environment: 'development',
-  apiHost: 'http://localhost:5000',
+  apiHost: 'http://localhost/api',
   pageHosts: {
-    de: 'http://localhost:4200',
-    en: 'http://localhost:4201',
-    it: 'http://localhost:4202'
+    de: '/de/de',
+    en: '/de/en',
+    it: '/de/it'
   },
   reCaptchaSiteKey: '6Le2BOgUAAAAANE1avGpU3IadnkY0lpEyWFk6h1-'
 };

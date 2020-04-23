@@ -12,7 +12,7 @@ export class StatisticsComponent implements OnInit {
 
   deviceCategories: Map<string, string>;
   consumableCategories: Map<string, string>;
-  unitTo = unitTo(this.localeService.locale);
+  unitTo = unitTo(this.localeService.language);
 
   @Input() data: {
     date: string,

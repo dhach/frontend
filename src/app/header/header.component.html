@@ -12,18 +12,13 @@
       <nav class="main-navigation">
         <ul class="menu">
           <li class="home menu-item lang-switcher">
-            <a
-              [href]="locale !== 'de' ? environment.pageHosts['de'] + url : '#'"
-              class="{{ locale === 'de' ? 'active' : '' }}"
-            >de</a> /
-            <a
-              [href]="locale !== 'en' ? environment.pageHosts['en'] + url : '#'"
-              class="{{ locale === 'en' ? 'active' : '' }}"
-            >en</a> /
-            <a
-              [href]="locale !== 'it' ? environment.pageHosts['it'] + url : '#'"
-              class="{{ locale === 'it' ? 'active' : '' }}"
-            >it</a>
+            <select [value]="localeService.baseHref" (change)="changeRegionOrLang($event)">
+              <option value="/de/de/">Deutschland - Deutsch</option>
+              <option value="/de/en/">Germany - English</option>
+              <option value="/de/it/">Germania - Italiano</option>
+              <option>---</option>
+              <option value="/my/en/">Malaysia - English</option>
+            </select>
           </li>
           <li class="home menu-item {{ url === '/' ? 'current-menu-item' : '' }}">
             <a routerLink="/"><img src="/assets/images/home-icon.png" alt="Home"></a>

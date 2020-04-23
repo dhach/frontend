@@ -14,7 +14,7 @@ export class NeedSearchResultComponent implements OnInit, OnChanges {
 
   deviceCategories: Map<string, string>;
   consumableCategories: Map<string, string>;
-  unitTo = unitTo(this.localeService.locale);
+  unitTo = unitTo(this.localeService.language);
 
 
   @Input() type: string;

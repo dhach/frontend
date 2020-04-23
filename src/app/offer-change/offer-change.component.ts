@@ -25,11 +25,11 @@ export class OfferChangeComponent implements OnInit {
   deviceCategories: Map<string, string>;
   consumableCategories: Map<string, string>;
   PersonnelQualification = PersonnelQualification;
-  personnelQualificationTo = personnelQualificationTo(this.localeService.locale);
+  personnelQualificationTo = personnelQualificationTo(this.localeService.language);
   PersonnelArea = PersonnelArea;
-  personnelAreaTo = personnelAreaTo(this.localeService.locale);
+  personnelAreaTo = personnelAreaTo(this.localeService.language);
   Unit = Unit;
-  unitTo = unitTo(this.localeService.locale);
+  unitTo = unitTo(this.localeService.language);
 
 
   isNew: boolean; // Whether the offer was just created

@@ -24,9 +24,9 @@ export class OfferSearchComponent implements OnInit {
   deviceCategoriesKeys: Array<string>;
   consumableCategoriesKeys: Array<string>;
   PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
   PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
+  personnelAreaToDE = personnelAreaTo(this.localeService.language);
 
   DISTANCE_KILOMETER = 70;
 

@@ -1,4 +1,5 @@
-import { Inject, Injectable, LOCALE_ID } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @Injectable({
@@ -6,16 +7,15 @@ import { Inject, Injectable, LOCALE_ID } from '@angular/core';
 })
 export class LocaleService {
 
-  locale: string;
+  region: string;
+  language: string;
 
 
   constructor(
-    @Inject(LOCALE_ID) private l: string,
+    @Inject(APP_BASE_HREF) public baseHref: string,
   ) {
-    if (l === 'en-GB') {
-      this.locale = 'en';
-    } else {
-      this.locale = l;
-    }
+    const [region, language] = baseHref.substring(1, baseHref.length - 1).split('/');
+    this.region = region;
+    this.language = language;
   }
 }

@@ -14,8 +14,8 @@ import { LocaleService } from '../locale.service';
 })
 export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.locale);
-  personnelAreaToDE = personnelAreaTo(this.localeService.locale);
+  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
+  personnelAreaToDE = personnelAreaTo(this.localeService.language);
 
 
   @Input() type: string;

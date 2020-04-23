@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { ResourceContactMessage } from './_types/ResourceContactMessage';
 import { ApiResponse } from './_types/ApiResponse';
+import { LocaleService } from './locale.service';
 
 
 const host = environment.apiHost;
@@ -12,10 +13,13 @@ const host = environment.apiHost;
 })
 export class ApiService {
 
-  region = 'de'; // TODO
+  region: string;
 
 
-  constructor() {
+  constructor(
+    private localeService: LocaleService,
+  ) {
+    this.region = localeService.region;
   }
 
 

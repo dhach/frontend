@@ -20,7 +20,7 @@ export class ConfigurationService {
 
 
   async startup() {
-    const response = await this.apiService.getRegionConfiguration('de');
+    const response = await this.apiService.getRegionConfiguration(this.localeService.region);
     if (response.error) {
       throw new Error('Application cannot start because the region configuration cannot be fetched.');
     }
@@ -29,7 +29,7 @@ export class ConfigurationService {
 
 
   private async prepareCategories(data) {
-    let languageData = data.languages[this.localeService.locale];
+    let languageData = data.languages[this.localeService.language];
     if (!languageData) {
       languageData = data.languages.en; // Let English be the default language.
     }

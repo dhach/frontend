@@ -319,7 +319,7 @@ export class AboutComponent implements OnInit {
 
 
   getLocaleText(x): string {
-    return x[this.localeService.locale] ?? x.en;
+    return x[this.localeService.language] ?? x.en;
   }
 
 }
