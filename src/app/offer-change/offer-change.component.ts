@@ -1,13 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import { environment } from '../../environments/environment';
 import { Provider, providerFromApi, providerToApi } from '../_types/Provider';
 import { Consumable, consumableFromApi, consumableToApi } from '../_types/Consumable';
 import { Device, deviceFromApi, deviceToApi } from '../_types/Device';
 import { Personnel, personnelFromApi, personnelToApi } from '../_types/Personnel';
-import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
-import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
 import { Unit, unitTo } from '../_types/Unit';
 import { Utils } from '../Utils';
@@ -24,10 +21,10 @@ export class OfferChangeComponent implements OnInit {
 
   deviceCategories: Map<string, string>;
   consumableCategories: Map<string, string>;
-  PersonnelQualification = PersonnelQualification;
-  personnelQualificationTo = personnelQualificationTo(this.localeService.language);
-  PersonnelArea = PersonnelArea;
-  personnelAreaTo = personnelAreaTo(this.localeService.language);
+  personnelQualifications: Map<string, string>;
+  personnelAreas: Map<string, string>;
+  personnelQualificationsKeys: Array<string>;
+  personnelAreasKeys: Array<string>;
   Unit = Unit;
   unitTo = unitTo(this.localeService.language);
 
@@ -62,6 +59,10 @@ export class OfferChangeComponent implements OnInit {
   ) {
     this.deviceCategories = configurationService.languageConstants.device;
     this.consumableCategories = configurationService.languageConstants.consumable;
+    this.personnelAreas = configurationService.languageConstants.personnelArea;
+    this.personnelQualifications = configurationService.languageConstants.personnelQualification;
+    this.personnelAreasKeys = Array.from(this.personnelAreas.keys());
+    this.personnelQualificationsKeys = Array.from(this.personnelQualifications.keys());
   }
 
 

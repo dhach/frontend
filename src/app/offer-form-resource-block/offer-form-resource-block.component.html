@@ -5,8 +5,8 @@
       Qualifikation
     </label>
     <select [(ngModel)]="toP(r).qualification">
-      <option *ngFor="let qualification of getEnumValues(PersonnelQualification)" [value]="qualification">
-        {{ personnelQualificationToDE[qualification] }}
+      <option *ngFor="let qualification of personnelQualificationsKeys" [value]="qualification">
+        {{ personnelQualifications.get(qualification) }}
       </option>
     </select>
     <span *ngIf="!toP(r).qualification" class="form-alert" i18n="@@requiredField">
@@ -29,8 +29,8 @@
       Bereich
     </label>
     <select [(ngModel)]="toP(r).area">
-      <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
-        {{ personnelAreaToDE[area] }}
+      <option *ngFor="let area of personnelAreasKeys" [value]="area">
+        {{ personnelAreas.get(area) }}
       </option>
     </select>
     <span *ngIf="!toP(r).area" class="form-alert" i18n="@@requiredField">

@@ -4,8 +4,6 @@ import { Personnel, personnelFromApi } from '../_types/Personnel';
 import { Device, deviceFromApi } from '../_types/Device';
 import { Consumable, consumableFromApi } from '../_types/Consumable';
 import { providerFromApi } from '../_types/Provider';
-import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
-import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
 import { ApiResponseError } from '../_types/ApiResponseError';
 import { ConfigurationService } from '../configuration.service';
@@ -23,10 +21,10 @@ export class OfferSearchComponent implements OnInit {
   consumableCategories: Map<string, string>;
   deviceCategoriesKeys: Array<string>;
   consumableCategoriesKeys: Array<string>;
-  PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
-  PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaTo(this.localeService.language);
+  personnelQualifications: Map<string, string>;
+  personnelAreas: Map<string, string>;
+  personnelQualificationsKeys: Array<string>;
+  personnelAreasKeys: Array<string>;
 
   DISTANCE_KILOMETER = 70;
 
@@ -52,6 +50,11 @@ export class OfferSearchComponent implements OnInit {
     this.consumableCategories = this.configurationService.languageConstants.consumable;
     this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
     this.consumableCategoriesKeys = Array.from(this.consumableCategories.keys());
+
+    this.personnelAreas = configurationService.languageConstants.personnelArea;
+    this.personnelQualifications = configurationService.languageConstants.personnelQualification;
+    this.personnelAreasKeys = Array.from(this.personnelAreas.keys());
+    this.personnelQualificationsKeys = Array.from(this.personnelQualifications.keys());
   }
 
 
@@ -75,10 +78,10 @@ export class OfferSearchComponent implements OnInit {
           area: {},
           requiresExperienceWithPCR: false,
         };
-        for (const qualification of this.getEnumValues(PersonnelQualification)) {
+        for (const qualification of this.personnelQualificationsKeys) {
           this.searchQuery.qualification[qualification as string] = true;
         }
-        for (const area of this.getEnumValues(PersonnelArea)) {
+        for (const area of this.personnelAreasKeys) {
           this.searchQuery.area[area as string] = true;
         }
       } else if (type === 'device') {

@@ -8,7 +8,7 @@
     <!-- Personnel -->
     <div *ngIf="type === 'personnel'">
       <div class="result-entry__name" (click)="toggleShowDetails(i)">
-        {{ personnelQualificationToDE[r.resource.qualification] }}
+        {{ personnelQualifications.get(r.resource.qualification) }}
       </div>
       <div>
         <div class="result-entry__info__label" i18n="@@location">Standort:</div>
@@ -27,7 +27,7 @@
       </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label" i18n="@@area">Bereich</div>
-        <div class="result-entry__info__content">{{ personnelAreaToDE[r.resource.area] }}</div>
+        <div class="result-entry__info__content">{{ personnelAreas.get(r.resource.area) }}</div>
       </div>
       <div class="result-entry__info">
         <div class="result-entry__info__label" i18n="@@experienceWithPCR">Erfahrung mit PCR und Real-Time PCR</div>

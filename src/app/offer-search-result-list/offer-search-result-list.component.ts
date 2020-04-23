@@ -2,9 +2,7 @@ import { Component, Input, OnChanges, OnInit, Provider, SimpleChanges } from '@a
 import { Personnel } from '../_types/Personnel';
 import { Device } from '../_types/Device';
 import { Consumable } from '../_types/Consumable';
-import { personnelQualificationTo } from '../_types/PersonnelQualification';
-import { personnelAreaTo } from '../_types/PersonnelArea';
-import { LocaleService } from '../locale.service';
+import { ConfigurationService } from '../configuration.service';
 
 
 @Component({
@@ -14,8 +12,8 @@ import { LocaleService } from '../locale.service';
 })
 export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
-  personnelAreaToDE = personnelAreaTo(this.localeService.language);
+  personnelQualifications: Map<string, string>;
+  personnelAreas: Map<string, string>;
 
 
   @Input() type: string;
@@ -29,8 +27,10 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
 
 
   constructor(
-    private localeService: LocaleService,
+    private configurationService: ConfigurationService,
   ) {
+    this.personnelAreas = configurationService.languageConstants.personnelArea;
+    this.personnelQualifications = configurationService.languageConstants.personnelQualification;
   }
 
 

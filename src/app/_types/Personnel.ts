@@ -1,13 +1,11 @@
 import { Address, addressFromApi, addressToApi } from './Address';
-import { PersonnelQualification } from './PersonnelQualification';
-import { PersonnelArea } from './PersonnelArea';
 
 
 export interface Personnel {
   id?: number;
   institution: string;
-  qualification: PersonnelQualification;
-  area: PersonnelArea;
+  qualification: string;
+  area: string;
   researchGroup?: string;
   experienceWithPCR?: boolean;
   notes?: string;
