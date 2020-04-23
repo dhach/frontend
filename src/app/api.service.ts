@@ -12,6 +12,9 @@ const host = environment.apiHost;
 })
 export class ApiService {
 
+  region = 'de'; // TODO
+
+
   constructor() {
   }
 
@@ -147,32 +150,11 @@ export class ApiService {
   ): Promise<ApiResponse> {
     const {queryParams, recaptcha} = opts;
 
-    // Generate query params string
-    let queryParamsString = '';
-    if (queryParams) {
-      const searchParams = new URLSearchParams();
-      for (const key in queryParams) {
-        if (!queryParams.hasOwnProperty(key)) {
-          continue;
-        }
-        const value = queryParams[key];
-        if (Array.isArray(value)) {
-          for (const v of value) {
-            searchParams.append(key, v);
-          }
-        } else {
-          searchParams.append(key, value);
-        }
-      }
-      queryParamsString = searchParams.toString();
-    }
-
-    const urlSuffix = endpointPath + '?' + queryParamsString;
     const headers = new Headers();
     if (recaptcha) {
       headers.append('recaptcha', recaptcha);
     }
-    return this._fetch(urlSuffix, 'GET', headers);
+    return this._fetch(endpointPath, 'GET', headers, undefined, queryParams);
   }
 
 
@@ -233,9 +215,32 @@ export class ApiService {
   }
 
 
-  private async _fetch(urlSuffix: string, method: string, headers?: Headers, body?: any): Promise<ApiResponse> {
+  private async _fetch(urlSuffix: string, method: string, headers?: Headers, body?: any, queryParams?: object)
+    : Promise<ApiResponse> {
     const bodyString = body ? JSON.stringify(body) : undefined;
-    const request = new Request(host + urlSuffix, {
+
+    // Generate query params string
+    let queryParamsString = '';
+    const searchParams = new URLSearchParams();
+    if (queryParams) {
+      for (const key in queryParams) {
+        if (!queryParams.hasOwnProperty(key)) {
+          continue;
+        }
+        const value = queryParams[key];
+        if (Array.isArray(value)) {
+          for (const v of value) {
+            searchParams.append(key, v);
+          }
+        } else {
+          searchParams.append(key, value);
+        }
+      }
+    }
+    searchParams.append('region', this.region);
+    queryParamsString = searchParams.toString();
+
+    const request = new Request(host + urlSuffix + '?' + queryParamsString, {
       method,
       headers,
       body: bodyString,
