@@ -8,7 +8,7 @@
     "start-de-it": "ng serve --configuration=it --base-href=/de/it/ --servePath=/ --liveReload=false --port 4202",
     "start-my-en": "ng serve --configuration=en-GB --base-href=/my/en/ --servePath=/ --liveReload=false --port 4210",
     "build": "ng build --configuration=production,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=production,en-GB --base-href=/de/en/ --outputPath=dist/de/en/ && ng build --configuration=production,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=production,en-GB --base-href=/my/en/ --outputPath=dist/my/en",
-    "build-testproduction": "ng build --configuration=testproduction,de --base-href=/de/de --outputPath=dist/de/de && ng build --configuration=testproduction,en-GB --base-href=/de/en --outputPath=dist/de/en && ng build --configuration=testproduction,it --base-href=/de/it --outputPath=dist/de/it && ng build --configuration=testproduction,en-GB --base-href=/my/en --outputPath=dist/my/en",
+    "build-testproduction": "ng build --configuration=testproduction,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=testproduction,en-GB --base-href=/de/en/ --outputPath=dist/de/en && ng build --configuration=testproduction,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=testproduction,en-GB --base-href=/my/en/ --outputPath=dist/my/en",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
