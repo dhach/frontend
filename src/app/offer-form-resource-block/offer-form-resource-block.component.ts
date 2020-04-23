@@ -2,8 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Consumable } from '../_types/Consumable';
 import { Device } from '../_types/Device';
 import { Personnel } from '../_types/Personnel';
-import { PersonnelQualification, personnelQualificationTo } from '../_types/PersonnelQualification';
-import { PersonnelArea, personnelAreaTo } from '../_types/PersonnelArea';
 import { LocaleService } from '../locale.service';
 import { ConfigurationService } from '../configuration.service';
 
@@ -19,10 +17,10 @@ export class OfferFormResourceBlockComponent implements OnInit {
   consumableCategories: Map<string, string>;
   deviceCategoriesKeys: Array<string>;
   consumableCategoriesKeys: Array<string>;
-  PersonnelQualification = PersonnelQualification;
-  personnelQualificationToDE = personnelQualificationTo(this.localeService.language);
-  PersonnelArea = PersonnelArea;
-  personnelAreaToDE = personnelAreaTo(this.localeService.language);
+  personnelQualifications: Map<string, string>;
+  personnelAreas: Map<string, string>;
+  personnelQualificationsKeys: Array<string>;
+  personnelAreasKeys: Array<string>;
 
   @Input('resource') r: { type: string, resource: Consumable | Device | Personnel, checkedEhrenamt?: boolean };
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
@@ -30,12 +28,16 @@ export class OfferFormResourceBlockComponent implements OnInit {
 
   constructor(
     private configurationService: ConfigurationService,
-    private localeService: LocaleService,
   ) {
     this.deviceCategories = configurationService.languageConstants.device;
     this.consumableCategories = configurationService.languageConstants.consumable;
     this.deviceCategoriesKeys = Array.from(this.deviceCategories.keys());
     this.consumableCategoriesKeys = Array.from(this.consumableCategories.keys());
+
+    this.personnelAreas = configurationService.languageConstants.personnelArea;
+    this.personnelQualifications = configurationService.languageConstants.personnelQualification;
+    this.personnelAreasKeys = Array.from(this.personnelAreas.keys());
+    this.personnelQualificationsKeys = Array.from(this.personnelQualifications.keys());
   }
 
 

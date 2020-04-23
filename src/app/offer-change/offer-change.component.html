@@ -140,10 +140,10 @@
             </label>
             <select [(ngModel)]="toP(r).qualification" [disabled]="!isInEditMode.resources[gIndex]">
               <option
-                *ngFor="let qualification of getEnumValues(PersonnelQualification)"
+                *ngFor="let qualification of personnelQualificationsKeys"
                 [value]="qualification"
                 [selected]="qualification === toP(r).qualification">
-                {{ personnelQualificationTo[qualification] }}
+                {{ personnelQualifications.get(qualification) }}
               </option>
             </select>
           </div>
@@ -173,8 +173,8 @@
               Bereich
             </label>
             <select [(ngModel)]="toP(r).area" [disabled]="!isInEditMode.resources[gIndex]" >
-              <option *ngFor="let area of getEnumValues(PersonnelArea)" [value]="area">
-                {{ personnelAreaTo[area] }}
+              <option *ngFor="let area of personnelAreasKeys" [value]="area">
+                {{ personnelAreas.get(area) }}
               </option>
             </select>
             <span class="input-field-focus"></span>

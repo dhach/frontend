@@ -30,8 +30,8 @@
     <div class="form-block">
       <div class="form-block__label">Qualifikation</div>
       <div class="form-block__boxes">
-        <label *ngFor="let qualification of getEnumValues(PersonnelQualification)">
-          {{ personnelQualificationToDE[qualification] }}
+        <label *ngFor="let qualification of personnelQualificationsKeys">
+          {{ personnelQualifications.get(qualification) }}
           <input
             type="checkbox"
             [ngModelOptions]="{standalone: true}"
@@ -44,8 +44,8 @@
     <div class="form-block">
       <div class="form-block__label">Bereich</div>
       <div class="form-block__boxes">
-        <label *ngFor="let area of getEnumValues(PersonnelArea)">
-          {{ personnelAreaToDE[area] }}
+        <label *ngFor="let area of personnelAreasKeys">
+          {{ personnelAreas.get(area) }}
           <input
             type="checkbox"
             [ngModelOptions]="{standalone: true}"
