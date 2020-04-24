@@ -40,17 +40,17 @@
   <div class="form-block__boxes">
     <div i18n="@@_questionExperienceWithPCR">Do you have experience with conducting PCR and Real-Time PCR?</div>
     <label>
-      <span i18n="@@yes">Ja</span>
+      <span i18n="@@yes">Yes</span>
       <input name="experienceWithPCR" type="radio" (click)="toP(r).experienceWithPCR = true;" />
     </label>
     <label>
-      <span i18n="@@no">Nein</span>
+      <span i18n="@@no">No</span>
       <!-- The last "true" ist required because otherwise, the selection will be blocked.... -->
       <input name="experienceWithPCR" type="radio" checked (click)="toP(r).experienceWithPCR = false; true" />
     </label>
   </div>
   <div class="form-block__input-field">
-    <input type="text" placeholder="Postleitzahl des Standorte" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toP(r).address.postalCode">
+    <input type="text" placeholder="Postalcode of location" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toP(r).address.postalCode">
     <span class="input-field-focus"></span>
     <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
         Mandatory
@@ -107,7 +107,7 @@
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Bestell- oder Seriennummer" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toD(r).orderNumber">
+    <input type="text" placeholder="Order or serial number" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toD(r).orderNumber">
     <span class="input-field-focus"></span>
   </div>
 
@@ -137,7 +137,7 @@
 
 
 <div *ngIf="r.type === 'consumable'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@consumable">Verbrauchsmaterial</ng-container></div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@consumable">Consumable</ng-container></div>
   <div class="form-block__select">
     <label i18n="@@category">
       Category
@@ -166,12 +166,12 @@
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Bestell- oder Seriennummer" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toC(r).orderNumber">
+    <input type="text" placeholder="Order or serial number" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toC(r).orderNumber">
     <span class="input-field-focus"></span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Postleitzahl des Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toC(r).address.postalCode">
+    <input type="text" placeholder="Postalcode of locations" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toC(r).address.postalCode">
     <span class="input-field-focus"></span>
     <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
       Mandatory
@@ -187,10 +187,10 @@
   </div>
   <div class="form-block__select">
     <select [(ngModel)]="toC(r).unit">
-      <option value="" i18n="@@selectUnit">Einheit auswählen</option>
-      <option value="Stück" i18n="@@piece">Stück</option>
-      <option value="Packung" i18n="@@pack">Packung</option>
-      <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Comments spezifizieren)</option>
+      <option value="" i18n="@@selectUnit">Select unit</option>
+      <option value="Stück" i18n="@@piece">Piece</option>
+      <option value="Packung" i18n="@@pack">Pack</option>
+      <option value="Sonstiges" i18n="@@_othersMoreInComments">Others (Please specify in comments)</option>
     </select>
     <span *ngIf="!toC(r).unit" class="form-alert" i18n="@@requiredField">
           Mandatory
