@@ -2,7 +2,7 @@
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@helper">Helfer</ng-container></div>
   <div class="form-block__select">
     <label i18n="@@qualification">
-      Qualifikation
+      Qualification
     </label>
     <select [(ngModel)]="toP(r).qualification">
       <option *ngFor="let qualification of personnelQualificationsKeys" [value]="qualification">
@@ -10,14 +10,14 @@
       </option>
     </select>
     <span *ngIf="!toP(r).qualification" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
   </div>
   <div class="form-block__input-field">
     <input type="text" placeholder="Institution" i18n-placeholder="@@institution" [(ngModel)]="toP(r).institution">
     <span class="input-field-focus"></span>
     <span *ngIf="!toP(r).institution" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
   </div>
   <div class="form-block__input-field">
@@ -26,7 +26,7 @@
   </div>
   <div class="form-block__select">
     <label i18n="@@area">
-      Bereich
+      Area
     </label>
     <select [(ngModel)]="toP(r).area">
       <option *ngFor="let area of personnelAreasKeys" [value]="area">
@@ -34,11 +34,11 @@
       </option>
     </select>
     <span *ngIf="!toP(r).area" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
   </div>
   <div class="form-block__boxes">
-    <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time PCR?</div>
+    <div i18n="@@_questionExperienceWithPCR">Do you have experience with conducting PCR and Real-Time PCR?</div>
     <label>
       <span i18n="@@yes">Ja</span>
       <input name="experienceWithPCR" type="radio" (click)="toP(r).experienceWithPCR = true;" />
@@ -53,12 +53,12 @@
     <input type="text" placeholder="Postleitzahl des Standorte" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toP(r).address.postalCode">
     <span class="input-field-focus"></span>
     <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
   </div>
   <div class="form-block__input-field">
     <label i18n="@@comments_s1s">
-      Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme vorhanden)
+      Comments (e.g. S1 or S2 instruction available, medical qualification for swab collection available)
     </label>
     <textarea [(ngModel)]="toP(r).notes"></textarea>
     <span class="input-field-focus"></span>
@@ -67,10 +67,10 @@
     <input [(ngModel)]="r.checkedEhrenamt" type="checkbox">
     <label>
       <span i18n="@@_declarationVoluntaryWork">
-         Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführen wird.
+         Hereby it is declared that the volunteer does the activity unsalaried and outside their working hours.
       </span>
       <span *ngIf="!r.checkedEhrenamt" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
     </label>
   </div>
@@ -78,10 +78,10 @@
 
 
 <div *ngIf="r.type === 'device'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@device">Gerät</ng-container></div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@device">Device</ng-container></div>
   <div class="form-block__select">
     <label i18n="@@category">
-      Kategorie
+      Category
     </label>
     <select [(ngModel)]="toD(r).category">
       <option *ngFor="let category of deviceCategoriesKeys" [value]="category">
@@ -89,20 +89,20 @@
       </option>
     </select>
     <span *ngIf="!toD(r).category" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Exakte Materialbezeichnung" i18n-placeholder="@@exactName" [(ngModel)]="toD(r).name">
+    <input type="text" placeholder="Exact name of material" i18n-placeholder="@@exactName" [(ngModel)]="toD(r).name">
     <span class="input-field-focus"></span>
     <span *ngIf="!toD(r).name" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Hersteller" i18n-placeholder="@@manufacturer" [(ngModel)]="toD(r).manufacturer">
+    <input type="text" placeholder="Manufacturer" i18n-placeholder="@@manufacturer" [(ngModel)]="toD(r).manufacturer">
     <span class="input-field-focus"></span>
   </div>
 
@@ -115,20 +115,20 @@
     <input type="text" placeholder="Postleitzahl das Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toD(r).address.postalCode">
     <span class="input-field-focus"></span>
     <span *ngIf="!toD(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="number" placeholder="Menge" i18n-placeholder="@@amount" [(ngModel)]="toD(r).amount">
+    <input type="number" placeholder="Amount" i18n-placeholder="@@amount" [(ngModel)]="toD(r).amount">
     <span class="input-field-focus"></span>
     <span *ngIf="!toD(r).amount" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
   <div class="form-block__input-field">
     <label i18n="comments">
-      Anmerkungen
+      Comments
     </label>
     <textarea [(ngModel)]="toD(r).notes"></textarea>
     <span class="input-field-focus"></span>
@@ -140,7 +140,7 @@
   <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@consumable">Verbrauchsmaterial</ng-container></div>
   <div class="form-block__select">
     <label i18n="@@category">
-      Kategorie
+      Category
     </label>
     <select [(ngModel)]="toC(r).category">
       <option *ngFor="let category of consumableCategoriesKeys" [value]="category">
@@ -148,20 +148,20 @@
       </option>
     </select>
     <span *ngIf="!toC(r).category" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Exakte Materialbezeichnung" i18n-placeholder="@@exactName" [(ngModel)]="toC(r).name">
+    <input type="text" placeholder="Exact name of material" i18n-placeholder="@@exactName" [(ngModel)]="toC(r).name">
     <span class="input-field-focus"></span>
     <span *ngIf="!toC(r).name" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Hersteller" i18n-placeholder="@@manufacturer" [(ngModel)]="toC(r).manufacturer">
+    <input type="text" placeholder="Manufacturer" i18n-placeholder="@@manufacturer" [(ngModel)]="toC(r).manufacturer">
     <span class="input-field-focus"></span>
   </div>
 
@@ -174,15 +174,15 @@
     <input type="text" placeholder="Postleitzahl des Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toC(r).address.postalCode">
     <span class="input-field-focus"></span>
     <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
   <div class="form-block__input-field">
-    <input type="number" placeholder="Menge" i18n-placeholder="@@amount" [(ngModel)]="toC(r).amount">
+    <input type="number" placeholder="Amount" i18n-placeholder="@@amount" [(ngModel)]="toC(r).amount">
     <span class="input-field-focus"></span>
     <span *ngIf="!toC(r).amount" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
   <div class="form-block__select">
@@ -190,15 +190,15 @@
       <option value="" i18n="@@selectUnit">Einheit auswählen</option>
       <option value="Stück" i18n="@@piece">Stück</option>
       <option value="Packung" i18n="@@pack">Packung</option>
-      <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Anmerkungen spezifizieren)</option>
+      <option value="Sonstiges" i18n="@@_othersMoreInComments">Sonstiges (Bitte in den Comments spezifizieren)</option>
     </select>
     <span *ngIf="!toC(r).unit" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
+          Mandatory
         </span>
   </div>
   <div class="form-block__input-field">
     <label i18n="@@comments">
-      Anmerkungen
+      Comments
     </label>
     <textarea [(ngModel)]="toC(r).notes"></textarea>
     <span class="input-field-focus"></span>

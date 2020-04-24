@@ -9,13 +9,13 @@
 
   <!-- Enter contact information -->
   <h4 i18n="@@contactData">
-    Kontaktdaten
+    Contact Data
   </h4>
   <div class="form-block__input-field">
     <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.institution" class="form-alert" i18n="@@requiredField">
-    Pflichtangabe
+    Mandatory
   </span>
   </div>
 
@@ -23,7 +23,7 @@
     <input type="text" i18n-placeholder="@@name" placeholder="Name" [(ngModel)]="provider.name">
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.name" class="form-alert" i18n="@@requiredField">
-    Pflichtangabe
+    Mandatory
   </span>
   </div>
 
@@ -31,7 +31,7 @@
     <input type="email" i18n-placeholder="@@emailAddress" placeholder="Email" [(ngModel)]="provider.mail" email>
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.mail" class="form-alert" i18n="@@requiredField">
-    Pflichtangabe
+    Mandatory
   </span>
   </div>
 
@@ -41,26 +41,26 @@
   </div>
 
   <div class="form-block__input-wrapper">
-    <h5 i18n="address">Adresse</h5>
+    <h5 i18n="address">Address</h5>
     Eine Adresse, die keine Postleitzahl spezifiziert, wird ignoriert.
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@street" placeholder="Straße" [(ngModel)]="provider.address.street">
+      <input type="text" i18n-placeholder="@@street" placeholder="Street" [(ngModel)]="provider.address.street">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Hausnummer" [(ngModel)]="provider.address.streetNumber">
+      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Street number" [(ngModel)]="provider.address.streetNumber">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@postalCode" placeholder="PLZ" [(ngModel)]="provider.address.postalCode">
+      <input type="text" i18n-placeholder="@@postalCode" placeholder="Postal code" [(ngModel)]="provider.address.postalCode">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@city" placeholder="Stadt" [(ngModel)]="provider.address.city">
+      <input type="text" i18n-placeholder="@@city" placeholder="City" [(ngModel)]="provider.address.city">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@country" placeholder="Land" [(ngModel)]="provider.address.country" disabled>
+      <input type="text" i18n-placeholder="@@country" placeholder="Country" [(ngModel)]="provider.address.country" disabled>
       <span class="input-field-focus"></span>
     </div>
   </div>
@@ -86,9 +86,9 @@
     <h5>Vorschau (die ersten fünf Zeilen)</h5>
     <table>
       <tr>
-        <th>Kategorie</th>
+        <th>Category</th>
         <th>Bezeichnung</th>
-        <th>Hersteller</th>
+        <th>Manufacturer</th>
         <th>Anzahl</th>
         <th>Kommentare</th>
       </tr>
@@ -123,9 +123,9 @@
     <h5>Vorschau (die ersten fünf Zeilen)</h5>
     <table>
       <tr>
-        <th>Kategorie</th>
+        <th>Category</th>
         <th>Bezeichnung</th>
-        <th>Hersteller</th>
+        <th>Manufacturer</th>
         <th>Anzahl</th>
         <th>Einheit</th>
         <th>Kommentare</th>

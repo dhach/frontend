@@ -4,61 +4,60 @@
       <span i18n>Benötigte Ressource nicht gefunden?</span>
     </label>
     <div *ngIf="submitted" i18n>
-      Vielen Dank für Ihr Interesse. Wir werden Ihnen eine Email an {{ data.email }} senden, sobald neue Ressourcen in
-      der Nähe von {{ data.postalCode }} zur Verfügung stehen.
+      Thank you for your interest. We will send you a email to {{ data.email }} when there
+      are new resources around {{ data.postalCode }}.
     </div>
     <ng-container *ngIf="!submitted">
       <div i18n>
-        Sie können sich über das folgende Fomular registrieren. Dann benachrichtigen wir Sie per Email, sobald neue
-        Angebote in Ihrer Umgebung eingestellt wurden.
+        You can register using the form below. Then, we will notifice you via email when there are new offers in your region.
       </div>
       <div class="form-block__input-field">
         <input type="text" i18n-placeholder="@@name" placeholder="Name" [(ngModel)]="data.name">
         <span class="input-field-focus"></span>
         <span class="form-alert" *ngIf="!data.name" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
       </div>
       <div class="form-block__input-field">
         <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="data.institution">
         <span class="input-field-focus"></span>
         <span class="form-alert" *ngIf="!data.institution" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
       </div>
       <div class="form-block__input-field">
         <input type="email" i18n-placeholder="@@email" placeholder="Email" email [(ngModel)]="data.email">
         <span class="input-field-focus"></span>
         <span class="form-alert" *ngIf="!data.email" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
       </div>
       <div class="form-block__input-field">
-        <input type="text" i18n-placeholder="@@postalCode" placeholder="PLZ" [(ngModel)]="data.postalCode">
+        <input type="text" i18n-placeholder="@@postalCode" placeholder="Postal code" [(ngModel)]="data.postalCode">
         <span class="input-field-focus"></span>
         <span class="form-alert" *ngIf="!data.postalCode" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
       </div>
       <div>
         <input [(ngModel)]="checkedDatenschutz" type="checkbox">&nbsp;
-        <label i18n>
-          Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
-          gelesen zu haben und stimme dieser zu.
+        <label i18n="@@_agreeingToPrivacyPolicy">
+          I hereby affirm that I have read the <a href="/datenschutz" target="_blank">Privacy Policy</a>
+          and that I agree to it.
         </label>
         <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
-          Pflichtangabe
+          Mandatory
         </span>
       </div>
 
       <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
 
       <div class="form-alert" *ngIf="error" i18n="@@_pleaseCheckInput">
-        Bitte prüfen Sie Ihre Eingaben.
+        Please check the input.
       </div>
       <div class="submit-button">
         <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()" i18n="@@register">
-          Anmelden
+          Register
         </button>
       </div>
     </ng-container>

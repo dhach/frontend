@@ -1,7 +1,7 @@
 <div class="result-list">
 
   <div *ngIf="searchResults.length === 0" i18n="@@noResults">
-    Keine Ergebnisse gefunden
+    No results
   </div>
 
   <div class="result-entry" *ngFor="let r of searchResults; let i = index">
@@ -11,10 +11,10 @@
         {{ personnelQualifications.get(r.resource.qualification) }}
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@location">Standort:</div>
+        <div class="result-entry__info__label" i18n="@@location">Location</div>:
         <div class="result-entry__info__content">
           {{ formatAddress(r.resource.address) }} ({{ r.distance }}
-          km <ng-container i18n="@@away">entfernt</ng-container>)
+          <ng-container i18n>km entfernt</ng-container>)
         </div>
       </div>
       <div class="result-entry__info">
@@ -22,18 +22,18 @@
         <div class="result-entry__info__content">{{ r.resource.institution }}</div>
       </div>
       <div class="result-entry__info">
-        <div class="result-entry__info__label" i18n="@@researchGroup">Forschungsgruppe</div>
+        <div class="result-entry__info__label" i18n="@@researchGroup">Research group</div>
         <div class="result-entry__info__content">{{ r.resource.researchGroup }}</div>
       </div>
       <div class="result-entry__info">
-        <div class="result-entry__info__label" i18n="@@area">Bereich</div>
+        <div class="result-entry__info__label" i18n="@@area">Area</div>
         <div class="result-entry__info__content">{{ personnelAreas.get(r.resource.area) }}</div>
       </div>
       <div class="result-entry__info">
-        <div class="result-entry__info__label" i18n="@@experienceWithPCR">Erfahrung mit PCR und Real-Time PCR</div>
+        <div class="result-entry__info__label" i18n="@@experienceWithPCR">Experience with PCR and Real-Time PCR</div>
         <div class="result-entry__info__content">
-          <ng-container *ngIf="r.resource.experienceWithPCR" i18n="@@yes">Ja</ng-container>
-          <ng-container *ngIf="!r.resource.experienceWithPCR" i18n="@@no">Nein</ng-container>
+          <ng-container *ngIf="r.resource.experienceWithPCR" i18n="@@yes">Yes</ng-container>
+          <ng-container *ngIf="!r.resource.experienceWithPCR" i18n="@@no">No</ng-container>
         </div>
       </div>
       <button
@@ -41,15 +41,15 @@
         *ngIf="!showDetails[i]"
         (click)="toggleShowDetails(i)"
         i18n="@@showDetails"
-      >Details anzeigen</button>
+      >Show details</button>
 
       <div class="result-entry__details" *ngIf="showDetails[i]">
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label" i18n="@@comments">Anmerkungen</div>
+          <div class="result-entry__details__info__label" i18n="@@comments">Comments</div>
           <div class="result-entry__details__info__content">{{ r.resource.notes }}</div>
         </div>
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label">Kontakt:</div>
+          <div class="result-entry__details__info__label">Contact:</div>
           <div
             *ngIf="r.provider"
             class="result-entry__details__info__content"
@@ -72,7 +72,7 @@
           *ngIf="showDetails[i]"
           (click)="toggleShowDetails(i)"
           i18n="@@hideDetails"
-        >Details ausblenden</button>
+        >Hide details</button>
       </div>
     </div>
 
@@ -80,21 +80,21 @@
     <div *ngIf="type === 'device'">
       <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.resource.name }}</div>
       <div class="result-entry__info">
-        <div class="result-entry__info__label" i18n="@@manufacturer">Hersteller</div>
+        <div class="result-entry__info__label" i18n="@@manufacturer">Manufacturer</div>
         <div class="result-entry__info__content">{{ r.resource.manufacturer }}</div>
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@orderOrSerialNumber">Bestell- oder Seriennummer</div>
+        <div class="result-entry__info__label" i18n="@@orderOrSerialNumber">Order or serial number</div>
         <div class="result-entry__info__content">{{ r.resource.orderNumber }}</div>
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@location">Standort</div>
+        <div class="result-entry__info__label" i18n="@@location">Location</div>
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} ({{ r.distance }} km entfernt)
+          {{ formatAddress(r.resource.address) }} ({{ r.distance }} <ng-container i18n>km entfernt</ng-container>)
         </div>
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@amount">Menge</div>
+        <div class="result-entry__info__label" i18n="@@amount">Amount</div>
         <div class="result-entry__info__content">{{ r.resource.amount }}</div>
       </div>
       <button
@@ -102,15 +102,15 @@
         *ngIf="!showDetails[i]"
         (click)="toggleShowDetails(i)"
         i18n="@@showDetails"
-      >Details anzeigen</button>
+      >Show details</button>
 
       <div class="result-entry__details" *ngIf="showDetails[i]">
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label" i18n="@@comments">Anmerkungen</div>
+          <div class="result-entry__details__info__label" i18n="@@comments">Comments</div>
           <div class="result-entry__details__info__content">{{ r.resource.notes }}</div>
         </div>
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label" i18n="@@contact">Kontakt</div>
+          <div class="result-entry__details__info__label" i18n="@@contact">Contact</div>
           <div
             *ngIf="r.provider"
             class="result-entry__details__info__content"
@@ -133,7 +133,7 @@
           *ngIf="showDetails[i]"
           (click)="toggleShowDetails(i)"
           i18n="@@hideDetails"
-        >Details ausblenden</button>
+        >Hide details</button>
       </div>
     </div>
 
@@ -141,19 +141,22 @@
     <div *ngIf="type === 'consumable'">
       <div class="result-entry__name" (click)="toggleShowDetails(i)">{{ r.resource.name }}</div>
       <div class="result-entry__info">
-        <div class="result-entry__info__label" i18n="@@manufacturer">Hersteller</div>
+        <div class="result-entry__info__label" i18n="@@manufacturer">Manufacturer</div>
         <div class="result-entry__info__content">{{ r.resource.manufacturer }}</div>
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@orderOrSerialNumber">Bestell- oder Seriennummer</div>
+        <div class="result-entry__info__label" i18n="@@orderOrSerialNumber">Order or serial number</div>
         <div class="result-entry__info__content">{{ r.resource.ordernumber }}</div>
       </div>
       <div>
         <div class="result-entry__info__label" i18n="@@location">Standort</div>
-        <div class="result-entry__info__content">{{ formatAddress(r.resource.address) }} ({{ r.distance }} km entfernt)</div>
+        <div class="result-entry__info__content">
+          {{ formatAddress(r.resource.address) }} 
+          ({{ r.distance }} <ng-container i18n>km away</ng-container>)
+        </div>
       </div>
       <div>
-        <div class="result-entry__info__label" i18n="@@amount">Menge</div>
+        <div class="result-entry__info__label" i18n="@@amount">Amount</div>
         <div class="result-entry__info__content">{{ r.resource.amount }} {{ r.resource.unit }}</div>
       </div>
       <button
@@ -161,15 +164,15 @@
         *ngIf="!showDetails[i]"
         (click)="toggleShowDetails(i)"
         i18n="@@showDetails"
-      >Details anzeigen</button>
+      >Show details</button>
 
       <div class="result-entry__details" *ngIf="showDetails[i]">
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label" i18n="@@comments">Anmerkungen</div>
+          <div class="result-entry__details__info__label" i18n="@@comments">Comments</div>
           <div class="result-entry__details__info__content">{{ r.resource.notes }}</div>
         </div>
         <div class="result-entry__details__info">
-          <div class="result-entry__details__info__label" i18n="@@contact">Kontakt</div>
+          <div class="result-entry__details__info__label" i18n="@@contact">Contact</div>
           <div
             *ngIf="r.provider"
             class="result-entry__details__info__content"
@@ -192,7 +195,7 @@
           *ngIf="showDetails[i]"
           (click)="toggleShowDetails(i)"
           i18n="@@hideDetails"
-        >Details ausblenden</button>
+        >Hide details</button>
       </div>
     </div>
   </div>

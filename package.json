@@ -4,15 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start-de-de": "ng serve --configuration=de --base-href=/de/de/ --servePath=/ --liveReload=false --port 4200",
-    "start-de-en": "ng serve --configuration=en-GB --base-href=/de/en/ --servePath=/ --liveReload=false --port 4201",
+    "start-de-en": "ng serve --configuration=en --base-href=/de/en/ --servePath=/ --liveReload=false --port 4201",
     "start-de-it": "ng serve --configuration=it --base-href=/de/it/ --servePath=/ --liveReload=false --port 4202",
-    "start-my-en": "ng serve --configuration=en-GB --base-href=/my/en/ --servePath=/ --liveReload=false --port 4210",
-    "build": "ng build --configuration=production,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=production,en-GB --base-href=/de/en/ --outputPath=dist/de/en/ && ng build --configuration=production,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=production,en-GB --base-href=/my/en/ --outputPath=dist/my/en",
-    "build-testproduction": "ng build --configuration=testproduction,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=testproduction,en-GB --base-href=/de/en/ --outputPath=dist/de/en && ng build --configuration=testproduction,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=testproduction,en-GB --base-href=/my/en/ --outputPath=dist/my/en",
+    "start-my-en": "ng serve --configuration=en --base-href=/my/en/ --servePath=/ --liveReload=false --port 4210",
+    "build": "ng build --configuration=production,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=production,en --base-href=/de/en/ --outputPath=dist/de/en/ && ng build --configuration=production,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=production,en --base-href=/my/en/ --outputPath=dist/my/en",
+    "build-testproduction": "ng build --configuration=testproduction,de --base-href=/de/de/ --outputPath=dist/de/de && ng build --configuration=testproduction,en --base-href=/de/en/ --outputPath=dist/de/en && ng build --configuration=testproduction,it --base-href=/de/it/ --outputPath=dist/de/it && ng build --configuration=testproduction,en --base-href=/my/en/ --outputPath=dist/my/en",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-i18n": "ng xi18n pirat --i18n-format xlf --output-path src/i18n --i18n-locale de && ng run pirat:xliffmerge"
+    "extract-i18n": "ng xi18n pirat --format xlf --output-path src/i18n && ng run pirat:xliffmerge"
   },
   "private": true,
   "dependencies": {
