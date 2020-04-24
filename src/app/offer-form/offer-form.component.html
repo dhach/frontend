@@ -1,6 +1,6 @@
 <div class="page-head" >
   <div class="container">
-    <h2 class="page-title" i18n="@@createOffer">Angebot einstellen</h2>
+    <h2 class="page-title" i18n="@@createOffer">Create offer</h2>
   </div>
 </div>
 
@@ -8,13 +8,13 @@
 
 <div class="form-block">
   <h3 class="form-block__headline" i18n="@@contactData">
-    Kontaktdaten
+    Contact Data
   </h3>
   <div class="form-block__input-field">
     <input type="text" i18n-placeholder="@@institution" placeholder="Institution" [(ngModel)]="provider.institution" required>
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.institution" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
@@ -22,7 +22,7 @@
     <input type="text" i18n-placeholder="@@name" placeholder="Name" [(ngModel)]="provider.name">
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.name" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
@@ -30,7 +30,7 @@
     <input type="email" i18n-placeholder="@@emailAddress" placeholder="Email" [(ngModel)]="provider.mail" email>
     <span class="input-field-focus"></span>
     <span *ngIf="!provider.mail" class="form-alert" i18n="@@requiredField">
-      Pflichtangabe
+      Mandatory
     </span>
   </div>
 
@@ -41,42 +41,42 @@
 
   <div class="form-block__input-wrapper">
     <label>
-      <span i18n="address">Adresse</span>
+      <span i18n="address">Address</span>
       <span *ngIf="!(provider.address.street && provider.address.streetNumber && provider.address.postalCode
         && provider.address.city && provider.address.country)" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
     </label>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@street" placeholder="Straße" [(ngModel)]="provider.address.street">
+      <input type="text" i18n-placeholder="@@street" placeholder="Street" [(ngModel)]="provider.address.street">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Hausnummer" [(ngModel)]="provider.address.streetNumber">
+      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Street number" [(ngModel)]="provider.address.streetNumber">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@postalCode" placeholder="PLZ" [(ngModel)]="provider.address.postalCode">
+      <input type="text" i18n-placeholder="@@postalCode" placeholder="Postal code" [(ngModel)]="provider.address.postalCode">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@city" placeholder="Stadt" [(ngModel)]="provider.address.city">
+      <input type="text" i18n-placeholder="@@city" placeholder="City" [(ngModel)]="provider.address.city">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@country" placeholder="Land" [(ngModel)]="provider.address.country" disabled>
+      <input type="text" i18n-placeholder="@@country" placeholder="Country" [(ngModel)]="provider.address.country" disabled>
       <span class="input-field-focus"></span>
     </div>
   </div>
 
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
-    <label i18n>
-      Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
-      gelesen zu haben und stimme dieser zu.
+    <label i18n="@@_agreeingToPrivacyPolicy">
+      I hereby affirm that I have read the <a href="/datenschutz" target="_blank">Privacy Policy</a>
+      and that I agree to it.
     </label>
     <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
-        Pflichtangabe
+        Mandatory
       </span>
   </div>
 </div>
@@ -85,14 +85,14 @@
   <h3>
     <span i18n="@@resources">Ressourcen</span><br>
     <span *ngIf="resources.length === 0" class="form-alert" i18n="@@_alertAddAtLeastOneResource">
-        Bitte mindestens eine Ressource hinzufügen.
+        Please add at least one resource.
       </span>
   </h3>
 
   <div class="button-bar">
     <button class="button" (click)="addPersonnel()" i18n="@@addPersonal">Personal hinzufügen</button>
-    <button class="button" (click)="addDevice()" i18n="@@addDevice">Gerät hinzufügen</button>
-    <button class="button" (click)="addConsumable()" i18n="@@addConsumable">Verbrauchsmaterial hinzufügen</button>
+    <button class="button" (click)="addDevice()" i18n="@@addDevice">Add staff</button>
+    <button class="button" (click)="addConsumable()" i18n="@@addConsumable">Add consumable</button>
   </div>
 </div>
 
@@ -109,16 +109,16 @@
 
 
   <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'" i18n="@@_pleaseCheckAddress">
-    Bitte prüfen Sie die eingegebenen Adressen.
+    Please check the entered addresses.
   </div>
   <div class="form-alert" *ngIf="isUnexpectedError(error)" i18n="@@_pleaseCheckInput">
-    Bitte prüfen Sie Ihre Eingaben.
+    Please check the input.
   </div>
 
 
   <div class="submit-button align-center-text">
     <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()"i18n="@@createOffer">
-      Angebot einstellen
+      Create offer
     </button>
   </div>
 </div>

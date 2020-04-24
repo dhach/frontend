@@ -9,14 +9,12 @@
     <div class="container">
 
       <div *ngIf="isNew" class="info-box" i18n>
-        Das Angebot wurde erfasst. Auf dieser Seite können Sie Ihre Daten einsehen. Eine Bestätigung
-        wurde Ihnen auch per Email zugeschickt.
+        The offer has been recorded. You can view your data on this page. A confirmation was also sent to you via email.
       </div>
 
       <div class="current-url">
         <div i18n>
-          Mit diesem Link kommen Sie auf diese Seite, um Ihr Angebot einsehen und bearbeiten zu können. Bitte bewahren
-          Sie ihn auf. Um das Angebot zu löschen, kontaktieren Sie uns bitte via Email mit Angabe dieses Links.
+          Using this link you can get to this page where you can have a look at your offer and modify it. Please keep it. If you want to delete the offer please contact us via email and mention this link.
         </div>
         <div class="form-block__input-field">
           <div class="value-field">{{ currentUrl }}</div>
@@ -25,20 +23,20 @@
 
       <div class="form-block">
         <h3 class="form-block__headline" i18n="@@contactData">
-          Kontaktdaten
+          Contact Data
         </h3>
         <div class="form-block__edit-buttons">
           <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                   *ngIf="!isInEditMode.provider" (click)="enterEditModeProvider()">
-            🖊️ Bearbeiten
+            🖊️ Modify
           </button>
           <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                   *ngIf="isInEditMode.provider" (click)="resetProvider()">
-            🗑️ Änderungen verwerfen
+            🗑️ Reject changes
           </button>
           <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                   *ngIf="isInEditMode.provider" (click)="saveProvider()">
-            💾️ Speichern
+            💾️ Save
           </button>
         </div>
         <div class="form-block__input-field">
@@ -59,7 +57,7 @@
 
         <div class="form-block__input-field">
           <label i18n="@@emailAddress">
-            E-Mail Adresse
+            Email
           </label>
           <input type="text" [value]="data.provider.mail" disabled>
           <span class="input-field-focus"></span>
@@ -67,7 +65,7 @@
 
         <div class="form-block__input-field">
           <label i18n="@@phoneNumber">
-            Telefonnummer
+            Phone number
           </label>
           <input type="text" [(ngModel)]="data.provider.phone" [disabled]="!isInEditMode.provider">
           <span class="input-field-focus"></span>
@@ -75,39 +73,39 @@
 
         <div class="form-block__input-wrapper">
           <label>
-            <span i18n="@@address">Adresse</span>
+            <span i18n="@@address">Address</span>
           </label>
           <div class="form-block__input-field">
             <label i18n="@@street">
-              Straße
+              Street
             </label>
             <input type="text" [(ngModel)]="data.provider.address.street" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@streetNumber">
-              Hausnummer
+              Street number
             </label>
             <input type="text" [(ngModel)]="data.provider.address.streetNumber" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCode">
-              PLZ
+              Postal code
             </label>
             <input type="text" [(ngModel)]="data.provider.address.postalCode" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@city">
-              Stadt
+              City
             </label>
             <input type="text" [(ngModel)]="data.provider.address.city" [disabled]="!isInEditMode.provider">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@country">
-              Land
+              Country
             </label>
             <input type="text" [value]="data.provider.address.country" disabled>
             <span class="input-field-focus"></span>
@@ -118,25 +116,25 @@
       <div *ngFor="let r of data.resources; let gIndex = index">
         <div *ngIf="r.type === 'personnel'" class="form-block">
           <h3 class="form-block__headline" i18n="@@helper">
-            Helfer
+            Helper
           </h3>
           <div class="form-block__edit-buttons">
             <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Bearbeiten
+              🖊️ Modify
             </button>
             <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Änderungen verwerfen
+              🗑️ Reject changes
             </button>
             <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Speichern
+              💾️ Save
             </button>
           </div>
           <div class="form-block__select">
             <label>
-              <span i18n="@@qualification">Qualifikation</span>
+              <span i18n="@@qualification">Qualification</span>
             </label>
             <select [(ngModel)]="toP(r).qualification" [disabled]="!isInEditMode.resources[gIndex]">
               <option
@@ -156,21 +154,21 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@postalCodeOfLocation">
-              Postleitzahl des Standortes
+              Postal code of location
             </label>
             <input type="text" [(ngModel)]="toP(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@researchGroup">
-              Forschungsgruppe
+              Research group
             </label>
             <input type="text" [(ngModel)]="toP(r).researchGroup" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__select">
             <label i18n="@@area">
-              Bereich
+              Area
             </label>
             <select [(ngModel)]="toP(r).area" [disabled]="!isInEditMode.resources[gIndex]" >
               <option *ngFor="let area of personnelAreasKeys" [value]="area">
@@ -180,18 +178,17 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__select">
-            <div i18n="@@_questionExperienceWithPCR">Haben Sie Erfahrung in der Durchführung von PCR und Real-Time
-              PCR?
+            <div i18n="@@_questionExperienceWithPCR">
+              Do you have experience with conducting PCR and Real-Time PCR?
             </div>
             <select [(ngModel)]="toP(r).experienceWithPCR" [disabled]="!isInEditMode.resources[gIndex]">
-              <option [value]="true" i18n="@@yes">Ja</option>
-              <option [value]="false" i18n="@@no">Nein</option>
+              <option [value]="true" i18n="@@yes">Yes</option>
+              <option [value]="false" i18n="@@no">No</option>
             </select>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments_s1s">
-              Anmerkungen (z.B. S1 oder S2-Unterweisung vorhanden, medizinische Qualifikation zur Abstrichentnahme
-              vorhanden)
+              Comments (e.g. S1 or S2 instruction available, medical qualification for swab collection available)
             </label>
             <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
             <span class="input-field-focus"></span>
@@ -199,46 +196,46 @@
           <div>
             <input type="checkbox" checked disabled>
             <label i18n="@@_declarationVoluntaryWork">
-              Hiermit wird bestätigt, dass der Helfer die Tätigkeit ehrenamtlich außerhalb der Arbeitszeiten ausführt.
+              Hereby it is declared that the volunteer does the activity unsalaried and outside their working hours.
             </label>
           </div>
           <div class="resource-delete-buttons">
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')">
-              🗑️ Löschen: Ressourcen wurden über PIRAT vergeben
+              🗑️ Delete: Resource has been allocated by PIRAT
             </button>
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')">
-              🗑️ Löschen: Ressourcen wurden über einen anderen Kanal vergeben
+              🗑️ Delete: Resource has been allocated by other means
             </button>
             <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')">
-              🗑️ Löschen: Ressourcen sollen nicht mehr angeboten werden.
+              🗑️ Delete: Resource has been allocated by other means
             </button>
             <button (click)="deleteResource(gIndex, 'OTHERS')">
-              🗑️ Löschen: Sonstiges
+              🗑️ Delete: Other reason
             </button>
           </div>
         </div>
 
         <div *ngIf="r.type === 'device'" class="form-block">
           <h3 class="form-block__headline" i18n="@@device">
-            Gerät
+            Device
           </h3>
           <div class="form-block__edit-buttons">
             <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Bearbeiten
+              🖊️ Modify
             </button>
             <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Änderungen verwerfen
+              🗑️ Reject changes
             </button>
             <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Speichern
+              💾️ Save
             </button>
           </div>
           <div class="form-block__select">
             <label>
-              <span i18n="@@category">Kategorie</span>
+              <span i18n="@@category">Category</span>
             </label>
             <select [(ngModel)]="toD(r).category" disabled>
               <option [value]="toD(r).category" selected>
@@ -248,14 +245,14 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@exactName">
-              Exakte Materialbezeichnung
+              Exact name of material
             </label>
             <input type="text" [(ngModel)]="toD(r).name" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@manufacturer">
-              Hersteller
+              Manufacturer
             </label>
             <input type="text" [(ngModel)]="toD(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
@@ -276,7 +273,7 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@amount">
-              Menge
+              Amount
             </label>
             <div class="amount-setting">
               <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
@@ -288,82 +285,82 @@
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex)"
               >
-                💾️ Menge erhöhen
+                💾️ Increase quantity
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
               >
-                💾️ Menge verringern: Ressourcen wurden über PIRAT vermittelt
+                💾️ Decrease quantity: Resource has been allocated by PIRAT
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
               >
-                💾️ Menge verringern: Ressourcen wurden über einen anderen Weg vermittelt
+                💾️ Decrease quantity: Resource has been allocated by other means
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
               >
-                💾️ Menge verringern: Ressourcen sollen nicht mehr angeboten werden.
+                💾️ Decrease quantity: Resource should not appear anymore.
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'OTHERS')"
               >
-                💾️ Menge verringern: Sonstiges
+                💾️ Decrease quantity: Other reason
               </button>
             </div>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
-              Anmerkungen
+              Comments
             </label>
             <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toD(r).notes"></textarea>
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
-              🗑️ Löschen: Ressourcen wurden über PIRAT vergeben
+              🗑️ Delete: Resource has been allocated by PIRAT
             </button>
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
-              🗑️ Löschen: Ressourcen wurden über einen anderen Kanal vergeben
+              🗑️ Delete: Resource has been allocated by other means
             </button>
             <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
-              🗑️ Löschen: Ressourcen sollen nicht mehr angeboten werden.
+              🗑️ Delete: Resource should not appear anymore.
             </button>
             <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
-              🗑️ Löschen: Sonstiges
+              🗑️ Delete: Resource should not appear anymore.
             </button>
           </div>
         </div>
 
         <div *ngIf="r.type === 'consumable'" class="form-block">
           <h3 class="form-block__headline" i18n="@@consumable">
-            Verbrauchsmaterial
+            Consumable
           </h3>
           <div class="form-block__edit-buttons">
             <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
                     *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Bearbeiten
+              🖊️ Modify
             </button>
             <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Änderungen verwerfen
+              🗑️ Reject changes
             </button>
             <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
                     *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Speichern
+              💾️ Save
             </button>
           </div>
           <div class="form-block__select">
             <label>
-              <span i18n="@@category">Kategorie</span>
+              <span i18n="@@category">Category</span>
             </label>
             <select [(ngModel)]="toC(r).category" disabled>
               <option [value]="toC(r).category" selected>
@@ -373,14 +370,14 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@exactName">
-              Exakte Materialbezeichnung
+              Exact name of material
             </label>
             <input type="text" [(ngModel)]="toC(r).name" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
             <label i18n="@@manufacturer">
-              Hersteller
+              Manufacturer
             </label>
             <input type="text" [(ngModel)]="toC(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
@@ -401,7 +398,7 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@amount">
-              Menge
+              Amount
             </label>
             <div class="amount-setting">
               <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
@@ -413,35 +410,35 @@
                 *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex)"
               >
-                💾️ Menge erhöhen
+                💾️ Increase quantity
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
               >
-                💾️ Menge verringern: Ressourcen wurden über PIRAT vermittelt.
+                💾️ Decrease quantity: Resource has been allocated by PIRAT.
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
               >
-                💾️ Menge verringern: Ressourcen wurden über einen anderen Weg vermittelt.
+                💾️ Decrease quantity: Resource has been allocated by other means.
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
               >
-                💾️ Menge verringern: Ressourcen sollen nicht mehr angeboten werden.
+                💾️ Decrease quantity: Resource should not appear anymore.
               </button>
               <button
                 class="form-block__edit-buttons__save" i18n
                 *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
                 (click)="editResourceAmount(gIndex, 'OTHERS')"
               >
-                💾️ Menge verringern: Sonstiges
+                💾️ Decrease quantity: Other reason
               </button>
             </div>
           </div>
@@ -457,23 +454,23 @@
           </div>
           <div class="form-block__input-field">
             <label i18n="@@comments">
-              Anmerkungen
+              Comments
             </label>
             <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toC(r).notes"></textarea>
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
-              🗑️ Löschen: Ressourcen wurden über PIRAT vergeben
+              🗑️ Delete: Resource has been allocated by PIRAT
             </button>
             <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
-              🗑️ Löschen: Ressourcen wurden über einen anderen Kanal vergeben
+              🗑️ Delete: Resource has been allocated by other means
             </button>
             <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
-              🗑️ Löschen: Ressourcen sollen nicht mehr angeboten werden.
+              🗑️ Delete: Resource should not appear anymore.
             </button>
             <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
-              🗑️ Löschen: Sonstiges
+              🗑️ Delete: Resource should not appear anymore.
             </button>
           </div>
         </div>

@@ -1,6 +1,6 @@
 <div class="page-head">
   <div class="container">
-    <h2 class="page-title" i18n="@@contact">Kontakt</h2>
+    <h2 class="page-title" i18n="@@contact">Contact</h2>
   </div>
 </div>
 
@@ -9,74 +9,72 @@
     <div class="container">
       <div class="row">
         <p i18n>
-          Wenn Sie Fragen, Wünsche oder Anregungen haben, freuen wir uns, wenn Sie Kontakt mit uns aufnehmen.
-          Schreiben Sie uns eine Email an <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> oder benutzen Sie
-          das Kontaktformular, wir melden uns schnellstmöglich per E-Mail oder Telefon bei Ihnen!
+          If you have any questions, requests or suggestions, please contact us. Send us an email to <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> or use the contact form, we will get back to you as soon as possible by email or phone!
         </p>
 
         <div class="form-block">
           <div *ngIf="callBackSubmit" class="info-box" i18n>
-            Vielen Dank für Ihre Kontaktanfrage, wir werden uns gleich bei Ihnen melden.
+            Thank you very much for your contact request, we will get back to you shortly.
           </div>
           <ng-container *ngIf="!callBackSubmit">
             <div class="form-block__label" i18n>
-              Rückruf anfragen
+              Request a callback
             </div>
             <div class="form-block__input-field">
               <input type="text" placeholder="Name" i18n-placeholder="@@name" [(ngModel)]="requestData.name">
               <span class="input-field-focus"></span>
               <span *ngIf="!requestData.name" class="form-alert" i18n="@@requiredField">
-                  Pflichtangabe
+                  Mandatory
                 </span>
             </div>
 
             <div class="form-block__input-field">
-              <input type="text" placeholder="Telefonnummer" i18n-placeholder="@@phoneNumber" [(ngModel)]="requestData.phone">
+              <input type="text" placeholder="Phone number" i18n-placeholder="@@phoneNumber" [(ngModel)]="requestData.phone">
               <span class="input-field-focus"></span>
               <span *ngIf="!requestData.phone" class="form-alert" i18n="@@requiredField">
-                  Pflichtangabe
+                  Mandatory
                 </span>
             </div>
 
             <div class="form-block__input-field">
-              <input type="email" placeholder="E-Mail Adresse" i18n-placeholder="@@emailAddress" [(ngModel)]="requestData.email">
+              <input type="email" placeholder="Email" i18n-placeholder="@@emailAddress" [(ngModel)]="requestData.email">
               <span class="input-field-focus"></span>
             </div>
 
             <div class="form-block__select">
               <label>
-                <span i18n="@@topic">Thema</span>
+                <span i18n="@@topic">Topic</span>
               </label>
               <select [(ngModel)]="requestData.topic">
-                <option value="technicalQuestion">Technische Frage</option>
-                <option value="topicalQuestion">Fachliche Frage</option>
-                <option value="otherQuestion">Sonstiges</option>
+                <option value="technicalQuestion" i18n>Technical Question</option>
+                <option value="topicalQuestion" i18n>Fachliche Question</option>
+                <option value="otherQuestion" i18n>Other Question</option>
               </select>
               <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
-                  Pflichtangabe
+                  Mandatory
                 </span>
             </div>
 
             <div class="form-block__input-field">
-              <input type="text" placeholder="Anmerkungen" i18n-placeholder="comments" [(ngModel)]="requestData.notes">
+              <input type="text" placeholder="Comments" i18n-placeholder="comments" [(ngModel)]="requestData.notes">
               <span class="input-field-focus"></span>
             </div>
 
             <div>
               <input [(ngModel)]="checkedDatenschutz" type="checkbox">
-              <label i18n>
-                Hiermit versichere ich, die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a>
-                gelesen zu haben und stimme dieser zu.
+              <label i18n="@@_agreeingToPrivacyPolicy">
+                I hereby affirm that I have read the <a href="/datenschutz" target="_blank">Privacy Policy</a>
+                and that I agree to it.
               </label>
               <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">
-                  Pflichtangabe
+                  Mandatory
                 </span>
             </div>
 
             <app-re-captcha-wrapper (resolved)="resolved($event)"></app-re-captcha-wrapper>
             <div class="submit-button align-center align-center-text">
               <button class="button" (click)="onSubmit()" [disabled]="!recaptcha || !isValid()" i18n="@@sendRequest">
-                Anfrage abschicken
+                Submit request
               </button>
             </div>
           </ng-container>

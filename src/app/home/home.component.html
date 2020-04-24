@@ -3,11 +3,11 @@
     <h2 class="page-title" i18n>Pandemic Important Resource<br>Allocation Tool</h2>
 
     <p><small i18n="@@home_projectDescription">
-      Erfassung und effiziente Verteilung von notwendigen Ressourcen in Ausnahmesituation
+      Registration and efficient allocation of important resources during emergency situations
     </small></p>
 
-    <button class="button" routerLink="/angebote/neu" i18n="@@createOffer">Angebot einstellen</button>
-    <button class="button" routerLink="/suchanfrage" i18n="@@searchResource">Suchanfrage</button>
+    <button class="button" routerLink="/angebote/neu" i18n="@@createOffer">Create offer</button>
+    <button class="button" routerLink="/suchanfrage" i18n="@@searchResource">Search request</button>
   </div>
 </div>
 
@@ -16,11 +16,10 @@
   <div class="fullwidth-block">
     <div class="container">
       <div class="row">
-        <p i18n>Über unsere Seite können Universitäten und Forschungseinrichtungen ihre derzeit
-          ungenutzten Ressourcen in Form von Geräten, Verbrauchsmaterial und Personal
-          anbieten, die dann von Corona-Testlaboren angefragt und zur Erhöhung der
-          Testkapazitäten genutzt werden können. Alle wichtigen Informationen finden
-          Sie auf der <a routerLink="/faq">FAQ Seite</a>.
+        <p i18n>With our platform, universities and research institutions can provider currently
+          unused resources - equipment, consumables, and personnels. These can then be requested by corona test labs
+          to increase the test capacities. All relevant information can be found on the <a routerLink="/faq">FAQ
+            page</a>.
         </p>
         <p i18n>
           Gerne können Sie auch Ihren Bedarf bei uns melden. Schicken Sie uns dafür eine Liste der benötigten Ressourcen
@@ -39,9 +38,10 @@
           </div>
         </div>
 
-        <h3 class="align-center align-center-text" i18n="@@currentOffers">Aktuelle Angebote</h3>
+        <h3 class="align-center align-center-text" i18n="@@currentOffers">Current Offers</h3>
         <app-statistics [data]="statistics"></app-statistics>
-        <div class="statistics-box-stand"><span>Stand: {{ statistics.date }}</span></div>
+        <div class="statistics-box-stand"><span><ng-container i18n>Stand</ng-container>: {{ statistics.date }}</span>
+        </div>
         <!-- <app-region-subscription-form></app-region-subscription-form> -->
       </div>
     </div>
