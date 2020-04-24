@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pirate": {
+    "pirat": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,7 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pirate",
+            "outputPath": "dist/pirat",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -117,21 +117,21 @@
             },
             "en-GB": {
               "aot": true,
-              "outputPath": "dist/pirate-en-GB",
+              "outputPath": "dist/pirat-en-GB",
               "i18nFile": "src/i18n/messages.en-GB.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en-GB"
             },
             "it": {
               "aot": true,
-              "outputPath": "dist/pirate-it",
+              "outputPath": "dist/pirat-it",
               "i18nFile": "src/i18n/messages.it.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "it"
             },
             "de": {
               "aot": true,
-              "outputPath": "dist/pirate-de",
+              "outputPath": "dist/pirat-de",
               "i18nFile": "src/i18n/messages.de.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "de"
@@ -153,27 +153,27 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pirate:build"
+            "browserTarget": "pirat:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pirate:build:production"
+              "browserTarget": "pirat:build:production"
             },
             "en-GB": {
-              "browserTarget": "pirate:build:en-GB"
+              "browserTarget": "pirat:build:en-GB"
             },
             "it": {
-              "browserTarget": "pirate:build:it"
+              "browserTarget": "pirat:build:it"
             },
             "de": {
-              "browserTarget": "pirate:build:de"
+              "browserTarget": "pirat:build:de"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pirate:build"
+            "browserTarget": "pirat:build"
           }
         },
         "xliffmerge": {
@@ -202,7 +202,7 @@
       }
     }
   },
-  "defaultProject": "pirate",
+  "defaultProject": "pirat",
   "cli": {
     "analytics": false
   }

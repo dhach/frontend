@@ -21,13 +21,13 @@ RUN  if [ "$build_env" = "production" ]; then \
     npm set progress=false && npm config set depth 0 && npm --quiet  run build-testproduction; \
     fi
 
-RUN ls -la  /build/dist/pirate/
+RUN ls -la  /build/dist/pirat/
 
 ## serve via nginx
 FROM bitnami/nginx:1.17 AS server
 
 # copy the built JS files and the nginx config
-COPY --from=builder /build/dist/pirate/ /app/
-COPY docker_resources/pirate.conf /opt/bitnami/nginx/conf/server_blocks/
+COPY --from=builder /build/dist/pirat/ /app/
+COPY docker_resources/pirat.conf /opt/bitnami/nginx/conf/server_blocks/
 
 EXPOSE 8081
