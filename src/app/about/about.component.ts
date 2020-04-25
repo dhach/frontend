@@ -169,23 +169,6 @@ export class AboutComponent implements OnInit {
           ' academic subject-areas, which is why I hope to contribute to this project, even as an non-specialist in informatics.',
       },
     },
-    {
-      image: 'marcel.jpg',
-      name: 'Marcel Bühler',
-      short: {
-        de: 'ETH Zürich - Student (Data Science)',
-        en: 'ETH Zurich - Student (Data Science)',
-      },
-      long: {
-        de: 'In normalen Zeiten entwickle ich generative Machine Learning Modelle' +
-        'und bin in der Entrepreneur-Community aktiv. Ich halte es für essentiell, ' +
-        'dass in globalen Krisen alle anpacken und mithelfen. Für PIRAT sehe ich grosses ' +
-        'Hilfs-Potential und treibe deshalb die Verbreitung in der Schweiz voran.',
-        en: 'I usually work on generative machine learning models and engage in the entrepreneurial community.' +
-        ' I believe that in such a global crises, every single person should actively participate and do the best' +
-        ' to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
-      },
-    }
   ];
 
   developer = [
@@ -271,6 +254,18 @@ export class AboutComponent implements OnInit {
         en: 'I usually work on generative machine learning models and engage in the entrepreneurial community.' +
         ' I believe that in such a global crises, every single person should actively participate and do the best' +
         ' to help. PIRAT is a valuable initiative with a big potential, and my aim is to push it to Switzerland.',
+      },
+    },
+    {
+      image: 'kasturi.jpg',
+      name: 'Kasturi Muthoosamy',
+      short: {
+        en: 'University of Nottingham Malaysia - Academia',
+      },
+      long: {
+        en: 'I came across this outstanding project during a webinar. As an academician with laboratories as second ' +
+          'home, I wished for similar system availability here in Malaysia to better utilize the resources.  PIRAT ' +
+          'team has been very kind and are helping to kick-start a similar project here in Malaysia.',
       },
     },
   ];
