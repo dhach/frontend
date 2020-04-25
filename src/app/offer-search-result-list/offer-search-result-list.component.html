@@ -14,7 +14,7 @@
         <div class="result-entry__info__label" i18n="@@location">Location</div>:
         <div class="result-entry__info__content">
           {{ formatAddress(r.resource.address) }} ({{ r.distance }}
-          <ng-container i18n>km entfernt</ng-container>)
+          <ng-container i18n="@@kmAway">km away</ng-container>)
         </div>
       </div>
       <div class="result-entry__info">
@@ -90,7 +90,7 @@
       <div>
         <div class="result-entry__info__label" i18n="@@location">Location</div>
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} ({{ r.distance }} <ng-container i18n>km entfernt</ng-container>)
+          {{ formatAddress(r.resource.address) }} ({{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>)
         </div>
       </div>
       <div>
@@ -152,7 +152,7 @@
         <div class="result-entry__info__label" i18n="@@location">Standort</div>
         <div class="result-entry__info__content">
           {{ formatAddress(r.resource.address) }} 
-          ({{ r.distance }} <ng-container i18n>km away</ng-container>)
+          ({{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>)
         </div>
       </div>
       <div>

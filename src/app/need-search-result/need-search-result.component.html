@@ -1,5 +1,5 @@
 <div class="form-block">
-    <h3 class="form-block__headline" i18n="@@searchResults">Suchergebnisse</h3>
+    <h3 class="form-block__headline" i18n="@@searchResults">Search results</h3>
     <p *ngIf="searchResults.length === 0; else elseBlock" i18n="@@noResults">Keine Ergebnisse gefunden</p>
 </div>
 
@@ -31,12 +31,12 @@
                             class="need-search__results-btn align-center"
                             (click)="toggleShowDetails(i)"
                             i18n="@@makeContact"
-                    >Kontakt aufnehmen</button>
+                    >Make contact</button>
                 </td>
             </tr>
             <div *ngIf="showDetails[i]" class="form-block__overlay">
                 <div class="form-block__overlay-inner">
-                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">close</a>
                     <div class="scroll-container">
                         <app-offer-search-contact-form
                                 requestType="demands"
@@ -76,12 +76,12 @@
                             class="need-search__results-btn"
                             (click)="toggleShowDetails(i)"
                             i18n="@@makeContact"
-                    >Kontakt aufnehmen</button>
+                    >Make contact</button>
                 </td>
             </tr>
             <div *ngIf="showDetails[i]" class="form-block__overlay">
                 <div class="form-block__overlay-inner">
-                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">schließen</a>
+                    <a class="close-overlay" (click)="toggleShowDetails(i)" i18n="@@close">close</a>
                     <div class="scroll-container">
                     <app-offer-search-contact-form
                             requestType="demands"
