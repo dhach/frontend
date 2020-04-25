@@ -47,7 +47,7 @@
               </label>
               <select [(ngModel)]="requestData.topic">
                 <option value="technicalQuestion" i18n>Technical Question</option>
-                <option value="topicalQuestion" i18n>Fachliche Question</option>
+                <option value="topicalQuestion" i18n>Question specific to COVID-19 testing</option>
                 <option value="otherQuestion" i18n>Other Question</option>
               </select>
               <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
