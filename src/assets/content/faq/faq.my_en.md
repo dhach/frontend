@@ -40,9 +40,11 @@ The aim of this page is to connect Covid19 test laboratories and health authorit
 
 * Doctors
 * Nurses
+* Pharmacists
 * Laboratory technicians
 * Postdocs
 * PhD students
+* MSc students
 
 #### Examples of competencies required:
 

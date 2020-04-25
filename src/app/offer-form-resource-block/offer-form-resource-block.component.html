@@ -1,5 +1,5 @@
 <div *ngIf="r.type === 'personnel'" class="form-block">
-  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@helper">Helfer</ng-container></div>
+  <div class="form-block__label"><button (click)="deleteItem()">🗑️</button> <ng-container i18n="@@helper">Helper</ng-container></div>
   <div class="form-block__select">
     <label i18n="@@qualification">
       Qualification
@@ -21,12 +21,17 @@
       </span>
   </div>
   <div class="form-block__input-field">
-    <input type="text" placeholder="Forschungsgruppe" i18n-placeholder="@@researchGroup"  [(ngModel)]="toP(r).researchGroup">
+    <input
+      type="text"
+      placeholder="Department / Research group"
+      i18n-placeholder="@@departmentOrResearchGroup"
+      [(ngModel)]="toP(r).researchGroup"
+    >
     <span class="input-field-focus"></span>
   </div>
   <div class="form-block__select">
-    <label i18n="@@area">
-      Area
+    <label i18n="@@areaOfExpertise">
+      Area of Expertise
     </label>
     <select [(ngModel)]="toP(r).area">
       <option *ngFor="let area of personnelAreasKeys" [value]="area">
@@ -57,8 +62,8 @@
       </span>
   </div>
   <div class="form-block__input-field">
-    <label i18n="@@comments_s1s">
-      Comments (e.g. S1 or S2 instruction available, medical qualification for swab collection available)
+    <label i18n="@@comments_labSafety">
+      Comments (e.g. familiar and experienced with lab safety, medical qualification for swab collection available)
     </label>
     <textarea [(ngModel)]="toP(r).notes"></textarea>
     <span class="input-field-focus"></span>
