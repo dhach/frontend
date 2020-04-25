@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve --configuration=en,simpledev --port 4200",
     "start-de-de": "ng serve --configuration=de --base-href=/de/de/ --servePath=/ --liveReload=false --port 4200",
     "start-de-en": "ng serve --configuration=en --base-href=/de/en/ --servePath=/ --liveReload=false --port 4201",
     "start-de-it": "ng serve --configuration=it --base-href=/de/it/ --servePath=/ --liveReload=false --port 4202",

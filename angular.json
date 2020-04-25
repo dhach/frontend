@@ -115,6 +115,14 @@
                 }
               ]
             },
+            "simpledev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.simpledev.ts"
+                }
+              ]
+            },
             "en": {
               "aot": true,
               "outputPath": "dist/pirat-en",
@@ -165,6 +173,9 @@
           "configurations": {
             "production": {
               "browserTarget": "pirat:build:production"
+            },
+            "simpledev": {
+              "browserTarget": "pirat:build:simpledev"
             },
             "en": {
               "browserTarget": "pirat:build:en"
