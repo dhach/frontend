@@ -13,8 +13,7 @@
       <div>
         <div class="result-entry__info__label" i18n="@@location">Location</div>:
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} ({{ r.distance }}
-          <ng-container i18n="@@kmAway">km away</ng-container>)
+          {{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>
         </div>
       </div>
       <div class="result-entry__info">
@@ -54,7 +53,7 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            r.provider.name + '\n' + r.provider.institution + '\n'
             + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
             + '\n' + r.provider.mail
             }}</div>
@@ -90,7 +89,7 @@
       <div>
         <div class="result-entry__info__label" i18n="@@location">Location</div>
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} ({{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>)
+          {{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>
         </div>
       </div>
       <div>
@@ -115,7 +114,7 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            r.provider.name + '\n' + r.provider.institution + '\n'
             + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
             + '\n' + r.provider.mail
             }}</div>
@@ -151,8 +150,7 @@
       <div>
         <div class="result-entry__info__label" i18n="@@location">Standort</div>
         <div class="result-entry__info__content">
-          {{ formatAddress(r.resource.address) }} 
-          ({{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>)
+          {{ r.distance }} <ng-container i18n="@@kmAway">km away</ng-container>
         </div>
       </div>
       <div>
@@ -177,7 +175,7 @@
             *ngIf="r.provider"
             class="result-entry__details__info__content"
           >{{
-            r.provider.name + '\n' + r.provider.institution + '\n' + formatAddress(r.provider.address)
+            r.provider.name + '\n' + r.provider.institution + '\n'
             + (r.provider.phone.length > 0 ? ('\n' + r.provider.phone) : '')
             + '\n' + r.provider.mail
             }}</div>

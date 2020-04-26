@@ -156,8 +156,8 @@
             </select>
           </div>
           <div class="form-block__input-field">
-            <label i18n="@@comments_s1s">
-              Comments (e.g. S1 or S2 instruction available, medical qualification for swab collection available)
+            <label i18n="@@comments_labSafety">
+              Comments (e.g. familiar and experienced with lab safety, medical qualification for swab collection available)
             </label>
             <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
             <span class="input-field-focus"></span>
@@ -169,16 +169,28 @@
             </label>
           </div>
           <div class="resource-delete-buttons">
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')">
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+              i18n="@@offer-change__deleteThanksPIRAT"
+            >
               🗑️ Delete: Resource has been allocated by PIRAT
             </button>
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')">
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+              i18n="@@offer-change__deleteThanksOthers"
+            >
               🗑️ Delete: Resource has been allocated by other means
             </button>
-            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')">
-              🗑️ Delete: Resource has been allocated by other means
+            <button
+              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+              i18n="@@offer-change__deleteNoOffer"
+            >
+              🗑️ Delete: Resource should not appear anymore.
             </button>
-            <button (click)="deleteResource(gIndex, 'OTHERS')">
+            <button
+              (click)="deleteResource(gIndex, 'OTHERS')"
+              i18n="@@offer-change__deleteOtherReason"
+            >
               🗑️ Delete: Other reason
             </button>
           </div>
@@ -287,16 +299,28 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+              i18n="@@offer-change__deleteThanksPIRAT"
+            >
               🗑️ Delete: Resource has been allocated by PIRAT
             </button>
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+              i18n="@@change__deleteThanksOthers"
+            >
               🗑️ Delete: Resource has been allocated by other means
             </button>
-            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+              i18n="@@offer-change__deleteNoOffer"
+            >
               🗑️ Delete: Resource should not appear anymore.
             </button>
-            <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'OTHERS')"
+              i18n="@@offer-change__deleteOtherReason"
+            >
               🗑️ Delete: Resource should not appear anymore.
             </button>
           </div>
@@ -415,16 +439,28 @@
             <span class="input-field-focus"></span>
           </div>
           <div class="resource-delete-buttons">
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+              i18n="@@offer-change__deleteThanksPIRAT"
+            >
               🗑️ Delete: Resource has been allocated by PIRAT
             </button>
-            <button (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+              i18n="@@change__deleteThanksOthers"
+            >
               🗑️ Delete: Resource has been allocated by other means
             </button>
-            <button (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+              i18n="@@offer-change__deleteNoOffer"
+            >
               🗑️ Delete: Resource should not appear anymore.
             </button>
-            <button (click)="deleteResource(gIndex, 'OTHERS')" i18n>
+            <button
+              (click)="deleteResource(gIndex, 'OTHERS')"
+              i18n="@@offer-change__deleteOtherReason"
+            >
               🗑️ Delete: Resource should not appear anymore.
             </button>
           </div>

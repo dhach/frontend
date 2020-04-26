@@ -73,7 +73,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addPersonnel() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'personnel',
       resource: {
         qualification: null,
@@ -89,7 +89,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addDevice() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'device',
       resource: {
         category: null,
@@ -104,7 +104,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addConsumable() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'consumable',
       resource: {
         category: null,

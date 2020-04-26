@@ -36,6 +36,6 @@ export class HeaderComponent implements OnInit {
 
 
   changeRegionOrLang($event: Event) {
-    window.location.href = ($event.target as any).value;
+    window.location.href = ($event.target as any).value + this.url;
   }
 }

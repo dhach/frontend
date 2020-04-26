@@ -50,7 +50,8 @@ The aim of this page is to connect Covid19 test laboratories and health authorit
 
 * Experience in performing PCR and real-time PCR reactions 
 * Experience in isolating RNA
-* Instruction for the execution of activities of security level S1 or S2
+* Experience with lab safety
+* Medical qualification for swab collection
 
 
 ### I have no experience with the methods mentioned, but I still want to help. What can I do?
