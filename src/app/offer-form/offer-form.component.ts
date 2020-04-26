@@ -8,6 +8,7 @@ import { Personnel, personnelToApi } from '../_types/Personnel';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
 import { ApiResponseError } from '../_types/ApiResponseError';
 import { ConfigurationService } from '../configuration.service';
+import { AddressFormat, createEmptyAddress } from '../_types/AddressFormat';
 
 
 @Component({
@@ -19,29 +20,9 @@ export class OfferFormComponent implements OnInit {
 
   @ViewChild(ReCaptchaWrapperComponent) reCaptchaComponent: ReCaptchaWrapperComponent;
 
+  addressFormat: AddressFormat;
 
-  constructor(
-    private fetchService: ApiService,
-    private configurationService: ConfigurationService,
-    private router: Router,
-  ) {
-  }
-
-
-  provider: Provider = {
-    address: {
-      street: '',
-      streetNumber: '',
-      postalCode: '',
-      city: '',
-      country: this.configurationService.countryName,
-    },
-    institution: '',
-    name: '',
-    mail: '',
-    phone: '',
-    isPublic: false,
-  };
+  provider: Provider;
 
   checkedDatenschutz = false;
 
@@ -50,6 +31,24 @@ export class OfferFormComponent implements OnInit {
   recaptcha: string;
 
   error: ApiResponseError;
+
+
+  constructor(
+    private fetchService: ApiService,
+    private configurationService: ConfigurationService,
+    private router: Router,
+  ) {
+    this.addressFormat = configurationService.addressFormat;
+    this.provider = {
+      address: createEmptyAddress(this.addressFormat),
+      institution: '',
+      name: '',
+      mail: '',
+      phone: '',
+      isPublic: false,
+    };
+    this.provider.address.country = this.configurationService.countryName;
+  }
 
 
   ngOnInit(): void {
@@ -83,10 +82,6 @@ export class OfferFormComponent implements OnInit {
         area: null,
         experienceWithPCR: false,
         notes: '',
-        address: {
-          postalCode: '',
-          country: this.configurationService.countryName,
-        }
       },
       checkedEhrenamt: false,
     });
@@ -103,10 +98,6 @@ export class OfferFormComponent implements OnInit {
         orderNumber: '',
         amount: undefined,
         notes: '',
-        address: {
-          postalCode: '',
-          country: this.configurationService.countryName,
-        }
       },
     });
   }
@@ -123,31 +114,23 @@ export class OfferFormComponent implements OnInit {
         amount: undefined,
         unit: '',
         notes: '',
-        address: {
-          postalCode: '',
-          country: this.configurationService.countryName,
-        }
       },
     });
   }
 
 
   isValid() {
-    let valid = this.provider.institution && this.provider.name && this.provider.mail
-      && this.provider.address.street && this.provider.address.streetNumber && this.provider.address.postalCode
-      && this.provider.address.city && this.provider.address.country && this.checkedDatenschutz;
+    let valid = this.provider.institution && this.provider.name && this.provider.mail && this.checkedDatenschutz;
     for (const good of this.resources) {
       if (good.type === 'personnel') {
         const personnel = good.resource as Personnel;
-        valid = valid && personnel.qualification && personnel.institution && personnel.area
-          && personnel.address.postalCode && good.checkedEhrenamt;
+        valid = valid && personnel.qualification && personnel.institution && personnel.area && good.checkedEhrenamt;
       } else if (good.type === 'device') {
         const device = good.resource as Device;
-        valid = !!(valid && device.category && device.name && device.address.postalCode && device.amount);
+        valid = !!(valid && device.category && device.name && device.amount);
       } else if (good.type === 'consumable') {
         const consumable = good.resource as Consumable;
-        valid = !!(valid && consumable.category && consumable.name && consumable.address.postalCode
-          && consumable.amount && consumable.unit);
+        valid = !!(valid && consumable.category && consumable.name && consumable.amount && consumable.unit);
       }
     }
     valid = valid && (this.resources.length > 0);

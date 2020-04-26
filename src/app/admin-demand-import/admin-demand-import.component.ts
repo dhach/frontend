@@ -26,8 +26,7 @@ export class AdminDemandImportComponent implements OnInit {
     mail: '',
     phone: '',
     address: {
-      street: '',
-      streetNumber: '',
+      streetLine1: '',
       postalCode: '',
       city: '',
       country: this.configurationService.countryName
