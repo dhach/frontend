@@ -1,6 +1,3 @@
-import { Address, addressFromApi, addressToApi } from './Address';
-
-
 export interface Device {
   id?: number;
   category: string;
@@ -9,7 +6,6 @@ export interface Device {
   orderNumber?: string;
   amount: number;
   notes?: string;
-  address?: Address;
 }
 
 
@@ -22,7 +18,6 @@ export function deviceFromApi(obj: any): Device {
     orderNumber: obj.ordernumber,
     amount: obj.amount,
     notes: obj.annotation,
-    address: addressFromApi(obj.address),
   };
 }
 
@@ -36,6 +31,5 @@ export function deviceToApi(personnel: Device): any {
     ordernumber: personnel.orderNumber,
     amount: personnel.amount,
     annotation: personnel.notes,
-    address: personnel.address ? addressToApi(personnel.address) : null,
   };
 }

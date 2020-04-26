@@ -1,6 +1,3 @@
-import { Address, addressFromApi, addressToApi } from './Address';
-
-
 export interface Consumable {
   id?: number;
   category: string;
@@ -10,7 +7,6 @@ export interface Consumable {
   amount: number;
   unit: string;
   notes?: string;
-  address?: Address;
 }
 
 
@@ -24,7 +20,6 @@ export function consumableFromApi(obj: any): Consumable {
     amount: obj.amount,
     unit: obj.unit,
     notes: obj.annotation,
-    address: addressFromApi(obj.address),
   };
 }
 
@@ -39,6 +34,5 @@ export function consumableToApi(consumable: Consumable): any {
     amount: consumable.amount,
     unit: consumable.unit,
     annotation: consumable.notes,
-    address: consumable.address ? addressToApi(consumable.address) : null,
   };
 }
