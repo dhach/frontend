@@ -42,29 +42,17 @@
   <div class="form-block__input-wrapper">
     <label>
       <span i18n="address">Address</span>
-      <span *ngIf="!(provider.address.street && provider.address.streetNumber && provider.address.postalCode
-        && provider.address.city && provider.address.country)" class="form-alert" i18n="@@requiredField">
+      <span class="form-alert" i18n="@@requiredField">
         Mandatory
       </span>
     </label>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@street" placeholder="Street" [(ngModel)]="provider.address.street">
-      <span class="input-field-focus"></span>
-    </div>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Street number" [(ngModel)]="provider.address.streetNumber">
-      <span class="input-field-focus"></span>
-    </div>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@postalCode" placeholder="Postal code" [(ngModel)]="provider.address.postalCode">
-      <span class="input-field-focus"></span>
-    </div>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@city" placeholder="City" [(ngModel)]="provider.address.city">
-      <span class="input-field-focus"></span>
-    </div>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@country" placeholder="Country" [(ngModel)]="provider.address.country" disabled>
+    <div *ngFor="let field of addressFormat.fields" class="form-block__input-field">
+      <input
+        type="text"
+        [disabled]="field.id === 'country'"
+        [placeholder]="field.label"
+        [(ngModel)]="provider.address[field.id]"
+      >
       <span class="input-field-focus"></span>
     </div>
   </div>

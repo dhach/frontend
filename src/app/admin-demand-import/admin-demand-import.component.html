@@ -44,11 +44,7 @@
     <h5 i18n="address">Address</h5>
     Eine Adresse, die keine Postleitzahl spezifiziert, wird ignoriert.
     <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@street" placeholder="Street" [(ngModel)]="provider.address.street">
-      <span class="input-field-focus"></span>
-    </div>
-    <div class="form-block__input-field">
-      <input type="text" i18n-placeholder="@@streetNumber" placeholder="Street number" [(ngModel)]="provider.address.streetNumber">
+      <input type="text" i18n-placeholder="@@street" placeholder="Street" [(ngModel)]="provider.address.streetLine1">
       <span class="input-field-focus"></span>
     </div>
     <div class="form-block__input-field">

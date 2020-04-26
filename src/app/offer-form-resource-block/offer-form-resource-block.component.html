@@ -55,13 +55,6 @@
     </label>
   </div>
   <div class="form-block__input-field">
-    <input type="text" placeholder="Postalcode of location" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toP(r).address.postalCode">
-    <span class="input-field-focus"></span>
-    <span *ngIf="!toP(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-        Mandatory
-      </span>
-  </div>
-  <div class="form-block__input-field">
     <label i18n="@@comments_labSafety">
       Comments (e.g. familiar and experienced with lab safety, medical qualification for swab collection available)
     </label>
@@ -117,14 +110,6 @@
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" placeholder="Postleitzahl das Standortes" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toD(r).address.postalCode">
-    <span class="input-field-focus"></span>
-    <span *ngIf="!toD(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-      Mandatory
-    </span>
-  </div>
-
-  <div class="form-block__input-field">
     <input type="number" placeholder="Amount" i18n-placeholder="@@amount" [(ngModel)]="toD(r).amount">
     <span class="input-field-focus"></span>
     <span *ngIf="!toD(r).amount" class="form-alert" i18n="@@requiredField">
@@ -173,14 +158,6 @@
   <div class="form-block__input-field">
     <input type="text" placeholder="Order or serial number" i18n-placeholder="@@orderOrSerialNumber" [(ngModel)]="toC(r).orderNumber">
     <span class="input-field-focus"></span>
-  </div>
-
-  <div class="form-block__input-field">
-    <input type="text" placeholder="Postalcode of locations" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="toC(r).address.postalCode">
-    <span class="input-field-focus"></span>
-    <span *ngIf="!toC(r).address.postalCode" class="form-alert" i18n="@@requiredField">
-      Mandatory
-    </span>
   </div>
 
   <div class="form-block__input-field">

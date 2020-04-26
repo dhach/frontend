@@ -10,6 +10,7 @@ import { Unit, unitTo } from '../_types/Unit';
 import { Utils } from '../Utils';
 import { ConfigurationService } from '../configuration.service';
 import { APP_BASE_HREF } from '@angular/common';
+import { AddressFormat } from '../_types/AddressFormat';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { APP_BASE_HREF } from '@angular/common';
 })
 export class OfferChangeComponent implements OnInit {
 
+  addressFormat: AddressFormat;
   deviceCategories: Map<string, string>;
   consumableCategories: Map<string, string>;
   personnelQualifications: Map<string, string>;
@@ -57,6 +59,7 @@ export class OfferChangeComponent implements OnInit {
     private configurationService: ConfigurationService,
     @Inject(APP_BASE_HREF) private baseHref: string,
   ) {
+    this.addressFormat = configurationService.addressFormat;
     this.deviceCategories = configurationService.languageConstants.device;
     this.consumableCategories = configurationService.languageConstants.consumable;
     this.personnelAreas = configurationService.languageConstants.personnelArea;

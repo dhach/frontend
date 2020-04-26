@@ -1,9 +1,13 @@
 export interface Address {
-  street?: string;
-  streetNumber?: string;
-  postalCode: string;
+  streetLine1?: string;
+  streetLine2?: string;
+  streetLine3?: string;
+  streetLine4?: string;
+  county?: string;
   city?: string;
-  country: string;
+  state?: string;
+  postalCode?: string;
+  country?: string;
   latitude?: number;
   longitude?: number;
 }
@@ -13,20 +17,28 @@ export function addressFromApi(obj: any): Address {
   // This is needed, if the address is not set
   if (!obj) {
     return {
-      street: null,
-      streetNumber: null,
-      postalCode: null,
+      streetLine1: null,
+      streetLine2: null,
+      streetLine3: null,
+      streetLine4: null,
+      county: null,
       city: null,
+      state: null,
+      postalCode: null,
       country: null,
       latitude: null,
       longitude: null,
     };
   }
   return {
-    street: obj.street,
-    streetNumber: obj.streetnumber,
-    postalCode: obj.postalcode,
+    streetLine1: obj.streetLine1,
+    streetLine2: obj.streetLine2,
+    streetLine3: obj.streetLine3,
+    streetLine4: obj.streetLine4,
+    county: obj.county,
     city: obj.city,
+    state: obj.state,
+    postalCode: obj.postalCode,
     country: obj.country,
     latitude: obj.latitude,
     longitude: obj.longitude,
@@ -36,10 +48,14 @@ export function addressFromApi(obj: any): Address {
 
 export function addressToApi(address: Address): any {
   return {
-    street: address.street,
-    streetnumber: address.streetNumber,
-    postalcode: address.postalCode,
+    streetLine1: address.streetLine1,
+    streetLine2: address.streetLine2,
+    streetLine3: address.streetLine3,
+    streetLine4: address.streetLine4,
+    county: address.county,
     city: address.city,
+    state: address.state,
+    postalCode: address.postalCode,
     country: address.country,
     latitude: address.latitude,
     longitude: address.longitude,

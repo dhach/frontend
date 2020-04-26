@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { LocaleService } from './locale.service';
+import { AddressFormat, addressFormatFromApi } from './_types/AddressFormat';
 
 
 @Injectable({
@@ -9,6 +10,8 @@ import { LocaleService } from './locale.service';
 export class ConfigurationService {
 
   countryName: string;
+
+  addressFormat: AddressFormat;
 
   languageConstants = {
     device: new Map<string, string>(),      // value -> language string
@@ -31,6 +34,7 @@ export class ConfigurationService {
       throw new Error('Application cannot start because the region configuration cannot be fetched.');
     }
     this.countryName = response.data.countryName;
+    this.addressFormat = addressFormatFromApi(response.data.addressFormat, this.localeService.language);
     await this.prepareCategories(response.data);
   }
 

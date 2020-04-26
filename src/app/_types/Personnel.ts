@@ -1,6 +1,3 @@
-import { Address, addressFromApi, addressToApi } from './Address';
-
-
 export interface Personnel {
   id?: number;
   institution: string;
@@ -9,7 +6,6 @@ export interface Personnel {
   researchGroup?: string;
   experienceWithPCR?: boolean;
   notes?: string;
-  address: Address;
 }
 
 
@@ -22,7 +18,6 @@ export function personnelFromApi(obj: any): Personnel {
     researchGroup: obj.researchgroup,
     experienceWithPCR: obj.experience_rt_pcr,
     notes: obj.annotation,
-    address: addressFromApi(obj.address),
   };
 }
 
@@ -38,6 +33,5 @@ export function personnelToApi(personnel: Personnel): any {
     experience_rt_pcr: (personnel.experienceWithPCR as any) === 'true' ? true :
       (personnel.experienceWithPCR as any) === 'false' ? false : personnel.experienceWithPCR,
     annotation: personnel.notes,
-    address: addressToApi(personnel.address),
   };
 }
