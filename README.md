@@ -32,3 +32,8 @@ We use [Angular's i18n](https://angular.io/guide/i18n). The translation files ar
 `npm run extract-i18n`
 
 Afterwards, commit the changes in the i18n repository.
+
+
+## Translations
+
+![Translations Badge](http://translate.pirat-tool.com/widgets/pirat/en/web-application/multi-auto.svg)
