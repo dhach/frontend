@@ -1,0 +1,67 @@
+name: Docker Image
+
+on:
+  push:
+  schedule:
+    - cron: '0 7 */2 * *'
+
+env:
+  IMAGE_NAME: covid19pirat/pirat-frontend
+  IMAGE_TAG: latest
+  BRANCH: NONE
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+
+      - name: set branch env
+        run: |
+          echo "::set-env name=BRANCH::${GITHUB_REF##*/}"
+
+      - name: set tag to stable
+        if: endsWith(github.ref, '/master')
+        run: |
+          echo "::set-env name=IMAGE_TAG::stable"
+
+      - name: set image tag to integration
+        if: endsWith(github.ref, '/integration')
+        run: |
+          echo "::set-env name=IMAGE_TAG::integration"
+
+      - name: set image tag to testing
+        if: endsWith(github.ref, '/testing')
+        run: |
+          echo "::set-env name=IMAGE_TAG::testing"
+
+      - name: login
+        run: docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build
+        run: docker build -t backend .
+
+      - name: tag
+        run: |
+          docker tag backend ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker tag backend ${{ env.IMAGE_NAME }}:${{ env.BRANCH }}
+          docker tag backend ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          docker tag backend ${{ env.IMAGE_NAME }}:latest
+
+      - name: push
+        run: |
+          docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker push ${{ env.IMAGE_NAME }}:${{ env.BRANCH }}
+          docker push ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          docker push ${{ env.IMAGE_NAME }}:latest
+
+      - name: Slack notification
+        uses: Ilshidur/action-slack@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          SLACK_USERNAME: frontend
+        with:
+          args: "New Images available:\n- {{ GITHUB_SHA }}\n- {{ IMAGE_TAG }}\n- {{ BRANCH }}\n- latest"
