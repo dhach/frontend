@@ -75,39 +75,15 @@
           <label>
             <span i18n="@@address">Address</span>
           </label>
-          <div class="form-block__input-field">
-            <label i18n="@@street">
-              Street
+          <div *ngFor="let field of addressFormat.fields" class="form-block__input-field">
+            <label>
+              {{ field.label }}
             </label>
-            <input type="text" [(ngModel)]="data.provider.address.street" [disabled]="!isInEditMode.provider">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@streetNumber">
-              Street number
-            </label>
-            <input type="text" [(ngModel)]="data.provider.address.streetNumber" [disabled]="!isInEditMode.provider">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@postalCode">
-              Postal code
-            </label>
-            <input type="text" [(ngModel)]="data.provider.address.postalCode" [disabled]="!isInEditMode.provider">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@city">
-              City
-            </label>
-            <input type="text" [(ngModel)]="data.provider.address.city" [disabled]="!isInEditMode.provider">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@country">
-              Country
-            </label>
-            <input type="text" [value]="data.provider.address.country" disabled>
+            <input
+              type="text"
+              [(ngModel)]="data.provider.address[field.id]"
+              [disabled]="!isInEditMode.provider || field.id === 'country'"
+            >
             <span class="input-field-focus"></span>
           </div>
         </div>
@@ -150,13 +126,6 @@
               Institution
             </label>
             <input type="text" [(ngModel)]="toP(r).institution" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@postalCodeOfLocation">
-              Postal code of location
-            </label>
-            <input type="text" [(ngModel)]="toP(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
@@ -262,13 +231,6 @@
               Order or serial number
             </label>
             <input type="text" [(ngModel)]="toD(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@postalCodeOfLocation">
-              Postalcode of locations
-            </label>
-            <input type="text" [(ngModel)]="toD(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
@@ -387,13 +349,6 @@
               Order or serial number
             </label>
             <input type="text" [(ngModel)]="toC(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@postalCodeOfLocation">
-              Postalcode of locations
-            </label>
-            <input type="text" [(ngModel)]="toC(r).address.postalCode" [disabled]="!isInEditMode.resources[gIndex]">
             <span class="input-field-focus"></span>
           </div>
           <div class="form-block__input-field">
