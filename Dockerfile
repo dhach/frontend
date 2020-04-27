@@ -3,31 +3,22 @@
 ## base image to build and compile the app
 FROM node:12.16-slim AS builder
 
-# build_env can be overwritten by passing a value for "--build-arg build_env=" while building the image.
-# If set to anything else than "production", the development version will be build
-ARG build_env=production 
-
 WORKDIR /build/
 COPY . .
 
 # install all declared dependencies
 RUN npm set progress=false && npm config set depth 0 && \
     npm  --quiet install
+# build the JS app
+RUN npm set progress=false && npm config set depth 0 && \
+    npm --quiet run build
 
-# build the JS app, either for prod or dev
-RUN  if [ "$build_env" = "production" ]; then \
-    npm set progress=false && npm config set depth 0 && npm --quiet run build; \
-    else \
-    npm set progress=false && npm config set depth 0 && npm --quiet  run build-testproduction; \
-    fi
-
-RUN ls -la  /build/dist/pirat/
 
 ## serve via nginx
 FROM bitnami/nginx:1.17 AS server
 
 # copy the built JS files and the nginx config
-COPY --from=builder /build/dist/pirat/ /app/
+COPY --from=builder /build/dist/ /app/
 COPY docker_resources/pirat.conf /opt/bitnami/nginx/conf/server_blocks/
 
 EXPOSE 8081

@@ -1,0 +1,15 @@
+name: Build
+
+on:
+  pull_request:
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+
+      - name: build
+        run: docker build -t frontend .
