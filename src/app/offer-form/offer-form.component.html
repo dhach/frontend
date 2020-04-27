@@ -35,7 +35,7 @@
   </div>
 
   <div class="form-block__input-field">
-    <input type="text" i18n="@@phoneNumber" placeholder="Telephone number" [(ngModel)]="provider.phone"> <!-- not req -->
+    <input type="text" i18n-placeholder="@@phoneNumber" placeholder="Telephone number" [(ngModel)]="provider.phone">
     <span class="input-field-focus"></span>
   </div>
 
@@ -60,7 +60,8 @@
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
     <label i18n="@@_agreeingToPrivacyPolicy">
-      I hereby affirm that I have read the <a href="/datenschutz" target="_blank">Privacy Policy</a>
+      I hereby affirm that I have read the <a href="{{ localeService.baseHref }}datenschutz" target="_blank">
+      Privacy Policy</a>
       and that I agree to it.
     </label>
     <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">

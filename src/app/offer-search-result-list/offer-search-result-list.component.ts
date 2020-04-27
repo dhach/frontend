@@ -51,12 +51,4 @@ export class OfferSearchResultListComponent implements OnInit, OnChanges {
   toggleShowDetails(i) {
     this.showDetails[i] = !this.showDetails[i];
   }
-
-
-  formatAddress(address): string {
-    const streetLine = `${address.street ?? ''} ${address.streetNumber ?? ''}`.trim() + '\n';
-    const cityLine = `${address.postalCode ?? ''} ${address.city ?? ''}`.trim().concat('\n');
-    const countryLine = `${address.country}`;
-    return (streetLine + cityLine + countryLine).trim();
-  }
 }

@@ -292,7 +292,7 @@ export class AboutComponent implements OnInit {
       name: 'Sebastian Kränzle',
       short: {
         de: 'Datenschutzberater',
-        en: 'Data privacy conduit',
+        en: 'Data protection counsel',
       },
       long: {
         de: '',
