@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class ContactPageComponent implements OnInit {
 
 
   constructor(
+    public localeService: LocaleService,
     private fetchService: ApiService,
   ) {
   }
