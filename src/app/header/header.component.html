@@ -41,13 +41,10 @@
 </header>
 
 
-<div class="container" *ngIf="!isProduction()">
-<div class="row">
-  <div class="development-warning">
-    <span i18n="@@_underDevelopmentNote">
-      This page is internal and serves development purposes. The actual website can be found under
-    </span>
-    <a href="https://pirat-tool.com"> https://pirat-tool.com</a>.
-  </div>
-</div>
+
+<div class="development-warning centered-block" *ngIf="!isProduction()">
+  <span i18n="@@_underDevelopmentNote">
+    This page is internal and serves development purposes. The actual website can be found under
+  </span>
+  <a href="https://pirat-tool.com"> https://pirat-tool.com</a>.
 </div>

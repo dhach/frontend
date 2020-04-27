@@ -1,130 +1,131 @@
-<div class="page-head" >
-  <div class="container">
-    <h2 class="page-title" i18n="@@searchResource">Search Resource</h2>
-  </div>
+<div class="page-head">
+  <h2 class="page-title" i18n="@@searchResource">Search Resource</h2>
 </div>
 
-<main class="main-content"><div class="fullwidth-block"><div class="container">
+<main class="centered-block main-content">
 
+  <div class="button-bar align-center align-center-text">
+    <button
+      (click)="setType('personnel')"
+      class="button {{ searchType === 'personnel' ? 'active' : '' }}"
+      i18n="@@searchPersonal"
+    >Search for staff
+    </button>
+    <button
+      (click)="setType('device')"
+      class="button {{ searchType === 'device' ? 'active' : '' }}"
+      i18n="@@searchDevice"
+    >Search for equipment
+    </button>
+    <button
+      (click)="setType('consumable')"
+      class="button {{ searchType === 'consumable' ? 'active' : '' }}"
+      i18n="@@searchConsumable"
+    >Search for consumables
+    </button>
+  </div>
 
-<div class="button-bar align-center align-center-text">
-  <button
-    (click)="setType('personnel')"
-    class="button {{ searchType === 'personnel' ? 'active' : '' }}"
-    i18n="@@searchPersonal"
-  >Search for staff</button>
-  <button
-    (click)="setType('device')"
-    class="button {{ searchType === 'device' ? 'active' : '' }}"
-    i18n="@@searchDevice"
-  >Search for equipment</button>
-  <button
-    (click)="setType('consumable')"
-    class="button {{ searchType === 'consumable' ? 'active' : '' }}"
-    i18n="@@searchConsumable"
-  >Search for consumables</button>
-</div>
+  <div *ngIf="searchType" class="search-form-container">
+    <div *ngIf="searchType === 'personnel'">
+      <div class="form-block">
+        <div class="form-block__label">Qualification</div>
+        <div class="form-block__boxes">
+          <label *ngFor="let qualification of personnelQualificationsKeys">
+            {{ personnelQualifications.get(qualification) }}
+            <input
+              type="checkbox"
+              [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="searchQuery.qualification[qualification]"
+            />
+          </label>
+        </div>
+      </div>
 
-<div *ngIf="searchType" class="search-form-container">
-  <div *ngIf="searchType === 'personnel'">
-    <div class="form-block">
-      <div class="form-block__label">Qualification</div>
-      <div class="form-block__boxes">
-        <label *ngFor="let qualification of personnelQualificationsKeys">
-          {{ personnelQualifications.get(qualification) }}
-          <input
-            type="checkbox"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="searchQuery.qualification[qualification]"
-          />
-        </label>
+      <div class="form-block">
+        <div class="form-block__label">Area</div>
+        <div class="form-block__boxes">
+          <label *ngFor="let area of personnelAreasKeys">
+            {{ personnelAreas.get(area) }}
+            <input
+              type="checkbox"
+              [ngModelOptions]="{standalone: true}"
+              [(ngModel)]="searchQuery.area[area]"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="form-block">
+        <div class="form-block__label" i18n="@@_isExperienceWithPCRRequired">
+          Is experience in performing PCR and real-time PCR required?
+        </div>
+        <div class="form-block__boxes">
+          <label>
+            <span i18n="@@yes">Yes</span>
+            <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(true)"/>
+          </label>
+          <label>
+            <span i18n="@@no">No</span>
+            <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(false)"/>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="searchType === 'device'">
+      <div class="form-block">
+        <div class="form-block__label" i18n="@@typ">
+          Type
+        </div>
+        <div class="form-block__select">
+          <select [(ngModel)]="searchQuery.category">
+            <option *ngFor="let category of deviceCategoriesKeys" [value]="category">
+              {{ deviceCategories.get(category) }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="searchType === 'consumable'">
+      <div class="form-block">
+        <div class="form-block__label" i18n="@@typ">
+          Type
+        </div>
+        <div class="form-block__select">
+          <select name="offering" [(ngModel)]="searchQuery.category">
+            <option *ngFor="let category of consumableCategoriesKeys" [value]="category">
+              {{ consumableCategories.get(category) }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
     <div class="form-block">
-      <div class="form-block__label">Area</div>
-      <div class="form-block__boxes">
-        <label *ngFor="let area of personnelAreasKeys">
-          {{ personnelAreas.get(area) }}
-          <input
-            type="checkbox"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="searchQuery.area[area]"
-          />
-        </label>
+      <div class="form-block__input-field">
+        <input type="text" placeholder="Postalcode of locations" i18n-placeholder="@@postalCodeOfLocation"
+               [(ngModel)]="postalCode"/>
+        <span class="input-field-focus"></span>
       </div>
     </div>
-    <div class="form-block">
-      <div class="form-block__label" i18n="@@_isExperienceWithPCRRequired">
-        Is experience in performing PCR and real-time PCR required?
-      </div>
-      <div class="form-block__boxes">
-        <label>
-          <span i18n="@@yes">Yes</span>
-          <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(true)" />
-        </label>
-        <label>
-          <span i18n="@@no">No</span>
-          <input name="requiresExperienceWithPCR" type="radio" (click)="setRequiresExperienceWithPCR(false)" />
-        </label>
-      </div>
+
+    <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'" i18n="@@_pleaseCheckAddress">
+      Please check the entered addresses.
+    </div>
+    <div class="form-alert" *ngIf="isUnexpectedError(error)" i18n="@@_pleaseCheckInput">
+      Please check the input.
+    </div>
+
+    <div class="submit-button align-center align-center-text">
+      <button (click)="onSubmit()" class="button" [disabled]="!isValid()" i18n="@@doSearch">Search</button>
     </div>
   </div>
 
-  <div *ngIf="searchType === 'device'">
-    <div class="form-block">
-      <div class="form-block__label" i18n="@@typ">
-        Type
-      </div>
-      <div class="form-block__select">
-        <select [(ngModel)]="searchQuery.category">
-          <option *ngFor="let category of deviceCategoriesKeys" [value]="category">
-            {{ deviceCategories.get(category) }}
-          </option>
-        </select>
-      </div>
-    </div>
-  </div>
 
-  <div *ngIf="searchType === 'consumable'">
-    <div class="form-block">
-    <div class="form-block__label" i18n="@@typ">
-      Type
-    </div>
-    <div class="form-block__select">
-      <select name="offering" [(ngModel)]="searchQuery.category">
-        <option *ngFor="let category of consumableCategoriesKeys" [value]="category">
-          {{ consumableCategories.get(category) }}
-        </option>
-      </select>
-    </div>
-    </div>
-  </div>
+  <app-offer-search-result-list
+    *ngIf="results"
+    [type]="searchType"
+    [searchResults]="results"
+  ></app-offer-search-result-list>
 
-  <div class="form-block">
-    <div class="form-block__input-field">
-      <input type="text" placeholder="Postalcode of locations" i18n-placeholder="@@postalCodeOfLocation" [(ngModel)]="postalCode" />
-      <span class="input-field-focus"></span>
-    </div>
-  </div>
-
-  <div class="form-alert" *ngIf="error?.message === '1000:InvalidAddress'" i18n="@@_pleaseCheckAddress">
-    Please check the entered addresses.
-  </div>
-  <div class="form-alert" *ngIf="isUnexpectedError(error)" i18n="@@_pleaseCheckInput">
-    Please check the input.
-  </div>
-
-  <div class="submit-button align-center align-center-text">
-    <button (click)="onSubmit()" class="button" [disabled]="!isValid()" i18n="@@doSearch">Search</button>
-  </div>
-</div>
-
-
-<app-offer-search-result-list
-  *ngIf="results"
-  [type]="searchType"
-  [searchResults]="results"
-></app-offer-search-result-list>
-
-</div></div></main>
+</main>
