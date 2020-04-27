@@ -1,10 +1,10 @@
 <div class="form-block">
-  <div class="form-block__label" i18n>Contact the offerer</div>
-  <div *ngIf="messageSent" class="notes" i18n>
+  <div class="form-block__label" i18n="@@contact-search-contact-form__contactOfferer">Contact the offerer</div>
+  <div *ngIf="messageSent" class="notes" i18n="@@contact-search-contact-form__thanks">
     Thank you very much for your message. It was transmitted to the offerer, they will contact you directly.
   </div>
   <ng-container *ngIf="!messageSent">
-    <div class="notes" i18n>
+    <div class="notes" i18n="@@contact-search-contact-form__p1">
       The contact details of the offerer are not public. Use this contact form to leave a message for the offerer.
     </div>
     <div class="form-block__input-field">

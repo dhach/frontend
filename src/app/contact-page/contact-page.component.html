@@ -8,16 +8,16 @@
   <div class="fullwidth-block">
     <div class="container">
       <div class="row">
-        <p i18n>
+        <p i18n="@@contact-page__p1">
           If you have any questions, requests or suggestions, please contact us. Send us an email to <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> or use the contact form, we will get back to you as soon as possible by email or phone!
         </p>
 
         <div class="form-block">
-          <div *ngIf="callBackSubmit" class="info-box" i18n>
+          <div *ngIf="callBackSubmit" class="info-box" i18n="@@contact-page__thanks">
             Thank you very much for your contact request, we will get back to you shortly.
           </div>
           <ng-container *ngIf="!callBackSubmit">
-            <div class="form-block__label" i18n>
+            <div class="form-block__label" i18n="@@contact-page__requestCallback">
               Request a callback
             </div>
             <div class="form-block__input-field">
@@ -46,9 +46,9 @@
                 <span i18n="@@topic">Topic</span>
               </label>
               <select [(ngModel)]="requestData.topic">
-                <option value="technicalQuestion" i18n>Technical Question</option>
-                <option value="topicalQuestion" i18n>Question specific to COVID-19 testing</option>
-                <option value="otherQuestion" i18n>Other Question</option>
+                <option value="technicalQuestion" i18n="@@contact-page__q1">Technical Question</option>
+                <option value="topicalQuestion" i18n="@@contact-page__q2">Question specific to COVID-19 testing</option>
+                <option value="otherQuestion" i18n="@@contact-page__q3">Other Question</option>
               </select>
               <span *ngIf="!requestData.topic" class="form-alert" i18n="@@requiredField">
                   Mandatory
@@ -56,7 +56,12 @@
             </div>
 
             <div class="form-block__input-field">
-              <input type="text" placeholder="Type your questions here" i18n-placeholder [(ngModel)]="requestData.notes">
+              <input
+                type="text"
+                placeholder="Type your questions here"
+                i18n-placeholder="@@contact-page__typeQuestionsHere"
+                [(ngModel)]="requestData.notes"
+              >
               <span class="input-field-focus"></span>
             </div>
 
