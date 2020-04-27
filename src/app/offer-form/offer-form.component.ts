@@ -9,6 +9,7 @@ import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrap
 import { ApiResponseError } from '../_types/ApiResponseError';
 import { ConfigurationService } from '../configuration.service';
 import { AddressFormat, createEmptyAddress } from '../_types/AddressFormat';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class OfferFormComponent implements OnInit {
 
 
   constructor(
+    public localeService: LocaleService,
     private fetchService: ApiService,
     private configurationService: ConfigurationService,
     private router: Router,
@@ -73,7 +75,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addPersonnel() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'personnel',
       resource: {
         qualification: null,
@@ -89,7 +91,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addDevice() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'device',
       resource: {
         category: null,
@@ -104,7 +106,7 @@ export class OfferFormComponent implements OnInit {
 
 
   addConsumable() {
-    this.resources.push({
+    this.resources.unshift({
       type: 'consumable',
       resource: {
         category: null,

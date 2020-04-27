@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ng build --configuration=production,de --base-href=/de/de/ --outputPath=dist/de/de
 ng build --configuration=production,en --base-href=/de/en/ --outputPath=dist/de/en
 
