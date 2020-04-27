@@ -1,147 +1,98 @@
-## Datenschutzerklärung
+## Data Protection Declaration
 
-Wir informieren Sie nachfolgend gemäß den gesetzlichen Vorgaben des Datenschutzrechts (insb. gemäß BDSG n.F. und der europäischen Datenschutz-Grundverordnung ‚DS-GVO‘) über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten auf unserer Seite. Bezüglich der Definition von Begriffen wie etwa „personenbezogene Daten“ oder „Verarbeitung“ verweisen wir auf Art. 4 DS-GVO.
+In accordance with the legal requirements of data protection law (in particular the German Federal Data Protection Act ‘BDSG’ and the European General Data Protection Regulation ‘GDPR’), we would like to inform you about the type, scope and purpose of processing personal data on our website. Regarding the definition of terms such as "personal data" or "processing", we refer to Art. 4 GDPR.
 
-### Verantwortlicher
+### Responsible
 
 Lukas Vordemann\
 Winthirstraße 37\
-D-80639 München
+D-80639 Munich
 
 mail@pirat-tool.com
 
+### Rights of users and affected persons
 
-### Datenarten, Zwecke der Verarbeitung und Kategorien betroffener Personen
+With regard to the processing of data, as specified below, users and affected persons have the following rights.
 
-Nachfolgend informieren wir Sie über Art, Umfang und Zweck der Erhebung, Verarbeitung und Nutzung personenbezogener Daten.
+#### 1. Right to Information (Art. 15 GDPR)
+You have the right to ask us to confirm whether we are processing personal data concerning you. If this is the case, you have a right to information about your personal data stored with us in accordance with Art. 15 GDPR. This includes, in particular, information about the purposes of processing, the category of personal data, the categories of recipients to whom your data has been or is disclosed, the planned storage period and the origin of your data unless it was collected directly from you.
 
-1. Arten der Daten, die wir verarbeiten
-    - Inhaltsdaten (z.B. Texteingaben, Fotografien, Videos).
-    - Meta-/Kommunikationsdaten (z.B. Geräte-Informationen, IP-Adressen).
-    - Nutzungsdaten (z.B. besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten).
-2. Zwecke der Verarbeitung nach Art. 13 Abs. 1 c) DS-GVO
-    - Durchführung der von uns angebotenen Leistungen.
-    - Verbesserung unserer Dienstleistungen (z.B. anonymisierte Auswertung von Anfragen).
-    - Erfüllung von gesetzlichen Anforderungen.
-3. Kategorien der betroffenen Personen nach Art. 13 Abs. 1 e) DS-GVO
+#### 2. Right to Rectification (Art. 16 GDPR)
+You have a right to correct incorrect data or to complete correct data in accordance with Art. 16 GDPR
 
-Die betroffenen Personen werden zusammenfassend als „Nutzer“ bezeichnet.
+#### 3. Right to Deletion (Art. 17 GDPR)
+You have the right to have your data stored by us deleted in accordance with Art. 17 GDPR, unless legal or contractual retention periods or other legal obligations or rights to further storage conflict with this.
 
+#### 4. Right to Restriction of Data Processing (Art. 18 GDPR)
+You have the right to request a restriction in the processing of your personal data if one of the conditions in Art. 18 (1) a) to d) GDPR is fulfilled:
+- f you dispute the accuracy of the personal data concerning you for a period of time that enables the person responsible to verify the accuracy of the personal data
+- he processing is unlawful and you refuse the deletion of the personal data and instead demand that the use of the personal data be restricted;
+- the person responsible no longer needs the personal data for the purposes of the processing, but you need the personal data in order to assert, exercise or defend legal claims, or
+- if you have lodged an objection to the processing in accordance with Article 21 (1) of the GDPR and it has not yet been established whether the legitimate reasons given by the person responsible outweigh your reasons.
 
-### Rechtsgrundlagen der Verarbeitung personenbezogener Daten
+#### 5. Right to Data Transferability (Art. 20 GDPR)
+You have a right to data transferability in accordance with Art. 20 GDPR, which means that you can receive the personal data we have stored about you in a structured, common and machine-readable format or you can request that it be transferred to another responsible party.
 
-Nachfolgend Informieren wir Sie über die Rechtsgrundlagen der Verarbeitung personenbezogener Daten:
-
-1. Wenn wir Ihre Einwilligung für die Verarbeitung personenbezogenen Daten eingeholt haben, ist Art. 6 Abs. 1 S. 1 lit. a) DS-GVO Rechtsgrundlage.
-2. Ist die Verarbeitung zur Erfüllung eines Vertrags oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Ihre Anfrage hin erfolgen, so ist Art. 6 Abs. 1 S. 1 lit. b) DS-GVO Rechtsgrundlage.
-3. Ist die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich, der wir unterliegen (z.B. gesetzliche Aufbewahrungspflichten), so ist Art. 6 Abs. 1 S. 1 lit. c) DS-GVO Rechtsgrundlage.
-4. Ist die Verarbeitung erforderlich, um lebenswichtige Interessen der betroffenen Person oder einer anderen natürlichen Person zu schützen, so ist Art. 6 Abs. 1 S. 1 lit. d) DS-GVO Rechtsgrundlage.
-5. Ist die Verarbeitung zur Wahrung unserer oder der berechtigten Interessen eines Dritten erforderlich und überwiegen diesbezüglich Ihre Interessen oder Grundrechte und Grundfreiheiten nicht, so ist Art. 6 Abs. 1 S. 1 lit. f) DS-GVO Rechtsgrundlage.
-
-
-### Weitergabe personenbezogener Daten an Dritte und Auftragsverarbeiter
-
-Ohne Ihre Einwilligung geben wir grundsätzlich keine Daten an Dritte weiter. Sollte dies doch der Fall sein, dann erfolgt die Weitergabe auf der Grundlage der zuvor genannten Rechtsgrundlagen z.B. bei der Weitergabe von Daten an Online-Paymentanbieter zur Vertragserfüllung oder aufgrund gerichtlicher Anordnung oder wegen einer gesetzlichen Verpflichtung zur Herausgabe der Daten zum Zwecke der Strafverfolgung, zur Gefahrenabwehr oder zur Durchsetzung der Rechte am geistigen Eigentum.
-
-Wir setzen zudem Auftragsverarbeiter (externe Dienstleister z.B. zum Webhosting unserer Websites und Datenbanken) zur Verarbeitung Ihrer Daten ein. Wenn im Rahmen einer Vereinbarung zur Auftragsverarbeitung an die Auftragsverarbeiter Daten weitergegeben werden, erfolgt dies immer nach Art. 28 DS-GVO. Wir wählen dabei unsere Auftragsverarbeiter sorgfältig aus, kontrollieren diese regelmäßig und haben uns ein Weisungsrecht hinsichtlich der Daten einräumen lassen. Zudem müssen die Auftragsverarbeiter geeignete technische und organisatorische Maßnahmen getroffen haben und die Datenschutzvorschriften gem. BDSG n.F. und DS-GVO einhalten
+#### 6. Right to Revocation or Objection (Art. 21 GDPR)
+Insofar as the processing is based on your consent according to Art. 6 (1) 1 a), Art. 7 GDPR, you have the right to revoke your consent at any time. This does not affect the lawfulness of the processing carried out on the basis of the consent until revocation. 
+You can object to the processing of your personal data, e.g. for data analysis, at any time. You can exercise the right of objection free of charge.
 
 
-### Datenübermittlung in Drittstaaten
+#### 7. Right to Appeal (Art. 77 GDPR)
+You have the right to complain to a supervisory authority if you believe that the data concerning you is being processed by the provider in violation of data protection regulations.
 
-Durch die Verabschiedung der europäischen Datenschutz-Grundverordnung (DS-GVO) wurde eine einheitliche Grundlage für den Datenschutz in Europa geschaffen. Ihre Daten werden daher vorwiegend durch Unternehmen verarbeitet, für die DS-GVO Anwendung findet. Sollte doch die Verarbeitung durch Dienste Dritter außerhalb der Europäischen Union oder des Europäischen Wirtschaftsraums stattfinden, so müssen diese die besonderen Voraussetzungen der Art. 44 ff. DS-GVO erfüllen. Das bedeutet, die Verarbeitung erfolgt aufgrund besonderer Garantien, wie etwa die von der EU-Kommission offiziell anerkannte Feststellung eines der EU entsprechenden Datenschutzniveaus oder der Beachtung offiziell anerkannter spezieller vertraglicher Verpflichtungen, der so genannten „Standardvertragsklauseln“. Bei US-Unternehmen erfüllt die Unterwerfung unter das sog. „Privacy-Shield“, dem Datenschutzabkommen zwischen der EU und den USA, diese Voraussetzungen.
-
-
-### Löschung von Daten und Speicherdauer
-
-Sofern nicht in dieser Datenschutzerklärung ausdrücklich angegeben, werden Ihre personenbezogen Daten gelöscht oder gesperrt, sobald die zur Verarbeitung erteilte Einwilligung von Ihnen widerrufen wird oder der Zweck für die Speicherung entfällt bzw. die Daten für den Zweck nicht mehr erforderlich sind, es sei denn deren weitere Aufbewahrung ist zu Beweiszwecken erforderlich oder dem stehen gesetzliche Aufbewahrungspflichten entgegenstehen. Wenn die vorgeschriebene Aufbewahrungsfrist abläuft, erfolgt eine Sperrung oder Löschung Ihrer Daten, es sei denn die Speicherung ist weiterhin für einen Vertragsabschluss oder zur Vertragserfüllung erforderlich.
-
-### Bestehen einer automatisierten Entscheidungsfindung
-
-Wir setzen keine automatische Entscheidungsfindung oder ein Profiling ein.
-
-
-### Bereitstellung unserer Website und Erstellung von Logfiles
-1. Wenn Sie unsere Webseite lediglich informatorisch nutzen (also keine Registrierung und auch keine anderweitige Übermittlung von Informationen), erheben wir nur die personenbezogenen Daten, die Ihr Browser an unseren Server übermittelt. Wenn Sie unsere Website betrachten möchten, erheben wir die folgenden Daten:
-    - IP-Adresse;
-    - Internet-Service-Provider des Nutzers;
-    - Datum und Uhrzeit des Abrufs;
-    - Browsertyp;
-    - Sprache und Browser-Version;
-    - Inhalt des Abrufs;
-    - Zeitzone;
-    - Zugriffsstatus/HTTP-Statuscode;
-    - Datenmenge;
-    - Websites, von denen die Anforderung kommt;
-    - Betriebssystem.
-  
-  Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten von Ihnen findet nicht statt.
-2. Diese Daten dienen dem Zweck der nutzerfreundlichen, funktionsfähigen und sicheren Auslieferung unserer Website an Sie mit Funktionen und Inhalten sowie deren Optimierung und statistischen Auswertung.
-3. Rechtsgrundlage hierfür ist unser in den obigen Zwecken auch liegendes berechtigtes Interesse an der Datenverarbeitung nach Art. 6 Abs. 1 S.1 lit. f) DS-GVO.
-4. Wir speichern aus Sicherheitsgründen und zum Zwecke der wissenschaftlichen Auswertung diese Daten in Server-Logfiles für die Speicherdauer von bis zu 120 Tagen. Nach Ablauf dieser Frist werden diese gelöscht oder anonymisiert, es sei denn wir benötigen deren Aufbewahrung zu Beweiszwecken bei Angriffen auf die Serverinfrastruktur oder anderen Rechtsverletzungen.
-
-
-### Rechte der betroffenen Person
-
-#### 1. Widerspruch oder Widerruf gegen die Verarbeitung Ihrer Daten (Art. 21 DSGVO)
-
-Soweit die Verarbeitung auf Ihrer Einwilligung gemäß Art. 6 Abs. 1 S. 1 lit. a), Art. 7 DS-GVO beruht, haben Sie das Recht, die Einwilligung jederzeit zu widerrufen. Die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung wird dadurch nicht berührt.
-
-Soweit wir die Verarbeitung Ihrer personenbezogenen Daten auf die Interessenabwägung gemäß Art. 6 Abs. 1 S. 1 lit. f) DS-GVO stützen, können Sie Widerspruch gegen die Verarbeitung einlegen. Im Falle Ihres Widerspruchs prüfen wir die Sachlage und werden entweder die Datenverarbeitung einstellen bzw. anpassen oder Ihnen unsere zwingenden schutzwürdigen Gründe aufzeigen, aufgrund derer wir die Verarbeitung fortführen. Sie haben dann die Möglichkeit, hiergegen Beschwerde bei einer Aufsichtsbehörde einzulegen.
-
-Sie können der Verarbeitung Ihrer personenbezogenen Daten wie z.B. für Zwecke der Werbung und Datenanalyse jederzeit widersprechen. Das Widerspruchsrecht können Sie kostenfrei ausüben.
-
-#### 2. Recht auf Auskunft (Art. 15 DSGVO)
-
-Sie haben das Recht, von uns eine Bestätigung darüber zu verlangen, ob wir Sie betreffende personenbezogene Daten verarbeitet. Sofern dies der Fall ist, haben Sie ein Recht auf Auskunft über Ihre bei uns gespeicherten persönlichen Daten nach Art. 15 DS-GVO. Dies beinhaltet insbesondere die Auskunft über die Verarbeitungszwecke, die Kategorie der personenbezogenen Daten, die Kategorien von Empfängern, gegenüber denen Ihre Daten offengelegt wurden oder werden, die geplante Speicherdauer und die Herkunft ihrer Daten, sofern diese nicht direkt bei Ihnen erhoben wurden.
-
-#### 3. Recht auf Berichtigung
-
-Sie haben ein Recht auf Berichtigung unrichtiger oder auf Vervollständigung richtiger Daten nach Art. 16 DS-GVO.
-
-#### 4. Recht auf Löschung
-
-Sie haben ein Recht auf Löschung Ihrer bei uns gespeicherten Daten nach Art. 17 DS-GVO, es sei denn gesetzliche oder vertraglichen Aufbewahrungsfristen oder andere gesetzliche Pflichten bzw. Rechte zur weiteren Speicherung stehen dieser entgegen.
-
-#### 5. Recht auf Einschränkung
-Sie haben das Recht, eine Einschränkung bei der Verarbeitung Ihrer personenbezogenen Daten zu verlangen, wenn eine der Voraussetzungen in Art. 18 Abs. 1 lit. a) bis d) DS-GVO erfüllt ist:
-
-* Wenn Sie die Richtigkeit der Sie betreffenden personenbezogenen für eine Dauer bestreiten, die es dem Verantwortlichen ermöglicht, die Richtigkeit der personenbezogenen Daten zu überprüfen;
-* die Verarbeitung unrechtmäßig ist und Sie die Löschung der personenbezogenen Daten ablehnen und stattdessen die Einschränkung der Nutzung der personenbezogenen Daten verlangen;
-* der Verantwortliche die personenbezogenen Daten für die Zwecke der Verarbeitung nicht länger benötigt, Sie diese jedoch zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen benötigen, oder
-* wenn Sie Widerspruch gegen die Verarbeitung gemäß Art. 21 Abs. 1 DS-GVO eingelegt haben und noch nicht feststeht, ob die berechtigten Gründe des Verantwortlichen gegenüber Ihren Gründen überwiegen.
-
-#### 6. Recht auf Datenübertragbarkeit
-
-Sie haben ein Recht auf Datenübertragbarkeit nach Art. 20 DS-GVO, was bedeutet, dass Sie die bei uns über Sie gespeicherten personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format erhalten können oder die Übermittlung an einen anderen Verantwortlichen verlangen können.
-
-#### 7. Recht auf Beschwerde
-
-Sie haben ein Recht auf Beschwerde bei einer Aufsichtsbehörde. In der Regel können Sie sich hierfür an die Aufsichtsbehörde insbesondere in dem Mitgliedstaat ihres Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes wenden.
-
-Der für uns zuständige Datenschutzbeauftragte ist:
+The authority responsible for us is:
 
 Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)\
 Promenade 18, 91522 Ansbach\
-Telefon: +49 (0) 981 180093-0\
+Phone: +49 (0) 981 180093-0\
 poststelle@lda.bayern.de
 
+### Information on Data Processing:
 
-### Datensicherheit
+Below, we inform you about the type, scope, purpose and legal basis of the collection, processing and use of personal data.
 
-Um alle personenbezogen Daten, die an uns übermittelt werden, zu schützen und um sicherzustellen, dass die Datenschutzvorschriften von uns, aber auch unseren externen Dienstleistern eingehalten werden, haben wir geeignete technische und organisatorische Sicherheitsmaßnahmen getroffen. Deshalb werden unter anderem alle Daten zwischen Ihrem Browser und unserem Server über eine sichere SSL-Verbindung verschlüsselt übertragen.
+#### Provision of Our Website and Creation of Log Files
+If you use our website for informational purposes only (i.e. no registration or other transmission of information), we only collect the personal data that your browser transmits to our server. This data is not stored together with other personal data about you. If you wish to view our website, we collect the following data:
+
+- IP address
+- Date and time of request
+- Browser type
+- Content of the request
+- Access status/HTTP status code
+- Data volume
+
+The legal basis for this is our legitimate interest in data processing in accordance with Art. 6 (1) 1 f) GDPR. This data serves the purpose of user-friendly, functional and secure delivery of our website to you with functions and contents as well as their optimization and statistical evaluation.
+
+For security reasons, we store this data in server log files for a storage period of up to 30 days. After this period has elapsed, they are deleted or anonymized for the purposes of scientific evaluation, unless we need to store them for evidence in the event of attacks on the server infrastructure or other legal infringements.
+
+#### Setting and Adapting Offers
+On our website you can publish offers for medical aids and laboratory equipment. You can also place an advertisement as a volunteer. If you make use of this offer, we will process and publish your advertisement with reference to the postcode provided. In the case of volunteers, details concerning the institution and research group will also be published. Further contact details will not be published, but other users can send a message to the email address you have provided via a contact form.
+This data is needed to enable the matchmaking of devices and volunteers. The legal basis for this is Art. 6 (1) a) GDPR. You give us your consent by marking the checkbox at the end of the offer form. You can revoke your consent at any given time by informing us via email. We will then delete your offer and the matchmaking will not be possible afterwards.
+
+#### Contact Requests and Matchmaking
+If you contact us or other users via contact form or e-mail, the data you provide will be used to process your request. The data is required to process and answer your enquiry - without the provision of this data, we cannot answer your enquiry or facilitate a matchmaking. 
+The legal basis for this processing is Art. 6 (1) b) GDPR.
+Your data will be deleted if your inquiry has been conclusively answered and the deletion does not conflict with any legal storage obligations, as for example in the case of a possible subsequent contract processing.
+
+#### Use of Google reCAPTCHA
+We use "Google reCAPTCHA" (hereinafter "reCAPTCHA") on our websites. The provider is Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA ("Google"). The purpose of reCAPTCHA is to check whether the data input on our website (e.g. in a contact form) is made by a human being or by an automated program. For this purpose, the reCAPTCHA response will be used to forward the IP address, access location and time to Google. The data processing takes place on the basis of art. 6 (1) f) GDPR. The site operator has a legitimate interest in protecting his web offers from abusive automated spying and from SPAM. By using reCAPTCHA, you also agree to Google's privacy policy. For more information about Google reCAPTCHA and Google's privacy policy, please see the following links: https://www.google.com/intl/de/policies/privacy/ and https://www.google.com/recaptcha/intro/android.html.
+
+### Transfer of Personal Data to Third Parties and Order Processors
+
+Without your consent, we will not pass on any data to third parties. Should this be the case anyways, the transfer will be made on the basis of the aforementioned legal bases, e.g. due to a court order or due to a legal obligation to surrender the data for the purpose of criminal prosecution, to avert danger or to enforce intellectual property rights. 
+We also use order processors (external service providers for web hosting of our website, databases and email servers) to process your data. If data is passed on to the processors within the framework of an agreement for order processing, this is always done in accordance with Art. 28 GDPR. We select our processors carefully, check them regularly and have been granted the right to issue instructions regarding the data. In addition, the processors must have taken suitable technical and organizational measures and comply with the data protection regulations according to BDSG and GDPR. We host this website on servers of the Unesty Company, Geschwister-Scholl-Platz 5, 09648 Mittweida, Germany. Matchmaking runs through our mailserver at the united-domains AG, Gautinger Straße 10, 82319 Starnberg, Germany. 
+
+### Transfer of Data to Third Countries
+
+The adoption of the European General Data Protection Regulation (GDPR) has created a uniform basis for data protection in Europe. If processing is carried out by services of third parties outside the European Union or the European Economic Area, they must comply with the special requirements of Art. 44 ff. GDPR. This means that the processing is carried out on the basis of special guarantees, such as the EU Commission's officially recognized determination of a level of data protection corresponding to that of the EU or the observance of officially recognized special contractual obligations, the so-called "standard contractual clauses". In the case of US companies, submission to the so-called "Privacy-Shield", the data protection agreement between the EU and the USA, fulfils these requirements. 
+Your data will be processed exclusively by companies to which the GDPR applies or which have joined the Privacy-Shield in the context of the use of Google reCAPTCHA (see above).
 
 
-### Nutzung von Google reCAPTCHA
+### Deletion of Data and Storage Duration
 
-Wir nutzen “Google reCAPTCHA” (im Folgenden “reCAPTCHA”) auf unseren Websites. Anbieter ist die Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (“Google”).
+Unless expressly stated in this data protection declaration, your personal data will be deleted or blocked as soon as the consent granted for processing is revoked by you or the purpose for which the data is stored no longer applies or the data is no longer required for the purpose, unless its further storage is required for evidence purposes or this is contrary to statutory storage obligations (Art. 6 (1) 1 c) GDPR). When the prescribed retention period expires, your data will be blocked or deleted, unless the storage is still necessary for the conclusion or fulfilment of a contract.
 
-Mit reCAPTCHA soll überprüft werden, ob die Dateneingabe auf unseren Websites (z.B. in einem Kontaktformular) durch einen Menschen oder durch ein automatisiertes Programm erfolgt. Hierzu analysiert reCAPTCHA das Verhalten des Websitebesuchers anhand verschiedener Merkmale. Diese Analyse beginnt automatisch, sobald der Websitebesucher die Website betritt. Zur Analyse wertet reCAPTCHA verschiedene Informationen aus (z.B. IP-Adresse, Verweildauer des Websitebesuchers auf der Website oder vom Nutzer getätigte Mausbewegungen). Die bei der Analyse erfassten Daten werden an Google weitergeleitet.
+### Existence of automated decision making
 
-Die reCAPTCHA-Analysen laufen vollständig im Hintergrund. Websitebesucher werden nicht darauf hingewiesen, dass eine Analyse stattfindet.
-
-Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse daran, seine Webangebote vor missbräuchlicher automatisierter Ausspähung und vor SPAM zu schützen.
-
-Weitere Informationen zu Google reCAPTCHA sowie die Datenschutzerklärung von Google entnehmen Sie den folgenden Links: https://www.google.com/intl/de/policies/privacy/ und https://www.google.com/recaptcha/intro/android.html
-
-
-
+We do not use automatic decision making or profiling.
