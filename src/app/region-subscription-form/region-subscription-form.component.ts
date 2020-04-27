@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrapper.component';
 import { ApiResponseError } from '../_types/ApiResponseError';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class RegionSubscriptionFormComponent implements OnInit {
 
 
   constructor(
+    public localeService: LocaleService,
     private fetchService: ApiService,
   ) {
   }

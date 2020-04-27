@@ -60,7 +60,8 @@
   <div>
     <input [(ngModel)]="checkedDatenschutz" type="checkbox">
     <label i18n="@@_agreeingToPrivacyPolicy">
-      I hereby affirm that I have read the <a href="/datenschutz" target="_blank">Privacy Policy</a>
+      I hereby affirm that I have read the <a href="{{ localeService.baseHref }}datenschutz" target="_blank">
+      Privacy Policy</a>
       and that I agree to it.
     </label>
     <span *ngIf="!checkedDatenschutz" class="form-alert" i18n="@@requiredField">

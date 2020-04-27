@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocaleService } from '../locale.service';
+
 
 @Component({
   selector: 'app-datenschutz',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatenschutzComponent implements OnInit {
 
-  constructor() { }
+  constructor(public localeService: LocaleService) {
+  }
+
 
   ngOnInit(): void {
   }

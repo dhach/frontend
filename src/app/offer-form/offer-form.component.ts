@@ -9,6 +9,7 @@ import { ReCaptchaWrapperComponent } from '../re-captcha-wrapper/re-captcha-wrap
 import { ApiResponseError } from '../_types/ApiResponseError';
 import { ConfigurationService } from '../configuration.service';
 import { AddressFormat, createEmptyAddress } from '../_types/AddressFormat';
+import { LocaleService } from '../locale.service';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class OfferFormComponent implements OnInit {
 
 
   constructor(
+    public localeService: LocaleService,
     private fetchService: ApiService,
     private configurationService: ConfigurationService,
     private router: Router,
