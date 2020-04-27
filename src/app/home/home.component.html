@@ -1,8 +1,8 @@
 <div class="page-head">
   <div class="container">
-    <h2 class="page-title" i18n>Pandemic Important Resource<br>Allocation Tool</h2>
+    <h2 class="page-title">Pandemic Important Resource<br>Allocation Tool</h2>
 
-    <p><small i18n="@@home_projectDescription">
+    <p><small i18n="@@home__projectDescription">
       Registration and efficient allocation of important resources during emergency situations
     </small></p>
 
@@ -16,12 +16,13 @@
   <div class="fullwidth-block">
     <div class="container">
       <div class="row">
-        <p i18n>With our platform, universities and research institutions can provider currently
+        <p i18n="@@home__p1">
+          With our platform, universities and research institutions can provider currently
           unused resources - equipment, consumables, and personnel. These can then be requested by corona test labs
-          to increase the test capacities. All relevant information can be found on the <a routerLink="/faq">FAQ
-            page</a>.
+          to increase the test capacities. All relevant information can be found on the
+          <a routerLink="/faq">FAQ page</a>.
         </p>
-        <p i18n>
+        <p i18n="@@home__p2">
           You can also message us your demand. Please send us a list with the needed resources to
           <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> and we will notify you as soon as offers are
           available.
@@ -46,7 +47,9 @@
 
         <h3 class="align-center align-center-text" i18n="@@currentOffers">Current Offers</h3>
         <app-statistics [data]="statistics"></app-statistics>
-        <div class="statistics-box-stand"><span><ng-container i18n>As of</ng-container>: {{ statistics.date }}</span>
+        <div class="statistics-box-stand"><span><ng-container i18n="@@home__asOf">
+          As of</ng-container>: {{ statistics.date }}
+        </span>
         </div>
         <!-- <app-region-subscription-form></app-region-subscription-form> -->
       </div>
