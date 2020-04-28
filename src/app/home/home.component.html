@@ -1,59 +1,51 @@
 <div class="page-head">
-  <div class="container">
-    <h2 class="page-title">Pandemic Important Resource<br>Allocation Tool</h2>
+  <h2 class="page-title">Pandemic Important Resource<br>Allocation Tool</h2>
 
-    <p><small i18n="@@home__projectDescription">
-      Registration and efficient allocation of important resources during emergency situations
-    </small></p>
+  <p><small i18n="@@home__projectDescription">
+    Registration and efficient allocation of important resources during emergency situations
+  </small></p>
 
-    <button class="button" routerLink="/angebote/neu" i18n="@@createOffer">Create offer</button>
-    <button class="button" routerLink="/suchanfrage" i18n="@@searchResource">Search request</button>
-  </div>
+  <button class="button" routerLink="/angebote/neu" i18n="@@createOffer">Create offer</button>
+  <button class="button" routerLink="/suchanfrage" i18n="@@searchResource">Search request</button>
 </div>
 
-<main class="main-content">
-
-  <div class="fullwidth-block">
-    <div class="container">
-      <div class="row">
-        <p i18n="@@home__p1">
-          With our platform, universities and research institutions can provider currently
-          unused resources - equipment, consumables, and personnel. These can then be requested by corona test labs
-          to increase the test capacities. All relevant information can be found on the
-          <a routerLink="/faq">FAQ page</a>.
-        </p>
-        <p i18n="@@home__p2">
-          You can also message us your demand. Please send us a list with the needed resources to
-          <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> and we will notify you as soon as offers are
-          available.
-        </p>
-        <div class="sendDemandButton">
-          <a href="mailto:mail@pirat-tool.com">
-            <button class="button" i18n="@@home__sendDemand">Send Demand</button>
-          </a>
-        </div>
-        <br>
-        <br>
-        <h3 class="align-center align-center-text" i18n="@@partner">Partner</h3>
-        <div class="logo-list">
-          <div class="logo" *ngFor="let l of logos">
-            <div class="logo__image">
-              <a [href]="l.link" target="_blank">
-                <img src="/assets/images/sponsors/{{ l.image }}" alt="Logo von {{ l.name }}"/>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="align-center align-center-text" i18n="@@currentOffers">Current Offers</h3>
-        <app-statistics [data]="statistics"></app-statistics>
-        <div class="statistics-box-stand"><span><ng-container i18n="@@home__asOf">
-          As of</ng-container>: {{ statistics.date }}
-        </span>
-        </div>
-        <!-- <app-region-subscription-form></app-region-subscription-form> -->
+<main class="centered-block main-content">
+  <p i18n="@@home__p1">
+    With our platform, universities and research institutions can provider currently
+    unused resources - equipment, consumables, and personnel. These can then be requested by corona test labs
+    to increase the test capacities. All relevant information can be found on the
+    <a routerLink="/faq">FAQ page</a>.
+  </p>
+  <p i18n="@@home__p2">
+    You can also message us your demand. Please send us a list with the needed resources to
+    <a href="mailto:mail@pirat-tool.com">mail@pirat-tool.com</a> and we will notify you as soon as offers are
+    available.
+  </p>
+  <div class="sendDemandButton">
+    <a href="mailto:mail@pirat-tool.com">
+      <button class="button" i18n="@@home__sendDemand">Send Demand</button>
+    </a>
+  </div>
+  <br>
+  <br>
+  <h3 class="align-center align-center-text" i18n="@@partner">Partner</h3>
+  <div class="logo-list">
+    <div class="logo" *ngFor="let l of logos">
+      <div class="logo__image">
+        <a [href]="l.link" target="_blank">
+          <img src="/assets/images/sponsors/{{ l.image }}" alt="Logo von {{ l.name }}"/>
+        </a>
       </div>
     </div>
   </div>
+
+  <h3 class="align-center align-center-text" i18n="@@currentOffers">Current Offers</h3>
+  <app-statistics [data]="statistics"></app-statistics>
+  <div class="statistics-box-stand">
+    <span>
+      <ng-container i18n="@@home__asOf">As of</ng-container>: {{ statistics.date }}
+    </span>
+  </div>
+  <!-- <app-region-subscription-form></app-region-subscription-form> -->
 
 </main>
