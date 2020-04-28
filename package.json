@@ -6,7 +6,7 @@
     "start": "ng serve --configuration=en,simpledev --port 4200",
     "start-de-de": "ng serve --configuration=de --base-href=/de/de/ --servePath=/ --liveReload=false --port 4200",
     "start-de-en": "ng serve --configuration=en --base-href=/de/en/ --servePath=/ --liveReload=false --port 4201",
-    "start-de-it": "ng serve --configuration=it --base-href=/de/it/ --servePath=/ --liveReload=false --port 4202",
+    "start-it-it": "ng serve --configuration=it --base-href=/it/it/ --servePath=/ --liveReload=false --port 4202",
     "start-my-en": "ng serve --configuration=en --base-href=/my/en/ --servePath=/ --liveReload=false --port 4210",
     "start-my-ms": "ng serve --configuration=en --base-href=/my/ms/ --servePath=/ --liveReload=false --port 4211",
     "build": "bash build.sh",
@@ -14,7 +14,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-i18n": "ng xi18n pirat --format xlf --output-path src/i18n && ng run pirat:xliffmerge"
+    "extract-i18n": "ng xi18n pirat --format xlf --output-path src/i18n/web-application && ng run pirat:xliffmerge"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +31,7 @@
     "@ngx-i18nsupport/tooling": "^8.0.3",
     "angular-tslint-rules": "^1.20.4",
     "bootstrap": "^4.4.0",
+    "fast-xml-parser": "^3.16.0",
     "ng-recaptcha": "^5.0.0",
     "ngx-markdown": "^9.0.0",
     "papaparse": "^5.2.0",

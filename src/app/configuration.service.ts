@@ -29,6 +29,10 @@ export class ConfigurationService {
 
 
   async startup() {
+    // Init LocaleService
+    await this.localeService.init();
+
+    // Fetch configurations
     const response = await this.apiService.getRegionConfiguration(this.localeService.region);
     if (response.error) {
       throw new Error('Application cannot start because the region configuration cannot be fetched.');

@@ -34,6 +34,7 @@ import { NeedSearchResultComponent } from './need-search-result/need-search-resu
 import { FilterPipe } from './filter.pipe';
 import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslatePipe } from './translate.pipe';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegionSubscriptionFormComponent,
     NeedSearchComponent,
     FilterPipe,
-    NeedSearchResultComponent
+    NeedSearchResultComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
