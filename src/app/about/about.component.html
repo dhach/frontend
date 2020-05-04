@@ -1,110 +1,100 @@
 <div class="page-head">
-  <div class="container">
-    <h2 class="page-title" i18n>About Us & PIRAT</h2>
-  </div>
+  <h2 class="page-title" i18n="@@about__title">About Us & PIRAT</h2>
 </div>
 
-<main class="main-content">
-  <div class="fullwidth-block">
-    <div class="container">
-      <div class="row">
-        <p i18n="@@about_p1">
-          PIRAT (Pandemic Important Resource Allocation Tool) is a tool to register and efficiently distribute necessary
-          resources in exceptional situations such as a pandemic.
-        </p>
-        <p i18n="@@about_p2">
-          We want to improve the collection and distribution of necessary medical equipment, but also manpower. Many
-          university laboratories are well equipped to perform diagnostic tests for SARS-CoV-2, but they lack the
-          authorization to perform these tests, so patient samples cannot be analyzed. Official test laboratories would
-          need the equipment of these laboratories, as the demand for SARS-CoV-2 testing exceeds their capacity, but
-          this exchange does not exist yet.
-        </p>
-        <p i18n="@@about_p3">
-          Therefore, the aim of this site is to connect test laboratories with institutions such as universities that
-          could provide equipment, consumables and qualified staff to assist in performing SARS-CoV-2 tests.
-          Universities can enter their free resources in our database and will be notified as soon as one of the
-          surrounding test laboratories needs these resources. This expands testing capacities so that suspected cases
-          can be tested more quickly.
-        </p>
-        <p i18n="@@about_p4">
-          In addition, one could also start with patient swabs and the transport of samples to the test laboratories
-          already, where additional manpower acquired from the universities could ensure that suspected cases can be
-          tested quickly. Here, close cooperation with the health authorities is planned.
-        </p>
-        <p i18n="@@about_p5">
-          Of course, the tool can also be extended to other consumables that are currently in short supply in hospitals
-          and in the emergency or nursing services (e.g. gloves, masks, protective goggles, disinfectants; first
-          attempts of donations from universities to hospitals are currently happening very uncoordinatedly), as well as
-          further manpower in terms of hospital or rescue service staff.
-        </p>
-        <p i18n="@@about_p6">
-          In summary, the current problem is that there are resources in the form of staff, equipment and consumables
-          that are needed elsewhere, but there is no exchange between the relevant bodies. This situation is
-          considerably improved by our tool.
-        </p>
+<main class="centered-block main-content">
+  <p i18n="@@about__p1">
+    PIRAT (Pandemic Important Resource Allocation Tool) is a tool to register and efficiently distribute necessary
+    resources in exceptional situations such as a pandemic.
+  </p>
+  <p i18n="@@about__p2">
+    We want to improve the collection and distribution of necessary medical equipment, but also manpower. Many
+    university laboratories are well equipped to perform diagnostic tests for SARS-CoV-2, but they lack the
+    authorization to perform these tests, so patient samples cannot be analyzed. Official test laboratories would
+    need the equipment of these laboratories, as the demand for SARS-CoV-2 testing exceeds their capacity, but
+    this exchange does not exist yet.
+  </p>
+  <p i18n="@@about__p3">
+    Therefore, the aim of this site is to connect test laboratories with institutions such as universities that
+    could provide equipment, consumables and qualified staff to assist in performing SARS-CoV-2 tests.
+    Universities can enter their free resources in our database and will be notified as soon as one of the
+    surrounding test laboratories needs these resources. This expands testing capacities so that suspected cases
+    can be tested more quickly.
+  </p>
+  <p i18n="@@about__p4">
+    In addition, one could also start with patient swabs and the transport of samples to the test laboratories
+    already, where additional manpower acquired from the universities could ensure that suspected cases can be
+    tested quickly. Here, close cooperation with the health authorities is planned.
+  </p>
+  <p i18n="@@about__p5">
+    Of course, the tool can also be extended to other consumables that are currently in short supply in hospitals
+    and in the emergency or nursing services (e.g. gloves, masks, protective goggles, disinfectants; first
+    attempts of donations from universities to hospitals are currently happening very uncoordinatedly), as well as
+    further manpower in terms of hospital or rescue service staff.
+  </p>
+  <p i18n="@@about__p6">
+    In summary, the current problem is that there are resources in the form of staff, equipment and consumables
+    that are needed elsewhere, but there is no exchange between the relevant bodies. This situation is
+    considerably improved by our tool.
+  </p>
+  <br>
+  <h2 class="align-center align-center-text" i18n>Technical Expertise</h2>
+  <div class="profile-list">
+    <div class="profile" *ngFor="let p of expert">
+      <div class="profile__image">
+        <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
       </div>
-      <br>
-      <div class="row">
-        <h2 class="align-center align-center-text" i18n>Technical Expertise</h2>
-        <div class="profile-list">
-          <div class="profile" *ngFor="let p of expert">
-            <div class="profile__image">
-              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
-            </div>
-            <div class="profile__name">{{ p.name }}</div>
-            <div class="profile__short">{{ getLocaleText(p.short) }}</div>
-            <div class="profile__long">{{ getLocaleText(p.long) }}</div>
-          </div>
-        </div>
+      <div class="profile__name">{{ p.name }}</div>
+      <div class="profile__short">{{ getLocaleText(p.short) }}</div>
+      <div class="profile__long">{{ getLocaleText(p.long) }}</div>
+    </div>
+  </div>
 
-        <h2 class="align-center align-center-text" i18n>Communication</h2>
-        <div class="profile-list">
-          <div class="profile" *ngFor="let p of pr">
-            <div class="profile__image">
-              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
-            </div>
-            <div class="profile__name">{{ p.name }}</div>
-            <div class="profile__short">{{ getLocaleText(p.short) }}</div>
-            <div class="profile__long">{{ getLocaleText(p.long) }}</div>
-          </div>
-        </div>
-
-        <h2 class="align-center align-center-text" i18n>Development</h2>
-        <div class="profile-list">
-          <div class="profile" *ngFor="let p of developer">
-            <div class="profile__image">
-              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
-            </div>
-            <div class="profile__name">{{ p.name }}</div>
-            <div class="profile__short">{{ getLocaleText(p.short) }}</div>
-            <div class="profile__long">{{ getLocaleText(p.long) }}</div>
-          </div>
-        </div>
-
-        <h2 class="align-center align-center-text" i18n>Consulting</h2>
-        <div class="profile-list">
-          <div class="profile" *ngFor="let p of consultant">
-            <div class="profile__image">
-              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
-            </div>
-            <div class="profile__name">{{ p.name }}</div>
-            <div class="profile__short">{{ getLocaleText(p.short) }}</div>
-            <div class="profile__long">{{ getLocaleText(p.long) }}</div>
-          </div>
-        </div>
-
-        <h2 class="align-center align-center-text" i18n>International Cooperation</h2>
-        <div class="profile-list">
-          <div class="profile" *ngFor="let p of international">
-            <div class="profile__image">
-              <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
-            </div>
-            <div class="profile__name">{{ p.name }}</div>
-            <div class="profile__short">{{ getLocaleText(p.short) }}</div>
-            <div class="profile__long">{{ getLocaleText(p.long) }}</div>
-          </div>
-        </div>
+  <h2 class="align-center align-center-text" i18n>Communication</h2>
+  <div class="profile-list">
+    <div class="profile" *ngFor="let p of pr">
+      <div class="profile__image">
+        <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
       </div>
+      <div class="profile__name">{{ p.name }}</div>
+      <div class="profile__short">{{ getLocaleText(p.short) }}</div>
+      <div class="profile__long">{{ getLocaleText(p.long) }}</div>
+    </div>
+  </div>
+
+  <h2 class="align-center align-center-text" i18n>Development</h2>
+  <div class="profile-list">
+    <div class="profile" *ngFor="let p of developer">
+      <div class="profile__image">
+        <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
+      </div>
+      <div class="profile__name">{{ p.name }}</div>
+      <div class="profile__short">{{ getLocaleText(p.short) }}</div>
+      <div class="profile__long">{{ getLocaleText(p.long) }}</div>
+    </div>
+  </div>
+
+  <h2 class="align-center align-center-text" i18n>Consulting</h2>
+  <div class="profile-list">
+    <div class="profile" *ngFor="let p of consultant">
+      <div class="profile__image">
+        <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
+      </div>
+      <div class="profile__name">{{ p.name }}</div>
+      <div class="profile__short">{{ getLocaleText(p.short) }}</div>
+      <div class="profile__long">{{ getLocaleText(p.long) }}</div>
+    </div>
+  </div>
+
+  <h2 class="align-center align-center-text" i18n>International Cooperation</h2>
+  <div class="profile-list">
+    <div class="profile" *ngFor="let p of international">
+      <div class="profile__image">
+        <img src="/assets/images/profile_photos/{{ p.image }}" alt="Profilfoto von {{ p.name }}"/>
+      </div>
+      <div class="profile__name">{{ p.name }}</div>
+      <div class="profile__short">{{ getLocaleText(p.short) }}</div>
+      <div class="profile__long">{{ getLocaleText(p.long) }}</div>
     </div>
   </div>
 </main>

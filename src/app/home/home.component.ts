@@ -12,6 +12,11 @@ export class HomeComponent implements OnInit {
 
   logos = [
     {
+      image: 'czs.png',
+      name: 'Carl Zeiss Stiftung',
+      link: 'https://www.carl-zeiss-stiftung.de/',
+    },
+    {
       image: 'gdch.jpg',
       name: 'GDCh',
       link: 'https://www.gdch.de/',

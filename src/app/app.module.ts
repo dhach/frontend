@@ -33,6 +33,8 @@ import { NeedSearchComponent } from './need-search/need-search.component';
 import { NeedSearchResultComponent } from './need-search-result/need-search-result.component';
 import { FilterPipe } from './filter.pipe';
 import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslatePipe } from './translate.pipe';
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
     RegionSubscriptionFormComponent,
     NeedSearchComponent,
     FilterPipe,
-    NeedSearchResultComponent
+    NeedSearchResultComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { APP_BASE_HREF, PlatformLocation } from '@angular/common';
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     ReactiveFormsModule,
-    RecaptchaModule
+    RecaptchaModule,
+    NgbModule,
   ],
   providers: [
     {

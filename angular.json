@@ -49,7 +49,8 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/i18n"
             ],
             "styles": [
               "src/sass/style.scss"
@@ -126,28 +127,35 @@
             "en": {
               "aot": true,
               "outputPath": "dist/pirat-en",
-              "i18nFile": "src/i18n/messages.en.xlf",
+              "i18nFile": "src/i18n/web-application/messages.en.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en"
             },
             "it": {
               "aot": true,
               "outputPath": "dist/pirat-it",
-              "i18nFile": "src/i18n/messages.it.xlf",
+              "i18nFile": "src/i18n/web-application/messages.it.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "it"
             },
             "de": {
               "aot": true,
               "outputPath": "dist/pirat-de",
-              "i18nFile": "src/i18n/messages.de.xlf",
+              "i18nFile": "src/i18n/web-application/messages.de.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "de"
+            },
+            "fr": {
+              "aot": true,
+              "outputPath": "dist/pirat-fr",
+              "i18nFile": "src/i18n/web-application/messages.fr.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "de"
             },
             "ms": {
               "aot": true,
               "outputPath": "dist/pirat-ms",
-              "i18nFile": "src/i18n/messages.ms.xlf",
+              "i18nFile": "src/i18n/web-application/messages.ms.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "ms"
             }
@@ -180,11 +188,14 @@
             "en": {
               "browserTarget": "pirat:build:en"
             },
-            "it": {
-              "browserTarget": "pirat:build:it"
-            },
             "de": {
               "browserTarget": "pirat:build:de"
+            },
+            "fr": {
+              "browserTarget": "pirat:build:fr"
+            },
+            "it": {
+              "browserTarget": "pirat:build:it"
             },
             "ms": {
               "browserTarget": "pirat:build:ms"
@@ -202,14 +213,19 @@
           "options": {
             "xliffmergeOptions": {
               "i18nFormat": "xlf",
-              "srcDir": "src/i18n",
-              "genDir": "src/i18n",
+              "srcDir": "src/i18n/web-application",
+              "genDir": "src/i18n/web-application",
               "defaultLanguage": "en",
               "languages": [
+                "ar-EG",
                 "de",
                 "en",
+                "es",
+                "fr",
+                "hu",
                 "it",
-                "ms"
+                "ms",
+                "ru"
               ]
             }
           }
@@ -218,9 +234,14 @@
       "i18n": {
         "sourceLocale": "en",
         "locales": {
-          "de": "src/i18n/messages.de.xlf",
-          "it": "src/i18n/messages.it.xlf",
-          "ms": "src/i18n/messages.ms.xlf"
+          "ar-EG": "src/i18n/web-application/messages.ar-EG.xlf",
+          "de": "src/i18n/web-application/messages.de.xlf",
+          "es": "src/i18n/web-application/messages.es.xlf",
+          "fr": "src/i18n/web-application/messages.fr.xlf",
+          "hu": "src/i18n/web-application/messages.hu.xlf",
+          "it": "src/i18n/web-application/messages.it.xlf",
+          "ms": "src/i18n/web-application/messages.ms.xlf",
+          "ru": "src/i18n/web-application/messages.ru.xlf"
         }
       }
     }

@@ -1,12 +1,12 @@
 {
   "name": "pirat",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration=en,simpledev --port 4200",
     "start-de-de": "ng serve --configuration=de --base-href=/de/de/ --servePath=/ --liveReload=false --port 4200",
     "start-de-en": "ng serve --configuration=en --base-href=/de/en/ --servePath=/ --liveReload=false --port 4201",
-    "start-de-it": "ng serve --configuration=it --base-href=/de/it/ --servePath=/ --liveReload=false --port 4202",
+    "start-it-it": "ng serve --configuration=it --base-href=/it/it/ --servePath=/ --liveReload=false --port 4202",
     "start-my-en": "ng serve --configuration=en --base-href=/my/en/ --servePath=/ --liveReload=false --port 4210",
     "start-my-ms": "ng serve --configuration=en --base-href=/my/ms/ --servePath=/ --liveReload=false --port 4211",
     "build": "bash build.sh",
@@ -14,7 +14,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract-i18n": "ng xi18n pirat --format xlf --output-path src/i18n && ng run pirat:xliffmerge"
+    "extract-i18n": "ng xi18n pirat --format xlf --output-path src/i18n/web-application && ng run pirat:xliffmerge"
   },
   "private": true,
   "dependencies": {
@@ -27,25 +27,28 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
+    "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@ngx-i18nsupport/tooling": "^8.0.3",
     "angular-tslint-rules": "^1.20.4",
+    "bootstrap": "^4.4.0",
+    "fast-xml-parser": "^3.16.0",
     "ng-recaptcha": "^5.0.0",
     "ngx-markdown": "^9.0.0",
     "papaparse": "^5.2.0",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.5.5",
     "save": "^2.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.7",
-    "@angular/cli": "~9.0.7",
+    "@angular-devkit/build-angular": "~0.901.3",
+    "@angular/cli": "~9.1.3",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
     "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.6",
-    "@types/node": "^12.11.1",
+    "@types/node": "^13.13.4",
     "ts-node": "~8.3.0",
-    "tslint": "~5.18.0",
+    "tslint": "~6.1.2",
     "typescript": "~3.7.5"
   }
 }

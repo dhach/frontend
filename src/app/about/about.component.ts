@@ -257,6 +257,23 @@ export class AboutComponent implements OnInit {
       },
     },
     {
+      image: 'sabrina.jpg',
+      name: 'Sabrina Gaidies',
+      short: {
+        de: 'JKU Linz - Doktorandin (Chemie)',
+        en: 'JKU Linz - PhD Student (Chemistry)',
+      },
+      long: {
+        de: 'Als ich von dem Projekt erfahren habe, war ich sofort begeistert und möchte helfen,' +
+        ' PIRAT auch in Österreich einzuführen. Ich freue mich sehr gerade in besonderen Zeiten wie' +
+        ' diesen einen Beitrag leisten zu können und in einem Team voller engagierter und kreativer' +
+        ' Mitglieder zu arbeiten und dieses großartige Projekt tatkräftig zu unterstützen.',
+        en: 'When I first heard about the project, I was really excited about it and want to help to' +
+        ' establish PIRAT also in Austria. Especially in this particular situation I am glad to contribute' +
+        ' and work in a team full of dedicated and creative members and want to actively support this wonderful project.',
+      },
+    },
+    {
       image: 'kasturi.jpg',
       name: 'Kasturi Muthoosamy',
       short: {

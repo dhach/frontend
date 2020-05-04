@@ -1,34 +1,28 @@
-<main class="main-content">
-  <div class="fullwidth-block">
-    <div class="container">
-
-      <!-- Login box -->
-      <ng-container *ngIf="!isAdmin">
-        <div class="form-block">
-          <h3 class="form-block__headline">
-            Administrator Login
-          </h3>
-          <div class="form-block__input-field">
-            <input type="password" placeholder="Admin Key" [(ngModel)]="adminKey"/>
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-alert" *ngIf="wrongInput">
-            Falsche Eingabe
-          </div>
-          <div class="submit-button align-center-text">
-            <button class="button" [disabled]="!adminKey" (click)="onLoginSubmit()">
-              Anmelden
-            </button>
-          </div>
-        </div>
-      </ng-container>
-
-      <!-- Control panel -->
-      <ng-container *ngIf="isAdmin">
-        <app-admin-header></app-admin-header>
-        <a routerLink="/admin/demand-import">Bedarflisten importieren</a>
-      </ng-container>
-
+<main class="centered-block main-content">
+  <!-- Login box -->
+  <ng-container *ngIf="!isAdmin">
+    <div class="form-block">
+      <h3 class="form-block__headline">
+        Administrator Login
+      </h3>
+      <div class="form-block__input-field">
+        <input type="password" placeholder="Admin Key" [(ngModel)]="adminKey"/>
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-alert" *ngIf="wrongInput">
+        Falsche Eingabe
+      </div>
+      <div class="submit-button align-center-text">
+        <button class="button" [disabled]="!adminKey" (click)="onLoginSubmit()">
+          Anmelden
+        </button>
+      </div>
     </div>
-  </div>
+  </ng-container>
+
+  <!-- Control panel -->
+  <ng-container *ngIf="isAdmin">
+    <app-admin-header></app-admin-header>
+    <a routerLink="/admin/demand-import">Bedarflisten importieren</a>
+  </ng-container>
 </main>

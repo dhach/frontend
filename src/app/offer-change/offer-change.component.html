@@ -1,470 +1,464 @@
 <div class="page-head">
-  <div class="container">
-    <h2 class="page-title" i18n>Offer Overview</h2>
-  </div>
+  <h2 class="page-title" i18n="@@offer-change__title">Offer Overview</h2>
 </div>
 
-<main class="main-content" *ngIf="data">
-  <div class="fullwidth-block">
-    <div class="container">
+<main class="centered-block main-content" *ngIf="data">
+  <div *ngIf="isNew" class="info-box" i18n="@@offer-change__wasRecorded">
+    The offer has been recorded. You can view your data on this page. A confirmation was also sent to you via email.
+  </div>
 
-      <div *ngIf="isNew" class="info-box" i18n>
-        The offer has been recorded. You can view your data on this page. A confirmation was also sent to you via email.
+  <div class="current-url">
+    <div i18n="@@offer-change__p1">
+      Using this link you can get to this page where you can have a look at your offer and modify it. Please keep
+      it. If you want to delete the offer please contact us via email and mention this link.
+    </div>
+    <div class="form-block__input-field">
+      <div class="value-field">{{ currentUrl }}</div>
+    </div>
+  </div>
+
+  <div class="form-block">
+    <h3 class="form-block__headline" i18n="@@contactData">
+      Contact Data
+    </h3>
+    <div class="form-block__edit-buttons">
+      <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
+              *ngIf="!isInEditMode.provider" (click)="enterEditModeProvider()">
+        🖊️ Modify
+      </button>
+      <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
+              *ngIf="isInEditMode.provider" (click)="resetProvider()">
+        🗑️ Reject changes
+      </button>
+      <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
+              *ngIf="isInEditMode.provider" (click)="saveProvider()">
+        💾️ Save
+      </button>
+    </div>
+    <div class="form-block__input-field">
+      <label i18n="@@institution">
+        Institution
+      </label>
+      <input type="text" [(ngModel)]="data.provider.institution" [disabled]="!isInEditMode.provider">
+      <span class="input-field-focus"></span>
+    </div>
+
+    <div class="form-block__input-field">
+      <label i18n="@@name">
+        Name
+      </label>
+      <input type="text" [(ngModel)]="data.provider.name" [disabled]="!isInEditMode.provider">
+      <span class="input-field-focus"></span>
+    </div>
+
+    <div class="form-block__input-field">
+      <label i18n="@@emailAddress">
+        Email
+      </label>
+      <input type="text" [value]="data.provider.mail" disabled>
+      <span class="input-field-focus"></span>
+    </div>
+
+    <div class="form-block__input-field">
+      <label i18n="@@phoneNumber">
+        Phone number
+      </label>
+      <input type="text" [(ngModel)]="data.provider.phone" [disabled]="!isInEditMode.provider">
+      <span class="input-field-focus"></span>
+    </div>
+
+    <div class="form-block__input-wrapper">
+      <label>
+        <span i18n="@@address">Address</span>
+      </label>
+      <div *ngFor="let field of addressFormat.fields" class="form-block__input-field">
+        <label>
+          {{ field.label }}
+        </label>
+        <input
+          type="text"
+          [(ngModel)]="data.provider.address[field.id]"
+          [disabled]="!isInEditMode.provider || field.id === 'country'"
+        >
+        <span class="input-field-focus"></span>
       </div>
+    </div>
+  </div>
 
-      <div class="current-url">
-        <div i18n>
-          Using this link you can get to this page where you can have a look at your offer and modify it. Please keep it. If you want to delete the offer please contact us via email and mention this link.
+  <div *ngFor="let r of data.resources; let gIndex = index">
+    <div *ngIf="r.type === 'personnel'" class="form-block">
+      <h3 class="form-block__headline" i18n="@@helper">
+        Helper
+      </h3>
+      <div class="form-block__edit-buttons">
+        <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
+                *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+          🖊️ Modify
+        </button>
+        <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+          🗑️ Reject changes
+        </button>
+        <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+          💾️ Save
+        </button>
+      </div>
+      <div class="form-block__select">
+        <label>
+          <span i18n="@@qualification">Qualification</span>
+        </label>
+        <select [(ngModel)]="toP(r).qualification" [disabled]="!isInEditMode.resources[gIndex]">
+          <option
+            *ngFor="let qualification of personnelQualificationsKeys"
+            [value]="qualification"
+            [selected]="qualification === toP(r).qualification">
+            {{ personnelQualifications.get(qualification) }}
+          </option>
+        </select>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@institution">
+          Institution
+        </label>
+        <input type="text" [(ngModel)]="toP(r).institution" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@researchGroup">
+          Research group
+        </label>
+        <input type="text" [(ngModel)]="toP(r).researchGroup" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__select">
+        <label i18n="@@area">
+          Area
+        </label>
+        <select [(ngModel)]="toP(r).area" [disabled]="!isInEditMode.resources[gIndex]">
+          <option *ngFor="let area of personnelAreasKeys" [value]="area">
+            {{ personnelAreas.get(area) }}
+          </option>
+        </select>
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__select">
+        <div i18n="@@_questionExperienceWithPCR">
+          Do you have experience with conducting PCR and Real-Time PCR?
         </div>
-        <div class="form-block__input-field">
-          <div class="value-field">{{ currentUrl }}</div>
+        <select [(ngModel)]="toP(r).experienceWithPCR" [disabled]="!isInEditMode.resources[gIndex]">
+          <option [value]="true" i18n="@@yes">Yes</option>
+          <option [value]="false" i18n="@@no">No</option>
+        </select>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@comments_labSafety">
+          Comments (e.g. familiar and experienced with lab safety, medical qualification for swab collection available)
+        </label>
+        <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
+        <span class="input-field-focus"></span>
+      </div>
+      <div>
+        <input type="checkbox" checked disabled>
+        <label i18n="@@_declarationVoluntaryWork">
+          Hereby it is declared that the volunteer does the activity unsalaried and outside their working hours.
+        </label>
+      </div>
+      <div class="resource-delete-buttons">
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+          i18n="@@offer-change__deleteThanksPIRAT"
+        >
+          🗑️ Delete: Resource has been allocated by PIRAT
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+          i18n="@@offer-change__deleteThanksOthers"
+        >
+          🗑️ Delete: Resource has been allocated by other means
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+          i18n="@@offer-change__deleteNoOffer"
+        >
+          🗑️ Delete: Resource should not appear anymore.
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'OTHERS')"
+          i18n="@@offer-change__deleteOtherReason"
+        >
+          🗑️ Delete: Other reason
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="r.type === 'device'" class="form-block">
+      <h3 class="form-block__headline" i18n="@@device">
+        Device
+      </h3>
+      <div class="form-block__edit-buttons">
+        <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
+                *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+          🖊️ Modify
+        </button>
+        <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+          🗑️ Reject changes
+        </button>
+        <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+          💾️ Save
+        </button>
+      </div>
+      <div class="form-block__select">
+        <label>
+          <span i18n="@@category">Category</span>
+        </label>
+        <select [(ngModel)]="toD(r).category" disabled>
+          <option [value]="toD(r).category" selected>
+            {{ deviceCategories.get(toD(r).category) }}
+          </option>
+        </select>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@exactName">
+          Exact name of material
+        </label>
+        <input type="text" [(ngModel)]="toD(r).name" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@manufacturer">
+          Manufacturer
+        </label>
+        <input type="text" [(ngModel)]="toD(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@orderOrSerialNumber">
+          Order or serial number
+        </label>
+        <input type="text" [(ngModel)]="toD(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@amount">
+          Amount
+        </label>
+        <div class="amount-setting">
+          <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
+          <span>{{ toD(r).amount }}</span>
+          <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
+          <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__increaseQuantity"
+            *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex)"
+          >
+            💾️ Increase quantity
+          </button>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity1"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+          >
+            💾️ Decrease quantity: Resource has been allocated by PIRAT
+          </button>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity2"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+          >
+            💾️ Decrease quantity: Resource has been allocated by other means
+          </button>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity3"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+          >
+            💾️ Decrease quantity: Resource should not appear anymore.
+          </button>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity4"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'OTHERS')"
+          >
+            💾️ Decrease quantity: Other reason
+          </button>
         </div>
       </div>
+      <div class="form-block__input-field">
+        <label i18n="@@comments">
+          Comments
+        </label>
+        <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toD(r).notes"></textarea>
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="resource-delete-buttons">
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+          i18n="@@offer-change__deleteThanksPIRAT"
+        >
+          🗑️ Delete: Resource has been allocated by PIRAT
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+          i18n="@@change__deleteThanksOthers"
+        >
+          🗑️ Delete: Resource has been allocated by other means
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+          i18n="@@offer-change__deleteNoOffer"
+        >
+          🗑️ Delete: Resource should not appear anymore.
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'OTHERS')"
+          i18n="@@offer-change__deleteOtherReason"
+        >
+          🗑️ Delete: Resource should not appear anymore.
+        </button>
+      </div>
+    </div>
 
-      <div class="form-block">
-        <h3 class="form-block__headline" i18n="@@contactData">
-          Contact Data
-        </h3>
-        <div class="form-block__edit-buttons">
-          <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
-                  *ngIf="!isInEditMode.provider" (click)="enterEditModeProvider()">
-            🖊️ Modify
+    <div *ngIf="r.type === 'consumable'" class="form-block">
+      <h3 class="form-block__headline" i18n="@@consumable">
+        Consumable
+      </h3>
+      <div class="form-block__edit-buttons">
+        <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
+                *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
+          🖊️ Modify
+        </button>
+        <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
+          🗑️ Reject changes
+        </button>
+        <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
+                *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
+          💾️ Save
+        </button>
+      </div>
+      <div class="form-block__select">
+        <label>
+          <span i18n="@@category">Category</span>
+        </label>
+        <select [(ngModel)]="toC(r).category" disabled>
+          <option [value]="toC(r).category" selected>
+            {{ consumableCategories.get(toC(r).category) }}
+          </option>
+        </select>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@exactName">
+          Exact name of material
+        </label>
+        <input type="text" [(ngModel)]="toC(r).name" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@manufacturer">
+          Manufacturer
+        </label>
+        <input type="text" [(ngModel)]="toC(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@orderOrSerialNumber">
+          Order or serial number
+        </label>
+        <input type="text" [(ngModel)]="toC(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@amount">
+          Amount
+        </label>
+        <div class="amount-setting">
+          <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
+          <span>{{ toD(r).amount }}</span>
+          <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
+          <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__increaseQuantity"
+            *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex)"
+          >
+            💾️ Increase quantity
           </button>
-          <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
-                  *ngIf="isInEditMode.provider" (click)="resetProvider()">
-            🗑️ Reject changes
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity1"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+          >
+            💾️ Decrease quantity: Resource has been allocated by PIRAT.
           </button>
-          <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
-                  *ngIf="isInEditMode.provider" (click)="saveProvider()">
-            💾️ Save
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity2"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+          >
+            💾️ Decrease quantity: Resource has been allocated by other means.
           </button>
-        </div>
-        <div class="form-block__input-field">
-          <label i18n="@@institution">
-            Institution
-          </label>
-          <input type="text" [(ngModel)]="data.provider.institution" [disabled]="!isInEditMode.provider">
-          <span class="input-field-focus"></span>
-        </div>
-
-        <div class="form-block__input-field">
-          <label i18n="@@name">
-            Name
-          </label>
-          <input type="text" [(ngModel)]="data.provider.name" [disabled]="!isInEditMode.provider">
-          <span class="input-field-focus"></span>
-        </div>
-
-        <div class="form-block__input-field">
-          <label i18n="@@emailAddress">
-            Email
-          </label>
-          <input type="text" [value]="data.provider.mail" disabled>
-          <span class="input-field-focus"></span>
-        </div>
-
-        <div class="form-block__input-field">
-          <label i18n="@@phoneNumber">
-            Phone number
-          </label>
-          <input type="text" [(ngModel)]="data.provider.phone" [disabled]="!isInEditMode.provider">
-          <span class="input-field-focus"></span>
-        </div>
-
-        <div class="form-block__input-wrapper">
-          <label>
-            <span i18n="@@address">Address</span>
-          </label>
-          <div *ngFor="let field of addressFormat.fields" class="form-block__input-field">
-            <label>
-              {{ field.label }}
-            </label>
-            <input
-              type="text"
-              [(ngModel)]="data.provider.address[field.id]"
-              [disabled]="!isInEditMode.provider || field.id === 'country'"
-            >
-            <span class="input-field-focus"></span>
-          </div>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity3"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+          >
+            💾️ Decrease quantity: Resource should not appear anymore.
+          </button>
+          <button
+            class="form-block__edit-buttons__save" i18n="@@offer-change__decreaseQuantity4"
+            *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
+            (click)="editResourceAmount(gIndex, 'OTHERS')"
+          >
+            💾️ Decrease quantity: Other reason
+          </button>
         </div>
       </div>
-
-      <div *ngFor="let r of data.resources; let gIndex = index">
-        <div *ngIf="r.type === 'personnel'" class="form-block">
-          <h3 class="form-block__headline" i18n="@@helper">
-            Helper
-          </h3>
-          <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
-                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Modify
-            </button>
-            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Reject changes
-            </button>
-            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Save
-            </button>
-          </div>
-          <div class="form-block__select">
-            <label>
-              <span i18n="@@qualification">Qualification</span>
-            </label>
-            <select [(ngModel)]="toP(r).qualification" [disabled]="!isInEditMode.resources[gIndex]">
-              <option
-                *ngFor="let qualification of personnelQualificationsKeys"
-                [value]="qualification"
-                [selected]="qualification === toP(r).qualification">
-                {{ personnelQualifications.get(qualification) }}
-              </option>
-            </select>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@institution">
-              Institution
-            </label>
-            <input type="text" [(ngModel)]="toP(r).institution" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@researchGroup">
-              Research group
-            </label>
-            <input type="text" [(ngModel)]="toP(r).researchGroup" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__select">
-            <label i18n="@@area">
-              Area
-            </label>
-            <select [(ngModel)]="toP(r).area" [disabled]="!isInEditMode.resources[gIndex]" >
-              <option *ngFor="let area of personnelAreasKeys" [value]="area">
-                {{ personnelAreas.get(area) }}
-              </option>
-            </select>
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__select">
-            <div i18n="@@_questionExperienceWithPCR">
-              Do you have experience with conducting PCR and Real-Time PCR?
-            </div>
-            <select [(ngModel)]="toP(r).experienceWithPCR" [disabled]="!isInEditMode.resources[gIndex]">
-              <option [value]="true" i18n="@@yes">Yes</option>
-              <option [value]="false" i18n="@@no">No</option>
-            </select>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@comments_labSafety">
-              Comments (e.g. familiar and experienced with lab safety, medical qualification for swab collection available)
-            </label>
-            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toP(r).notes"></textarea>
-            <span class="input-field-focus"></span>
-          </div>
-          <div>
-            <input type="checkbox" checked disabled>
-            <label i18n="@@_declarationVoluntaryWork">
-              Hereby it is declared that the volunteer does the activity unsalaried and outside their working hours.
-            </label>
-          </div>
-          <div class="resource-delete-buttons">
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
-              i18n="@@offer-change__deleteThanksPIRAT"
-            >
-              🗑️ Delete: Resource has been allocated by PIRAT
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
-              i18n="@@offer-change__deleteThanksOthers"
-            >
-              🗑️ Delete: Resource has been allocated by other means
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
-              i18n="@@offer-change__deleteNoOffer"
-            >
-              🗑️ Delete: Resource should not appear anymore.
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'OTHERS')"
-              i18n="@@offer-change__deleteOtherReason"
-            >
-              🗑️ Delete: Other reason
-            </button>
-          </div>
-        </div>
-
-        <div *ngIf="r.type === 'device'" class="form-block">
-          <h3 class="form-block__headline" i18n="@@device">
-            Device
-          </h3>
-          <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
-                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Modify
-            </button>
-            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Reject changes
-            </button>
-            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Save
-            </button>
-          </div>
-          <div class="form-block__select">
-            <label>
-              <span i18n="@@category">Category</span>
-            </label>
-            <select [(ngModel)]="toD(r).category" disabled>
-              <option [value]="toD(r).category" selected>
-                {{ deviceCategories.get(toD(r).category) }}
-              </option>
-            </select>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@exactName">
-              Exact name of material
-            </label>
-            <input type="text" [(ngModel)]="toD(r).name" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@manufacturer">
-              Manufacturer
-            </label>
-            <input type="text" [(ngModel)]="toD(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@orderOrSerialNumber">
-              Order or serial number
-            </label>
-            <input type="text" [(ngModel)]="toD(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@amount">
-              Amount
-            </label>
-            <div class="amount-setting">
-              <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
-              <span>{{ toD(r).amount }}</span>
-              <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
-              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex)"
-              >
-                💾️ Increase quantity
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
-              >
-                💾️ Decrease quantity: Resource has been allocated by PIRAT
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
-              >
-                💾️ Decrease quantity: Resource has been allocated by other means
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
-              >
-                💾️ Decrease quantity: Resource should not appear anymore.
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'OTHERS')"
-              >
-                💾️ Decrease quantity: Other reason
-              </button>
-            </div>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@comments">
-              Comments
-            </label>
-            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toD(r).notes"></textarea>
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="resource-delete-buttons">
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
-              i18n="@@offer-change__deleteThanksPIRAT"
-            >
-              🗑️ Delete: Resource has been allocated by PIRAT
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
-              i18n="@@change__deleteThanksOthers"
-            >
-              🗑️ Delete: Resource has been allocated by other means
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
-              i18n="@@offer-change__deleteNoOffer"
-            >
-              🗑️ Delete: Resource should not appear anymore.
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'OTHERS')"
-              i18n="@@offer-change__deleteOtherReason"
-            >
-              🗑️ Delete: Resource should not appear anymore.
-            </button>
-          </div>
-        </div>
-
-        <div *ngIf="r.type === 'consumable'" class="form-block">
-          <h3 class="form-block__headline" i18n="@@consumable">
-            Consumable
-          </h3>
-          <div class="form-block__edit-buttons">
-            <button class="form-block__edit-buttons__edit" i18n="@@edit_withSymbol"
-                    *ngIf="!isInEditMode.resources[gIndex]" (click)="enterEditModeResource(gIndex)">
-              🖊️ Modify
-            </button>
-            <button class="form-block__edit-buttons__reset" i18n="@@resetChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="resetResource(gIndex)">
-              🗑️ Reject changes
-            </button>
-            <button class="form-block__edit-buttons__save" i18n="@@saveChanges_withSymbol"
-                    *ngIf="isInEditMode.resources[gIndex]" (click)="saveResource(gIndex)">
-              💾️ Save
-            </button>
-          </div>
-          <div class="form-block__select">
-            <label>
-              <span i18n="@@category">Category</span>
-            </label>
-            <select [(ngModel)]="toC(r).category" disabled>
-              <option [value]="toC(r).category" selected>
-                {{ consumableCategories.get(toC(r).category) }}
-              </option>
-            </select>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@exactName">
-              Exact name of material
-            </label>
-            <input type="text" [(ngModel)]="toC(r).name" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@manufacturer">
-              Manufacturer
-            </label>
-            <input type="text" [(ngModel)]="toC(r).manufacturer" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@orderOrSerialNumber">
-              Order or serial number
-            </label>
-            <input type="text" [(ngModel)]="toC(r).orderNumber" [disabled]="!isInEditMode.resources[gIndex]">
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@amount">
-              Amount
-            </label>
-            <div class="amount-setting">
-              <button (click)="toD(r).amount = toD(r).amount + 1">+</button>
-              <span>{{ toD(r).amount }}</span>
-              <button (click)="toD(r).amount = toD(r).amount - 1" [disabled]="toD(r).amount <= 1">-</button>
-              <br *ngIf="toD(r).amount !== toD(savedData.resources[gIndex]).amount"/>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount > toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex)"
-              >
-                💾️ Increase quantity
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
-              >
-                💾️ Decrease quantity: Resource has been allocated by PIRAT.
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
-              >
-                💾️ Decrease quantity: Resource has been allocated by other means.
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
-              >
-                💾️ Decrease quantity: Resource should not appear anymore.
-              </button>
-              <button
-                class="form-block__edit-buttons__save" i18n
-                *ngIf="toD(r).amount < toD(savedData.resources[gIndex]).amount"
-                (click)="editResourceAmount(gIndex, 'OTHERS')"
-              >
-                💾️ Decrease quantity: Other reason
-              </button>
-            </div>
-          </div>
-          <div class="form-block__select">
-            <select [(ngModel)]="toC(r).unit" [disabled]="!isInEditMode.resources[gIndex]">
-              <option
-                *ngFor="let unit of getEnumValues(Unit)"
-                [value]="unit"
-                [selected]="unit === toC(r).unit">
-                {{ unitTo[unit] }}
-              </option>
-            </select>
-          </div>
-          <div class="form-block__input-field">
-            <label i18n="@@comments">
-              Comments
-            </label>
-            <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toC(r).notes"></textarea>
-            <span class="input-field-focus"></span>
-          </div>
-          <div class="resource-delete-buttons">
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
-              i18n="@@offer-change__deleteThanksPIRAT"
-            >
-              🗑️ Delete: Resource has been allocated by PIRAT
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
-              i18n="@@change__deleteThanksOthers"
-            >
-              🗑️ Delete: Resource has been allocated by other means
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
-              i18n="@@offer-change__deleteNoOffer"
-            >
-              🗑️ Delete: Resource should not appear anymore.
-            </button>
-            <button
-              (click)="deleteResource(gIndex, 'OTHERS')"
-              i18n="@@offer-change__deleteOtherReason"
-            >
-              🗑️ Delete: Resource should not appear anymore.
-            </button>
-          </div>
-        </div>
+      <div class="form-block__select">
+        <select [(ngModel)]="toC(r).unit" [disabled]="!isInEditMode.resources[gIndex]">
+          <option
+            *ngFor="let unit of getEnumValues(Unit)"
+            [value]="unit"
+            [selected]="unit === toC(r).unit">
+            {{ unitTo[unit] }}
+          </option>
+        </select>
+      </div>
+      <div class="form-block__input-field">
+        <label i18n="@@comments">
+          Comments
+        </label>
+        <textarea [disabled]="!isInEditMode.resources[gIndex]" [(ngModel)]="toC(r).notes"></textarea>
+        <span class="input-field-focus"></span>
+      </div>
+      <div class="resource-delete-buttons">
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_PIRAT')"
+          i18n="@@offer-change__deleteThanksPIRAT"
+        >
+          🗑️ Delete: Resource has been allocated by PIRAT
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'ALLOCATED_THROUGH_ANOTHER_CHANNEL')"
+          i18n="@@change__deleteThanksOthers"
+        >
+          🗑️ Delete: Resource has been allocated by other means
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'DO_NOT_WANT_OFFER_ANYMORE')"
+          i18n="@@offer-change__deleteNoOffer"
+        >
+          🗑️ Delete: Resource should not appear anymore.
+        </button>
+        <button
+          (click)="deleteResource(gIndex, 'OTHERS')"
+          i18n="@@offer-change__deleteOtherReason"
+        >
+          🗑️ Delete: Resource should not appear anymore.
+        </button>
       </div>
     </div>
   </div>
